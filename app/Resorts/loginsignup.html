@@ -1,0 +1,494 @@
+
+
+
+<!-- <div style="margin-top:-30%;position:relative;"> -->
+<!-- <button class="_2AkmmA _29YdH8" style="background-color:transparent !important;font-weight:bold; font-size:30px;border:none !important;color:white; " >✕</button> -->
+<!-- </div> -->
+<md-dialog aria-label="Mango (Fruit)" style="border-radius:0px;">
+<div>
+<button class="_2AkmmA _29YdH8" ng-click="cancel()" style="position:relative;float:right;background:#2E3094;color:white;border:none !important;font-size:15px;width:5%;">✕</button>
+</div>
+
+    <!-- <form name="registration_form" id="registration_form"  class="form-horizontal"> -->
+	
+	<form name="userForm" novalidate ng-submit="userForm.$valid && submit(userData)">
+        <!-- <md-toolbar> -->
+            <!-- <div class="md-toolbar-tools"> -->
+                <!-- <h4>Login</h4> -->
+                <!-- <span flex></span> -->
+                <!-- <md-button class="md-icon-button" ng-click="cancel()"> -->
+                    <!-- <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon> -->
+                <!-- </md-button> -->
+            <!-- </div> -->
+        <!-- </md-toolbar> -->
+
+        <md-dialog-content style="padding:2%;padding-top:0px;" >
+        <div class="md-dialog-content" style="padding:0px !important;background-color:#EEECEE;">
+
+<nav class="navbar navbar-inverse visible-xs">
+
+  <div class="container-fluid">
+    <div class="navbar-header" style="color:white !important; background-color:#2873F1;" >
+     
+      <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline" style="color:white !important;font-size:30px !important;" >We donot share your personal details with anyone</span>
+          </md-card-title-text>
+        </md-card-title>
+    </div>
+    
+  </div>
+</nav>
+
+<div class="container-fluid">
+
+  <div class="row content">
+    <div class="col-sm-3 sidenav hidden-xs" style="height:450px;">
+	<div style="margin:40%;">
+	</div>
+      <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline" style="color:white !important;font-size:25px !important;" >We donot share your personal details with anyone.</span>
+          </md-card-title-text>
+        </md-card-title>
+		
+		<div style="margin:40%;">
+	</div>
+		
+		 <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+      <md-button flex="50" class="md-raised" style="background-color:#141440;color:white;" ng-disabled><img src="../../assets/images/outingday_strip.jpg" class="img-responsive"></img></md-button>
+
+    </section>
+    </div>
+    <br>
+    
+    <div class="col-sm-9">
+	<h3 align="center" style="font-size:28px !important">
+	Login<p>
+	<img src="../../assets/images/strip.jpg" alt="" /></p>
+	</h3>
+	
+	
+       <md-content class="md-no-momentum" style="background-color:#EEECEE !important;">
+    <md-input-container class="md-icon-float md-block">
+      <!-- Use floating label instead of placeholder -->
+      <label >Enter Email / Mobile Number</label>
+	  <input type="text" name="emailphone" ng-model="username" id="emailphone"  required ng-pattern="/^(?:\d{10}|\w+@\w+\.\w{2,3})$/" />
+    				                <!-- <div class="errorMsg" ng-show="submitted==true && userForm.$invalid"> -->
+                    <!-- <ul> -->
+                        <!-- <li ng-show="submitted==true && userForm.emailphone.$error" class="errorMsg"> -->
+                           <!-- <p> wrong format, It should be email or 10 digit mobile number</p> -->
+                        <!-- </li> -->
+                    <!-- </ul> -->
+                <!-- </div> -->
+				<p ng-show="!userForm.emailphone.$error.required && !userForm.emailphone.$error.minlength && !userForm.emailphone.$error.maxlength && userForm.emailphone.$error.pattern && userForm.password.$dirty"  class="text-danger">enter phone number or mail</p>
+    <p ng-show="userForm.emailphone.$error.required && userForm.emailphone.$dirty" class="text-danger">Required</p>
+     </md-input-container>
+
+    <md-input-container class="md-icon-float md-block">
+      <!-- Use floating label instead of placeholder -->
+      <label>Password</label>
+	  <input type="password" id="password"  name="password" ng-model="Password"  required  />
+        <!--ng-minlength="8" ng-maxlength="20"-->
+       <!-- ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/"-->
+        <!-- <p ng-show="userForm.password.$error.required && userForm.password.$dirty" class="text-danger">Required</p>
+         <p ng-show="!userForm.password.$error.required && !userForm.password.$error.minlength && !userForm.password.$error.maxlength && userForm.password.$error.pattern && userForm.password.$dirty"  class="text-danger">Must contain one lower &amp; uppercase letter, and one non-alpha character (a number or a symbol)</p>
+         <p ng-show="!userForm.password.$error.required && (userForm.password.$error.minlength || userForm.password.$error.maxlength) && userForm.password.$dirty" class="text-danger">Passwords must be between 8 and 20 characters.</p>
+    -->  </md-input-container>
+
+    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+      
+    <div id="social-platforms">
+
+<!-- <a class="btn btn-icon btn-facebook" href="#"><i class="fa fa-hand-o-right"></i><span>Login</span></a> -->
+<div class="facebook button" ng-click="LoginCall()">
+    <i class="icon">
+<i class="fa fa-hand-o-right"></i>
+      <i class="icon-facebook">
+    </i>
+  </i>
+  <div class="slide">
+    <p>
+      Login
+	  
+    </p>
+  </div>
+ 
+  </div>
+</div>
+      
+    </section>
+ <section layout="row" layout-sm="column" layout-align="center center" layout-wrap style="margin-bottom: 15px;">
+        <md-button ng-href="{{googleUrl}}" target="_blank" style="color:#334E98;text-transform:none;font-weight:bold;" ng-disabled>New User ? Register</md-button>
+		
+    </section>
+	
+
+ <hr class="style17">
+<div id="social-platforms" align="center">
+<div align="center" style="margin-left:13%; margin-top:5%;">
+<div class="facebook button">
+    <i class="icon">
+<i class="fa fa-facebook"></i>
+      <i class="icon-facebook">
+    </i>
+  </i>
+  <div class="slide">
+    <p>
+      facebook
+    </p>
+  </div>
+ 
+  </div>
+<!-- <a class="btn btn-icon btn-twitter" href="#"><i class="fa fa-twitter"></i><span>Twitter</span></a> -->
+<!-- <a class="btn btn-icon btn-googleplus" href="#"><i class="fa fa-google-plus"></i><span>Google+</span></a> -->
+<div class="google button">
+    <i class="icon">
+	<i class="fa fa-google-plus"></i>
+      <i class="icon-google-plus">
+    </i>
+  </i>
+  <div class="slide">
+    <p>
+      google+
+    </p>
+  </div>
+  <!-- Place this tag where you want the +1 button to render. -->
+  <div class="g-plusone" data-size="medium">
+  </div>
+<!-- <a class="btn btn-icon btn-pinterest" href="#"><i class="fa fa-pinterest"></i><span>Pinterest</span></a> -->
+<!-- <a class="btn btn-icon btn-linkedin" href="#"><i class="fa fa-linkedin"></i><span>LinkedIn</span></a> -->
+</div>
+
+  </md-content>
+  </div>
+    </div>
+  </div>
+</div>
+
+
+        </div>
+  
+  <!-- <end> -->
+			
+        </md-dialog-content>
+
+      
+    </form>
+	
+</md-dialog>
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+<style>
+._2ISNhP ._29YdH8 {
+    position: absolute;
+    
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    font-size: 32px;
+    line-height: 1;
+    
+}
+md-card md-card-title {
+    padding: 24px 16px 16px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    flex: 1 1 auto;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+	color:white !important; 
+}
+.row.content {
+    height: auto !important;
+}
+body {
+    padding-top: 0px !important;
+   
+}
+ /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 670px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #2E3094;
+	  color:white;
+      height: 100%;
+	  color:white;
+    }
+	
+        
+    /* On small screens, set height to 'auto' for the grid */
+    @media screen and (max-width: 767px) {
+      .row.content {height: auto;} 
+    }
+.inputdemoIcons {
+  /*
+.right-icon {
+  position: absolute;
+  top: 4px;
+  right: 2px;
+  left: auto;
+  margin-top: 0;
+}
+*/ }
+  .inputdemoIcons .inputIconDemo {
+    min-height: 48px; }
+  .inputdemoIcons md-input-container:not(.md-input-invalid) > md-icon.email {
+    color: green; }
+  .inputdemoIcons md-input-container:not(.md-input-invalid) > md-icon.name {
+    color: dodgerblue; }
+  .inputdemoIcons md-input-container.md-input-invalid > md-icon.email,
+  .inputdemoIcons md-input-container.md-input-invalid > md-icon.name {
+    color: red; }
+	
+	@import url(//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300);
+
+/*Ignore me, I'm just page styling*/
+html {font-family: 'Roboto', sans-serif;font-size:16px;line-height:1em;height:100%;}
+body {
+  background: #ffffff;
+  background: -moz-linear-gradient(-45deg, #ffffff 0%, #ffffff 50%, #F2F2F2 50%, #F2F2F2 50%, #F2F2F2 100%);
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#ffffff), color-stop(50%,#ffffff), color-stop(50%,#F2F2F2), color-stop(50%,#F2F2F2), color-stop(100%,#F2F2F2));
+  background: -webkit-linear-gradient(-45deg, #ffffff 0%,#ffffff 50%,#F2F2F2 50%,#F2F2F2 50%,#F2F2F2 100%);
+  background: -o-linear-gradient(-45deg, #ffffff 0%,#ffffff 50%,#F2F2F2 50%,#F2F2F2 50%,#F2F2F2 100%);
+  background: -ms-linear-gradient(-45deg, #ffffff 0%,#ffffff 50%,#F2F2F2 50%,#F2F2F2 50%,#F2F2F2 100%);
+  background: linear-gradient(135deg, #ffffff 0%,#ffffff 50%,#F2F2F2 50%,#F2F2F2 50%,#F2F2F2 100%);
+}
+
+h1 {font-size:1.5em;margin-bottom:55px;}
+
+#social-platforms {
+  position:relative;
+ 
+  font-size:1rem;
+  text-align:center;
+ 
+  overflow:hidden;
+}
+
+/*Pen code from this point on*/
+.btn {
+  clear:both;
+  white-space:nowrap;
+  font-size:.8em;
+  display:inline-block;
+ 
+  <!-- box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.35); -->
+ 
+  -webkit-transition:all .5s;
+  -moz-transition:all .5s;
+  transition:all .5s;
+  overflow:hidden
+}
+
+body {
+height:auto!important;
+    background: #ffffff;
+    background: -moz-linear-gradient(-45deg, #ffffff 0%, #ffffff 50%, #F2F2F2 50%, #F2F2F2 50%, #F2F2F2 100%);
+     background: -moz-linear-gradient(-45deg, #ffffff 0%, #ffffff 50%, #F2F2F2 50%, #F2F2F2 50%, #F2F2F2 100%);
+	
+	background: -o-linear-gradient(-45deg, #ffffff 0%,#ffffff 50%,#F2F2F2 50%,#F2F2F2 50%,#F2F2F2 100%);
+    background: -ms-linear-gradient(-45deg, #ffffff 0%,#ffffff 50%,#F2F2F2 50%,#F2F2F2 50%,#F2F2F2 100%);
+
+
+     background: -moz-linear-gradient(-45deg, #ffffff 0%, #ffffff 50%, #F2F2F2 50%, #F2F2F2 50%, #F2F2F2 100%);
+}
+
+#buttons {
+   
+    padding: 14px 7px;
+    background: white;
+    width: 660px;
+    overflow: hidden;
+    margin: 150px auto 0;
+    box-shadow:0 2px 3px rgba(71, 71, 71, 0.31);
+}
+
+
+.button {
+    background: #2E3094;
+    position: relative;
+    display: block;
+    float: left;
+    height: 40px;
+    margin: 0 7px;
+    overflow: hidden;
+    width: 150px;
+   
+}
+
+.icon {
+    display: block;
+    float: left;
+    position: relative;
+    z-index: 3;
+    height: 100%;
+    vertical-align: top;
+    width: 38px;
+    -moz-border-radius-topleft: 3px;
+    -moz-border-radius-topright: 0px;
+    -moz-border-radius-bottomright: 0px;
+    -moz-border-radius-bottomleft: 3px;
+    -webkit-border-radius: 3px 0px 0px 3px;
+    border-radius: 3px 0px 0px 3px;
+    text-align: center;
+}
+
+.icon i {
+    color: #fff;
+    line-height: 42px;
+}
+
+.slide {
+    z-index: 2;
+    display: block;
+    margin: 0;
+    height: 100%;
+    left: 38px;
+   
+    width: 150px;
+    -moz-border-radius-topleft: 0px;
+    -moz-border-radius-topright: 3px;
+    -moz-border-radius-bottomright: 3px;
+    -moz-border-radius-bottomleft: 0px;
+    -webkit-border-radius: 0px 3px 3px 0px;
+    border-radius: 0px 3px 3px 0px;
+}
+
+.slide p {
+    font-family: Open Sans;
+    font-weight: 400;
+    border-left: 1px solid #fff;
+    border-left: 1px solid rgba(255,255,255,0.35);
+    color: #fff;
+    font-size: 16px;
+    left: 0;
+    margin: 0;
+    position: absolute;
+    text-align: center;
+    top: 3px;
+    width: 100%;
+}
+
+.button .slide {
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+
+.twitter iframe {
+    width: 90px !important;
+    right: 5px;
+    top: 10px;
+    z-index: 1;
+    display: block;
+    position: absolute;
+}
+
+.google #___plusone_0 {
+    width: 70px !important;
+    top: 10px;
+    right: 15px;
+    position: absolute;
+    display: block;
+    z-index: 1;
+}
+
+.linkedin .IN-widget {
+    top: 10px;
+    right: 22px;
+    position: absolute;
+    display: block;
+    z-index: 1;
+}
+
+.facebook:hover .slide {
+    left: 0px;
+}
+
+.twitter:hover .slide {
+    top: -40px;
+}
+
+.google:hover .slide {
+    bottom: -40px;
+}
+
+.linkedin:hover .slide {
+    left: -150px;
+}
+
+.facebook .icon, .facebook .slide {
+    background: #2E3094;
+	cursor:pointer;
+}
+
+.twitter .icon, .twitter .slide {
+    background: #00cdff;
+}
+
+.google .icon, .google .slide {
+    background: #EC4731;
+	cursor:pointer;
+}
+
+.linkedin .icon, .linkedin .slide {
+    background: #007bb6;
+}
+hr.style17 {
+	border-top: 1px solid #8c8b8b;
+	text-align: center;
+	
+}
+hr.style17:after {
+	content: 'OR';
+	    font-family: serif;
+	border: 1px solid black;
+	position: relative;
+	top: -14px;
+	padding: 11px 10px;
+	background: #f2f2f2;
+	color: #8c8b8b;
+	font-size: 16px;
+	border-radius:50%;
+	-webkit-transform: rotate(60deg);
+	-moz-transform: rotate(60deg);
+	transform: rotate(60deg);
+}
+hr {
+    margin-top: 0px !important;
+    border: 0;
+    border-top: 1px solid #eee;
+}
+.md-button:focus {
+    outline: none;
+    border: 0;
+	background-color:transparent;
+ }
+ .md-button:hover {
+    outline: none;
+    border: 0;
+	background-color:transparent;
+ }
+ 
+</style>

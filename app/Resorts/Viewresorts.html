@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MyApp" ng-cloak>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="google-signin-client_id" content="750253327708-hgc8c2di1age1nfhlukdab5tt2emjetf.apps.googleusercontent.com">
+
+    <title>Outingday</title>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato" />
+    <link rel="shortcut icon" href="../../assets/images/favicon.png" />
+
+    <link href="../../assets/css/bootstrap.min.css?v=1" rel="stylesheet">
+    <!--<link href="../../assets/js/Angularjs/angular-material.min.css" rel="stylesheet">-->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+    <link href="../../assets/css/ngProgress.css?v=1" rel="stylesheet">
+	<link href="../../assets/css/viewresort.css?v=1" rel="stylesheet">
+
+
+
+    <link href="../../assets/css/modern-business.css" rel="stylesheet">
+    <link href="../../assets/css/styles.css?v=1" rel="stylesheet">
+	<link href="../../assets/css/detail.css?v=1" rel="stylesheet">
+    <link href="https://rawgit.com/indrimuska/angular-moment-picker/master/dist/angular-moment-picker.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+    <link href="../../assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'/>
+    <link href="../../assets/css/customstyles.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <!-- Angular Material Library -->
+    <script src="//ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+
+
+    <script src="../../assets/js/Angularjs/angular-preload-image.min.js"></script>
+    <script src="../../assets/js/Angularjs/map.js"></script>
+    <script src="../../assets/js/Angularjs/moment.min.js"></script>
+    <script src="../../assets/js/Angularjs/locales.min.js"></script>
+    <script src="../../assets/js/Angularjs/humanize-duration.js"></script>
+    <script src="../../assets/js/Angularjs/angular-timer.min.js"></script>
+
+    <script src="../../assets/js/Angularjs/ngprogress.min.js?v=1"></script>
+    <script src="../../assets/js/Angularjs/angular-touch.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-modal-service.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-ellipsis.js"></script>
+    <script src="../../assets/js/Angularjs/angular-hmac-sha512.js"></script>
+    <script src="//apis.google.com/js/platform.js" async defer></script>
+    <!--<script src="../../assets/js/Angularjs/angular-sanitize.js"></script>-->
+   <script src="//cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.6.4/angular-sanitize.min.js"></script>
+<script src="../../assets/js/Angularjs/readmore.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-route.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-ui-router.min.js"></script>
+    <script data-require="ui-bootstrap@*" data-semver="0.12.1" src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.1.min.js"></script>
+    <script src="../../assets/js/Angularjs/ngStorage.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-cookies.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment-with-locales.js"></script>
+    <script src="//rawgit.com/indrimuska/angular-moment-picker/master/dist/angular-moment-picker.js"></script>
+
+    <script src="../../assets/app.js?v=1"></script>
+    <script src="../../assets/js/Angularjs/common.js?v=1"></script>
+    <script src="../../app/Resorts/modalCtr.js?v=1"></script>
+    <script src="../../app/Resorts/localAreaService.js?v=1"></script>
+    <script src="../../app/Resorts/viewCitiesService.js?v=1"></script>
+    <script src="../../app/Resorts/loginCtr.js?v=1"></script>
+    <script src="../../app/Resorts/loginService.js?v=1"></script>
+    <script src="../../app/Resorts/registerCtr.js?v=1"></script>
+    <script src="../../app/Resorts/registerService.js?v=1"></script>
+    <script src="../../app/Resorts/phonenumberCtr.js?v=1"></script>
+    <script src="../../app/Resorts/ResortCtr.js?v=2"></script>
+    <script src="../../app/Resorts/ResortService.js?v=1"></script>
+    <script src="../../assets/js/Angularjs/angular-messages.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   <link href="../../assets/css/bootstrap.min.css" rel="stylesheet">
+	<script data-cfasync="false" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    
+<script>
+$(document).ready(function() {
+	var showChar = 100;
+	var ellipsestext = "...";
+	var moretext = "more";
+	var lesstext = "less";
+	$('.more').each(function() {
+		var content = $(this).html();
+
+		if(content.length > showChar) {
+
+			var c = content.substr(0, showChar);
+			var h = content.substr(showChar-1, content.length - showChar);
+
+			var html = c + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink">' + moretext + '</a></span>';
+
+			$(this).html(html);
+		}
+
+	});
+
+	$(".morelink").click(function(){
+		if($(this).hasClass("less")) {
+			$(this).removeClass("less");
+			$(this).html(moretext);
+		} else {
+			$(this).addClass("less");
+			$(this).html(lesstext);
+		}
+		$(this).parent().prev().toggle();
+		$(this).prev().toggle();
+		return false;
+	});
+});</script>
+
+</head>
+
+<style>
+   .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open>.dropdown-toggle.btn-default {
+       border-radius: 0!important;
+    background-color: #FEB824!important;
+    border: 1px solid #FEB824!important;
+    color: #424242 !important;
+    font-family: "Lato" !important;
+	cursor:pointer!important;
+	border-radius:5px !important;
+	outline:0;
+	
+
+
+}
+ .btn-cars:hover, .btn-cars:focus, .btn-cars:active, .btn-cars.active, .open>.dropdown-toggle.btn-cars {
+     display: inline-block;
+    padding: 6px 14px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 0.428571;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+	color:#AC6B75 !important;
+    border: 1px solid #AC6B75 !important;
+    /* border-radius: 4px; */
+    background: transparent!important;
+    border-radius: 10px !important;
+	 -webkit-transition: box-shadow .4s cubic-bezier(.25,.8,.25,1),background-color .4s cubic-bezier(.25,.8,.25,1);
+    transition: box-shadow .4s cubic-bezier(.25,.8,.25,1),background-color .4s cubic-bezier(.25,.8,.25,1);
+
+}
+.btn-cars{
+ display: inline-block;
+    padding: 6px 14px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 0.428571;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+	color:#AC6B75 !important;
+    border: 1px solid #AC6B75 !important;
+    /* border-radius: 4px; */
+    background: transparent!important;
+    border-radius: 10px !important;
+	 -webkit-transition: box-shadow .4s cubic-bezier(.25,.8,.25,1),background-color .4s cubic-bezier(.25,.8,.25,1);
+    transition: box-shadow .4s cubic-bezier(.25,.8,.25,1),background-color .4s cubic-bezier(.25,.8,.25,1);
+
+}
+
+
+}
+ .btn:hover, .btn:focus, .btn:active, .btn.active, .open>.dropdown-toggle.btn {
+      color:#AC6B75 !important;
+    border: 1px solid #AC6B75 !important;
+    
+    background: transparent!important;
+    border-radius: 10px !important;
+    font-family: "Lato" !important;
+	cursor:pointer!important;
+	
+	outline:0;
+
+}
+md-card md-card-title {
+    padding: 0px 16px 0px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    flex: 1 1 auto;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+}
+.md-headline_new {
+    font-size: 17px !important;
+    font-weight: 400;
+    line-height: 21px;
+	
+	
+}
+ md-card md-card-header {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-direction: normal;
+    
+}
+md-card {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-direction: normal;
+    height: 336px;
+    width: 100%;
+}
+md-card .md-actions:not(.layout-column) .md-button:not(.md-icon-button), md-card md-card-actions:not(.layout-column) .md-button:not(.md-icon-button) {
+    margin: 0 1px;
+}
+ .drop {
+             position: relative;
+         }
+         .drop ul {
+             position: absolute;
+             left: 0;
+             top: 3em;
+             -webkit-transition: all 0.3s ease;
+             transition: all 0.3s ease;
+             -webkit-transform: scale(0);
+             transform: scale(0);
+             -webkit-transform-origin: 0 0;
+             transform-origin: 0 0;
+             box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 8px 0 rgba(0, 0, 0, 0.12);
+             background: #ebebeb;
+         }
+         .drop ul li {
+             display: block;
+             width: 100%;
+         }
+         .drop ul li a {
+             width: 100%;
+             padding: 1em 18px;
+             display: inline-block;
+             white-space: pre;
+             box-sizing: border-box;
+         }
+         .drop ul li a:hover {
+             background: #ebebeb;
+         }
+         .drop:hover ul {
+             -webkit-transform: scale(1);
+             transform: scale(1);
+         }
+
+
+
+
+.nav>li>a {
+    position: relative;
+    display: block;
+    padding: 0px !important;
+	color:#fff !important;
+	font-size:13px !important;
+}
+.navbar-inverse .navbar-nav>li>a
+{ color:#fff !important;}
+
+.navbar-inverse .navbar-nav>li>a:hover
+{ color:#fff !important;}
+
+.navbar-right .dropdown-menu {
+    right: auto;
+    left: auto;
+	border-radius:6px !important;
+}
+
+navbar-nav>li {
+    float: left !important;
+}
+.navbar-right {
+    float: right!important;
+    margin-right: 15px !important;
+}
+
+.container_img
+{
+    height:196px !important;
+    width:100% !important;
+    position:relative !important;
+}
+
+.od_image
+{    
+    left:0;
+    top:0;
+}
+.viewtitle {
+    color: black !important;
+    font-weight: 500 !important;
+    font-family: "Lato" !important;
+	font-size:15px !important;
+}
+.md-button.md-default-theme:not([disabled]):hover, .md-button:not([disabled]):hover {
+    background-color: transparent !important;
+}
+.md-button {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+   /* min-height: 20px;*/
+   /* min-width: 88px; */
+   /* line-height:15px !important; */
+    vertical-align: middle;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-grid-row-align: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 3px;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 0;
+    padding: 0 6px;
+    margin: 6px 8px;
+    background: transparent;
+    color: currentColor;
+    white-space: nowrap;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 14px;
+    font-style: inherit;
+    font-variant: inherit;
+    font-family: inherit;
+    text-decoration: none;
+    overflow: hidden;
+    -webkit-transition: box-shadow .4s cubic-bezier(.25,.8,.25,1),background-color .4s cubic-bezier(.25,.8,.25,1);
+    transition: box-shadow .4s cubic-bezier(.25,.8,.25,1),background-color .4s cubic-bezier(.25,.8,.25,1);
+
+	}
+
+.md-button_new{
+ min-height: 20px;
+ min-width: 88px; 
+ line-height:15px !important;
+ border:1px solid #AC6B75;border-radius:10px;color:#AC6B75;text-transform:capitalize;padding:0px !important;
+ 
+ }
+
+    
+</style>
+
+
+
+ <script type='text/javascript'>
+        
+        $(document).ready(function() {
+        
+			$('.carousel[data-type="multi"] .item').each(function(){
+			var next = $(this).next();
+			
+			if (!next.length) {
+			next = $(this).siblings(':first');
+			}
+			next.children(':first-child').clone().appendTo($(this));
+			
+			for (var i=0;i<2;i++) {
+			next=next.next();
+			if (!next.length) {
+			next = $(this).siblings(':first');
+			}
+			
+			next.children(':first-child').clone().appendTo($(this));
+			}
+			});
+			
+			//for Drop Down Begins
+			$('ul.nav li.dropdown').hover(function() {
+			$(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
+			}, function() {
+			$(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
+			});
+        	//for Drop Down Ends
+        });
+        
+        </script>
+<style type="text/css">
+
+
+         .drop {
+             position: relative;
+         }
+         .drop ul {
+             position: absolute;
+             left: 0;
+             top: 3em;
+             -webkit-transition: all 0.3s ease;
+             transition: all 0.3s ease;
+             -webkit-transform: scale(0);
+             transform: scale(0);
+             -webkit-transform-origin: 0 0;
+             transform-origin: 0 0;
+             box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 8px 0 rgba(0, 0, 0, 0.12);
+             background: #ebebeb;
+         }
+         .drop ul li {
+             display: block;
+             width: 100%;
+         }
+         .drop ul li a {
+             width: 100%;
+             padding: 1em 18px;
+             display: inline-block;
+             white-space: pre;
+             box-sizing: border-box;
+         }
+         .drop ul li a:hover {
+             background: #ebebeb;
+         }
+         .drop:hover ul {
+             -webkit-transform: scale(1);
+             transform: scale(1);
+         }
+
+
+
+
+.nav>li>a {
+    position: relative;
+    display: block;
+    padding: 0px !important;
+	color:#fff !important;
+	font-size:13px !important;
+}
+.navbar-inverse .navbar-nav>li>a
+{ color:#fff !important;}
+
+.navbar-inverse .navbar-nav>li>a:hover
+{ color:#fff !important;}
+
+.navbar-right .dropdown-menu {
+    right: auto;
+    left: auto;
+	border-radius:6px !important;
+}
+.costbutton{
+background-color:#EDA72B !important;
+border:1px solid #EDA72B;
+color:black;
+border-radius:5px;
+text-transform:capitalize !important;
+}
+.costbutton1{
+background-color:white !important;
+border:1px solid #d5d5d5;
+color:black;
+border-radius:5px;
+text-transform:capitalize !important;
+}
+.btn-scroll:highlight, .btn-highlight:focus, .btn-highlight:active, .btn-highlight.active, .open>.dropdown-toggle.btn-highlight {
+      background-color:#EDA72B !important;
+border:1px solid #EDA72B;
+color:black;
+border-radius:5px;
+text-transform:capitalize !important;
+
+	
+
+}
+md-card md-card-title+md-card-content {
+    padding-top: 0;
+    padding-bottom: 0px !important;
+}
+md-slider.md-default-theme .md-sign, md-slider .md-sign {
+    background-color: #121444 !important;
+}
+.md-focus-ring {
+     background-color: #121444 !important;
+}
+md-slider.md-default-theme .md-sign:after, md-slider .md-sign:after {
+    border-top-color: #121444 !important;
+}
+md-slider.md-default-theme .md-thumb:after, md-slider .md-thumb:after {
+    border-color: #121444 !important;
+    background-color: #121444 !important;
+}
+.md-default-theme .md-datepicker-input-container, .md-datepicker-input-container {
+    border-bottom-color: transparent;
+}
+.img-circle {
+    border-radius: 50%;
+	height:60px;
+	
+}
+ 
+ p{top:0 !important;}
+ 
+ .share_icon {
+	 z-index:2;
+    position:absolute;    
+    color:#fff !important;
+    font-size:16px !important;
+    font-weight:bold !important;
+	padding:0 10px 0 0;
+	top:0px;
+	text-align:right;
+	line-height:200px;
+	width:100%;
+ }
+ 
+ .button_rating{
+ 	z-index:2;
+    position:absolute;  
+ 	width:100%;
+	text-align:right;
+	padding:10px 10px 0 0;
+	top:0;
+ }
+ 
+  .sponsored{
+ 	z-index:2;
+    position:absolute;  
+ 	top:0;
+	left:0;
+ }
+ 
+ .md-body-1 {
+    font-size: 14px;
+    line-height: 20px;
+    padding-top: 14px;
+	padding-right:2px;
+}
+     </style>
+
+
+<!------------facebook login--------------->
+
+<script>
+    // This is called with the results from from FB.getLoginStatus().
+    function statusChangeCallback(response) {
+        console.log('statusChangeCallback');
+        console.log(response);
+        // The response object is returned with a status field that lets the
+        // app know the current login status of the person.
+        // Full docs on the response object can be found in the documentation
+        // for FB.getLoginStatus().
+        if (response.status === 'connected') {
+            // Logged into your app and Facebook.
+            testAPI();
+        } else {
+            // The person is not logged into your app or we are unable to tell.
+            document.getElementById('status').innerHTML = 'Please log ' +
+                    'into this app.';
+        }
+    }
+
+    // This function is called when someone finishes with the Login
+    // Button.  See the onlogin handler attached to it in the sample
+    // code below.
+    function checkLoginState() {
+        debugger;
+        FB.getLoginStatus(function(response) {
+            statusChangeCallback(response);
+        });
+    }
+
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '288940628246211',
+            cookie     : true,  // enable cookies to allow the server to access
+            // the session
+            xfbml      : true,  // parse social plugins on this page
+            version    : 'v2.9' // use graph api version 2.8
+        });
+
+        // Now that we've initialized the JavaScript SDK, we call
+        // FB.getLoginStatus().  This function gets the state of the
+        // person visiting this page and can return one of three states to
+        // the callback you provide.  They can be:
+        //
+        // 1. Logged into your app ('connected')
+        // 2. Logged into Facebook, but not your app ('not_authorized')
+        // 3. Not logged into Facebook and can't tell if they are logged into
+        //    your app or not.
+        //
+        // These three cases are handled in the callback function.
+
+        FB.getLoginStatus(function(response) {
+            statusChangeCallback(response);
+        });
+
+    };
+
+    function fblogin() {
+        debugger;
+        FB.login(function(response) {
+            console.log(response);
+            if (response.status === 'connected') {
+                // Logged into your app and Facebook.
+
+                FB.api('/me', { locale: 'en_US', fields: 'name, email, first_name, last_name, picture' },
+                        function(response) {
+                            console.log(response.email);
+                            console.log(response.first_name);
+                            console.log(response.last_name);
+                            console.log(response.picture);
+                            console.log('Successful login for: ' + response.name);
+
+                            var FBUserDetails = response;
+                            angular.element(document.getElementById('divIDFB')).scope().FBParkUserCheckCall(FBUserDetails);
+
+                        });
+
+
+            } else {
+                // The person is not logged into this app or we are unable to tell.
+            }
+        });
+    }
+
+
+
+    function logout() {
+        FB.logout(function(response) {
+            console.log(response);
+        });
+    }
+    // Load the SDK asynchronously
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+    // Here we run a very simple test of the Graph API after login is
+    // successful.  See statusChangeCallback() for when this call is made.
+    function testAPI() {
+        console.log('Welcome!  Fetching your information.... ');
+        FB.api('/me', { locale: 'en_US', fields: 'name, email, first_name, last_name, picture' },
+                function(response) {
+                    console.log(response.email);
+                    console.log(response.first_name);
+                    console.log(response.last_name);
+                    console.log(response.picture);
+                    console.log('Successful login for: ' + response.name);
+                    document.getElementById('status').innerHTML = 'Thanks for logging in, ' + response.name + '!';
+
+                });
+    }
+</script>
+<!------------facebook login--------------->
+
+<!------------google login--------------->
+
+<script>
+    function onSignIn(googleUser) {
+        debugger;
+        var profile = googleUser.getBasicProfile();
+        console.log(profile);
+        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+        console.log('Name: ' + profile.getName());
+        console.log('Image URL: ' + profile.getImageUrl());
+        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+
+        var GoogleUserDetails = profile;
+        angular.element(document.getElementById('divID')).scope().GoogleParkUserCheckCall(GoogleUserDetails);
+
+    }
+
+</script>
+<script>
+    function signOut() {
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+            console.log('User signed out.');
+        });
+    }
+</script>
+
+<!------------google login--------------->
+
+<body style="background-color:#f3f3f3;"   ng-controller="ResortCtr as ctrl" class="ng-cloak">
+
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    		<div class="navbar-top">
+        	<div class="container" style="padding-top:6px; padding-bottom:6px;" >
+            	<div class="row ">
+                    <div class="col-lg-6 col-md-6 col-sm-4 col-xs-3">
+                        <span style="color:white;font-size:15px;"data-ng-bind="regionModel()" ng-click="loadEditForm()"></span>&nbsp;
+                        <span><i class="fa fa-map-marker" aria-hidden="true" style="color:#FEB824;font-size:15px;" ng-click="loadEditForm()" ></i></span>
+                    </div>
+                
+                    <div class="col-lg-6 col-md-6 col-sm-8 col-xs-9">
+                        <ul class="nav navbar-nav navbar-right" >
+                           <!-- <li><a href="#">Link</a></li>-->
+                            <li class="dropdown" style="padding-right:4px;" ng-if="showLoginBtn">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" ng-click="loginPage()" style="color:#fff;">Login </b></a>
+
+
+                                <!-- <ul class="dropdown-menu" style="width:180px;margin-top:10px;"> -->
+                                <!-- <div class="row" style="margin-top:-10%;"><a href="#"><span style="padding-left:50px;"><img  src="../../assets/images/top_arrow.png" alt="" height="14px" width="14px" ></span></a> -->
+
+
+
+
+                                <!-- </div> -->
+
+                                <!-- <li> -->
+
+                                <!-- <div style="width:100%;padding:5px;float:left;"> -->
+                                <!-- <div style="width:40%;float:left;"><img src="assets/images/Login_Icon.png"  class="img-responsive"></div> -->
+                                <!-- <div style="width:60%;float:left;"> -->
+                                <!-- <div class="row"><a href="#"><span class="glyphicon glyphicon-play" style="font-size:11px;padding-right:5px;"></span> My Booking</a></div> -->
+                                <!-- <div class="row"><a href="#"><span class="glyphicon glyphicon-play" style="font-size:11px;padding-right:5px;"></span> My Cash</a></div> -->
+                                <!-- <div class="row" ng-if="showLogOutBtn"><a href="#"><span class="glyphicon glyphicon-user" style="font-size:11px;padding-right:5px;color:#313496;" ></span><span data-ng-bind="firstName" style="color:#313496;"></span></span></a></div> -->
+                                <!-- <div class="row"  ng-if="showLogOutBtn" ><a href="#"><span class="glyphicon glyphicon-off" style="font-size:11px;padding-right:5px;color:#feb824;"></span><span ng-click="logOutCall()" style="color:#feb824;" >Logout</span></a></div> -->
+                                <!-- </div> -->
+                                <!-- </div> -->
+                                <!-- <div style="width:100%;padding:5px;float:left;" ng-if="showLoginBtn"> -->
+                                <!-- <div style="width:48%;float:left;" align="center"> -->
+                                <!-- <ul class="list-inline text-center od-signInSignUp"> -->
+                                <!-- <li><a href="#" ng-click="loginPage()" class="btn-md btn" style="text-transform:none !important;">Login</a></li> -->
+                                <!-- </ul> -->
+                                <!-- </div> -->
+                                <!-- <div style="width:2%;float:left;"></div> -->
+                                <!-- <div style="width:48%;float:left;" align="center"> -->
+                                <!-- <ul class="list-inline text-center od-signInSignUp"> -->
+                                <!-- <li><a href="#" ng-click="SignUpPage()" class="btn-md btn" style="text-transform:none !important;">Sign Up</a></li> -->
+                                <!-- </ul> -->
+                                <!-- </div> -->
+                                <!-- </div> -->
+                                <!-- </li> -->
+                                <!-- </ul> -->
+                            </li>
+                            <li class="dropdown" style="padding-right:4px;" ng-if="showLogOutBtn">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:#fff;">Hi {{firstName}} {{lastName}} <b class="caret"></b></a>
+                                <ul class="dropdown-menu" style="width:180px;margin-top:10px;">
+                                    <div class="row" style="margin-top:-10%;"><a href="#"><span style="padding-left:50px;"><img  src="../../assets/images/top_arrow.png" alt="" height="14px" width="14px" ></span></a>
+
+
+
+
+                                    </div>
+
+                                    <li>
+
+                                        <!-- <div style="width:100%;padding:5px;float:left;"> -->
+                                            <!-- <div style="width:40%;float:left;"><img src="{{DP}}"  class="img-responsive"></div> -->
+                                            <!-- <div style="width:60%;float:left;"> -->
+                                                <!-- <div class="row"><a href="#"><span class="glyphicon glyphicon-play" style="font-size:11px;padding-right:5px;"></span> My Booking</a></div> -->
+                                                <!-- <div class="row"><a href="#"><span class="glyphicon glyphicon-play" style="font-size:11px;padding-right:5px;"></span> My Cash</a></div> -->
+                                                
+												<!-- <div class="row"  ng-if="showLogOutBtn" ><a href="#"><span class="glyphicon glyphicon-off" style="font-size:11px;padding-right:5px;color:#feb824;"></span><span ng-click="logOutCall()" style="color:#feb824;" >Logout</span></a></div> -->
+                                            <!-- </div> -->
+                                        <!-- </div> -->
+										<div class="row" align="center" style="border-radius:50%;">
+									<img src="{{DP}}"  class="img-responsive img-circle">
+									</div>
+									
+									<div class="row" style="margin-top:5%;">
+									<div class="row" style="margin-left:11%;"><a href="#" style="color:#666666;"><span class="glyphicon glyphicon-play" style="font-size:11px;padding-right:5px;color:#666666;"></span> My Booking</a></div>
+									<div class="row" style="margin-left:11%;" ><a href="#" style="color:#666666;"><span class="glyphicon glyphicon-play" style="font-size:11px;padding-right:5px;"></span> My Cash</a></div>
+                                             
+									<div class="row" style="margin-left:11%;" ng-if="showLogOutBtn"><a href="#"><span class="glyphicon glyphicon-off" style="font-size:11px;padding-right:5px;color:#666666;"></span><span ng-click="logOutCall()" style="color:#666666;font-weight:bold;margin-left:2%;" >Logout</span></a></div>
+										
+									
+									</div>
+
+                                    </li>
+                                </ul>
+                            </li>
+                            
+                            <li class="dropdown" style="padding-right:4px;">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:#fff;"><span style="color:#feb824; padding:0 8px 0 0px;">|</span>Support <b class="caret"></b></a>
+                                <ul class="dropdown-menu" style="margin-top:10px;">
+								<div class="row" style="margin-top:-10%;"><a href="#"><span style="padding-left:50px;"><img  src="../../assets/images/top_arrow.png" alt="" height="14px" width="14px" ></span></a></div>
+                                 
+                                    <li><a href="#"><span class="glyphicon glyphicon-play" style="font-size:11px;padding-right:5px;"></span>Contact Us</a></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-play" style="font-size:11px;padding-right:5px;"></span>Complete Booking</a></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-play" style="font-size:11px;padding-right:5px;"></span>Make a Payment</a></li>
+                                    <!--
+                                    <li class="divider"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                    -->
+                                </ul>
+                            </li>
+                            
+                            <li class="dropdown" >
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:#fff;"><span style="color:#feb824; padding:0 8px 0 0px;">|</span>Corporate Deals <b class="caret"></b></a>
+                                <ul class="dropdown-menu" style="width:180px;left:30px;margin-top:10px;">
+                                   <div class="row" style="margin-top:-10%;"><a href="#"><span style="padding-left:50px;"><img  src="../../assets/images/top_arrow.png" alt="" height="14px" width="14px" ></span></a></div>
+                                  
+									
+									<li><a href="#"><span class="glyphicon glyphicon-play" style="font-size:11px;padding-right:5px;"></span>Action</a></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-play" style="font-size:11px;padding-right:5px;"></span>Another action</a></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-play" style="font-size:11px;padding-right:5px;"></span>Something else here</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-play" style="font-size:11px;padding-right:5px;"></span>Separated link</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+               	 	</div>
+            	</div>
+            </div>
+        </div>
+        
+        <div class="container" style="height:60px;">
+           <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>                </button>
+                <a class="navbar-brand" href="../../index.html" style="font-size:24px;">Outing<span>Day</span></a>
+           </div>
+
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="border:none;">
+            	<div class="row head" align="center">
+                    <div class="col-lg-4 col-md-4 col-xs-12 " style="" align="center">
+                        <div class="input-group" align="center">
+                            <span class="input-group-btn" align="center">
+                               <div class="dropdown">
+                                   <button class="dropbtn2">
+                                       <span>
+                                            <span style="text-align:left;"><i class="fa fa-th-large" aria-hidden="true" style="color:#313496 !important;font-size:14px;float:left;"></i><span style="font-size:14px;margin-right:18px;font-weight:500;">All</span></span>
+                                            <span style="">
+                                            <i class="fa fa-caret-down" aria-hidden="true" style="color:#313496;font-size:14px;"></i>
+                                            </span></span>
+                                   </button>
+
+                                   <div class="dropdown-content">
+                                       <div class="D_dropdown">
+                                           <a href="#" class="drop_content"><div class="D_dropdown_span"><img src="../../assets/images/resorts.png" width="18px" height="18px"></div><div class="D_dropdown_span2">Resorts</div></a>
+                                       </div>
+                                       <div class="D_dropdown">
+                                           <a href="#" class="drop_content"><div class="D_dropdown_span"><img src="../../assets/images/hotel.png" width="18px" height="20px"></div><div class="D_dropdown_span2">Hotels</div></a>
+                                       </div>
+                                       <div class="D_dropdown">
+                                           <a href="#" class="drop_content"><div class="D_dropdown_span"><img src="../../assets/images/restaurants.png" width="17px" height="17px"></div><div class="D_dropdown_span2">Restaurants</div></a>
+                                       </div>
+                                   </div>
+                               </div>
+                            </span>
+
+
+                            <md-autocomplete  md-no-cache="ctrl.noCache" md-selected-item="ctrl.selectedItem"
+                                             md-search-text="ctrl.searchText" md-selected-item-change="" md-items="item in ctrl.querySearch(ctrl.searchText)"
+                                             md-item-text="item.localArea"  placeholder="Search for Resorts"  >
+                                <md-item-template >
+                                  <span class="item-title" >
+                                 <md-icon><i class="fa fa-map-marker" aria-hidden="true" style="color:#ffbb39;font-size:25px;"></i> </md-icon>
+                                 <span md-highlight-text="ctrl.searchText"> {{item.localArea}} </span>                                     </span>
+
+                                </md-item-template>
+                            </md-autocomplete>
+                        </div>
+
+					</div>
+                    <div class="col-lg-2 col-md-2 col-xs-12" >
+					 <md-datepicker ng-model="ctrl.myDate" md-min-date="minimumDate" md-max-date="maximumDate" md-placeholder="Check in" onkeydown="return false"></md-datepicker>
+					</div>
+					 <div class="col-lg-2 col-md-2 col-xs-12"  >
+					 <md-datepicker ng-model="ctrl.maxDate" md-min-date="minimumDate" md-max-date="maximumDate" md-placeholder="Check out" onkeydown="return false"></md-datepicker>
+					</div>
+					<div class="col-lg-2 col-md-2 col-xs-12">
+
+                    <ul class="list-inline text-center od-signInSignUp">
+                        <li><a href="#" class="btn-md btn" ng-click="viewResortsCall(ctrl)" style="color:white;border:1px solid white;">Search</a></li>
+                     </ul>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </nav>
+
+
+
+	  <header>
+
+       <div style="padding-top:5%;">
+
+	   </div>
+
+    </header>
+
+
+
+
+
+	 <div class="container" style="width:100%;">
+
+
+	 <div class="row" style="padding:5px 5px ;">
+		<div class="col-lg-4 col-sm-12 col-md-4 col-xs-12" style="color:black;">
+
+		</div>
+		<div class="col-lg-8 col-sm-12 col-md-8 col-xs-12" align="right">
+
+            <button type="button" class="btn btn-default" ng-click="popHL()">Popular</button>
+            <button type="button" class="btn btn-default" ng-click="ratingHL()">Rating (high to low)</button>
+            <button type="button" class="btn btn-default" ng-click="minCostHL()">Cost (high to low)</button>
+            <button type="button" class="btn btn-default" ng-click="minCostLH()">Cost (low to high)</button>
+            <button type="button" class="btn btn-default" ng-click="viewResortsCall(ctrl)">Recent</button>
+
+		</div>
+	 </div>
+
+ <div class="row" >
+    <div class="col-sm-3" >
+
+		  <div class="left-panel"style="background-color:white;padding:0%;">
+		  <h4 style="padding-left:4%;" class="viewtitle">Filters</h4>
+		  </div>
+
+		  <div class="left-panel"style="background-color:white;">
+
+              <div class="row Filter_row">
+                  <h4 class="viewtitle" data-toggle="collapse" data-target="#demo" style="cursor:pointer;">Type of Traveller<span style="float:right;cursor:pointer;"><i class="fa fa-chevron-down" aria-hidden="true"></i></span></h4>
+                  <div id="demo" class="collapse">
+				  <ul style="padding:0;margin:0;" ng-repeat="typ in GetTypesMastersList" >
+                      <li><div>
+                          <label class="checkboxline" ng-class = "{'checked': typselectedCheck, 'unchecked' : !typselectedCheck}">
+                              <input type="checkbox" value="" ng-model="typselectedCheck" ng-checked="TypSelection.indexOf(typ.Id)>-1"  ng-click="GetTypesFilter(typ.Id)" class="check_margin">{{typ.typename}} ({{typ.typeCount}})
+                          </label>
+                      </div></li>
+                  </ul>
+				  </div>
+              </div>
+
+              <div class="row Filter_row">
+                  <h4 class="viewtitle" data-toggle="collapse" data-target="#demo1" style="cursor:pointer;">Nature of Tours <span style="float:right;cursor:pointer;"><i class="fa fa-chevron-down" aria-hidden="true"></i></span></h4>
+                  
+				  <div id="demo1" class="collapse">
+				  <ul style="padding:0;margin:0;" ng-repeat="netr in GetNatureMastersList" >
+                      <li><div class="">
+                          <label class="checkboxline" ng-class="{'checked': netrselectedCheck, 'unchecked': !netrselectedCheck}">
+                              <input type="checkbox" value="" ng-model="netrselectedCheck" ng-checked="NatureSelection.indexOf(netr.Id)>-1" ng-click="GetNatureFilter(netr.Id)" class="check_margin">{{netr.NatureName}} ({{netr.NatureCount}})
+                          </label>
+                      </div></li>
+                  </ul>
+				  </div>
+              </div>
+
+              <div class="row Filter_row">
+                  <h4 class="viewtitle" data-toggle="collapse" data-target="#demo2" style="cursor:pointer;">Duration <span style="float:right;cursor:pointer;"><i class="fa fa-chevron-down" aria-hidden="true"></i></span></h4>
+                  <div id="demo2" class="collapse">
+				  <ul style="padding:0;margin:0;" ng-repeat="hr in GetDurationMasterList">
+                      <li><div class="">
+                          <label class="checkboxline" ng-class="{'checked': hrselectedCheck, 'unchecked': !hrselectedCheck}">
+                              <input type="checkbox" name="durationRdo" value="" ng-model="hrselectedCheck" ng-checked="HoursSelection.indexOf(netr.Id)>-1" ng-click="GetHoursFilter(hr.Id)" class="check_margin">{{hr.durationName}}
+                          </label>
+                      </div></li>
+                  </ul></div>
+              </div>
+
+              <div class="row Filter_row">
+                  <h4 class="viewtitle" data-toggle="collapse" data-target="#demo3" style="cursor:pointer;">Ratings <span style="float:right;cursor:pointer;"><i class="fa fa-chevron-down" aria-hidden="true"></i></span></h4>
+                  <div id="demo3" class="collapse">
+				  <ul style="padding:0;margin:0;" ng-repeat="rtg in GetRattingMasterList">
+                      <li><div class="">
+                          <label class="checkboxline" ng-class="{'checked': rtgselectedCheck, 'unchecked': !rtgselectedCheck}">
+                              <input type="checkbox" name="rattingRdo" value="" ng-model="rtgselectedCheck" ng-checked="RtgSelection.indexOf(rtg.Id)>-1" ng-click="GetRattingFilter(rtg.Id)" class="check_margin">{{rtg.ratVal}}
+                          </label>
+                      </div></li>
+                  </ul></div>
+              </div>
+
+              <div class="row Filter_row">
+			  <h4 class="viewtitle" data-toggle="collapse" data-target="#demo4" style="cursor:pointer;">Price<span style="float:right;cursor:pointer;"><i class="fa fa-chevron-down" aria-hidden="true"></i></span></h4>
+                  
+                  <div  ng-cloak  id="demo4" class="collapse">
+                      <md-content style="margin: 16px; padding:16px;background-color:white;">
+                          <div layout>
+                              
+                                  <span class="md-body-1"><i class="fa fa-inr" aria-hidden="true"></i> <span ng-bind="rating1">0</span> </span>
+                             
+                              <md-slider flex md-discrete ng-model="rating1" step="1" min="1" max="5000" ng-change="GetPriceFilter(rating1)" aria-label="rating"></md-slider>
+                              
+                                  <span class="md-body-1"><i class="fa fa-inr" aria-hidden="true"></i> 5000</span>
+                             
+                          </div>
+                      </md-content>
+                  </div>
+              </div>
+
+		  </div>
+    </div>
+
+    <div class="col-sm-9 text-left" ng-cloak >
+
+        <div id="img-load" align="center" >
+            <img src="../../assets/images/loadingimg.gif"  class="gif_images">
+           
+        </div>
+
+		<div class="result_bg" style="background-color:transparent !impormd-slider.md-default-theme .md-sign, md-slider .md-signtant;">
+			
+			<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" ng-repeat="res in DetailsListInfo | limitTo: paginationLimit()" href="#" ng-click="bookResort(res.parkId,res)" style="outline:0;height:380px !important; ">
+
+			 <!-- <md-card> -->
+        
+          
+          <!-- <div class="container_img" align="center"> -->
+                <!-- <img  preload-image ng-src="http://admin.outingday.com/images/ResortsImages/{{res.photoUrl}}" default-image="../../assets/images/loadingimg2.gif" fallback-image="../../assets/images/default-thumb.gif" alt="" class="img-responsive img-portfolio" align="center">  -->
+                <!-- <div class="sponsored"><img src="../../assets/images/sponsored.png" alt="" height="61px" width="61px" ></div> -->
+                <!-- <div class="button_rating"><button type="button" class="btn btn-success btn-xs">4.5</button></div> -->
+                <!-- <div class="share_icon"><i class="fa fa-share-alt-square" aria-hidden="true" style="color:#fff;font-size:25px;"></i></div> -->
+            <!-- </div> -->
+          
+          
+                 
+        <!-- <md-card-title> -->
+          <!-- <md-card-title-text> -->
+            <!-- <span class="md-headline_new">{{res.name}} - <span style="color:#999999 !important; font-size:13px !important;">{{res.city}}</span></span> -->
+          <!-- </md-card-title-text> -->
+        <!-- </md-card-title> -->
+        
+        
+        <!-- <md-card-content> -->
+		 
+         
+		 
+          <!-- <h6 class="comment more" ng-bind-html="res.description | limitTo: 100" style=" font-size:13px !important;"> </h6> -->
+		  
+		 
+         
+        <!-- </md-card-content> -->
+		<!-- <div layout="column"> -->
+		 <!-- <md-card-actions layout="row" layout-align="end center"> -->
+          <!-- <md-button  class="md-button_new"  readonly disabled>Offer</md-button> -->
+          <!-- <md-button class="md-button_new" readonly disabled>50% Off</md-button> -->
+		  <!-- <md-button style="border:none;background-color:transparent;text-transform:none;color:#999999;padding:0px !important;" >Starts from</md-button><br> -->
+		  
+		  
+        <!-- </md-card-actions> -->
+        
+		 <!-- <md-card-actions layout="row" layout-align="end center" style="margin-top:-1%;"> -->
+          <!-- <md-button class="md-button_new" readonly disabled>Sponsered</md-button> -->
+          <!-- <md-button style="border:none;color:transparent;text-transform:capitalize;padding:0px !important;"></md-button> -->
+		  <!-- <md-button style="border:none;background-color:transparent;text-transform:none;font-weight:700;font-size:20px;padding:0px !important;" >{{ res.minCost1 | INR }}</md-button> -->
+        <!-- </md-card-actions> -->
+		<!-- </div> -->
+       
+		
+      <!-- </md-card> -->
+	 
+	  <div flex layout="column" style="    box-shadow: 0 1px 3px 0 rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 2px 1px -1px rgba(0,0,0,.12);">
+        <div flex="auto">
+            <div class="container_img" align="center">
+                <img  preload-image ng-src="http://outingadmin.littlepandits.com/images/ResortsImages/{{res.photoUrl}}" default-image="../../assets/images/loadingimg2.gif" fallback-image="../../assets/images/default-thumb.gif" alt="" class="img-responsive img-portfolio" align="center"> 
+                <div class="sponsored" ng-show="res.sponsoredFlag == 'y'"><img src="../../assets/images/sponsored.png" alt="" height="61px" width="61px" ></div>
+                <div class="button_rating"><button type="button" class="btn btn-success btn-xs">{{res.odRating}}</button></div>
+                <div class="share_icon" ><i class="fa fa-share-alt-square" aria-hidden="true" style="color:#fff;font-size:25px;"></i></div>
+            </div>
+        </div>
+
+        <div flex="auto">
+        	<h4 style="font-size:15px !important;font-weight:bold !important;padding-left:2% !important;padding-right:2%!important;">{{res.name}} - <span style="color:#999999 !important; font-size:13px !important;">{{res.city}}</span></h4> 
+        </div>
+
+        <div flex="auto">
+       		<h6 class="comment more" ng-bind-html="res.description | limitTo: 100" style=" font-size:13px !important;padding-left:2%;padding-right:2%;"> </h6>
+        </div>
+          
+        <div flex="auto" style="margin-bottom:10px;">
+            <div class="btn-justified" style="padding-left:2% !important;padding-right:2%!important;">
+                <button class="btn btn-cars">Offer</button>
+                <button class="btn btn-cars">50% Off</button>
+                <button class="btn btn-cars" style="border:none !important;color:#424242 !important;">Starting from</button>
+            </div>
+        
+            <div class="container btn-justified" style="margin-top:5px;padding-left:2% !important;padding-right:2%!important; ">
+                <button class="btn btn-cars">Sponsered</button>
+                <button class="btn btn-cars" style="border:none !important;color:transparent !important;">Info</button>
+                <button class="btn btn-cars" style="border:transparent !important;color:#424242 !important;font-weight:bold !important;font-size:17px !important;">{{ res.minCost1 | INR }}</button>
+            </div>
+        </div>
+</div>
+       </div>
+	    
+
+
+        <div class="row" >
+
+			<div class="col-lg-12" align="center">
+		 <md-button class="show-more-btn" ng-show="hasMoreItemsToShow()" ng-click="showMoreItems()" style="border:1px solid #E69624;color:white;text-transform:capitalize;background-color:#E69624;border-radius:5px;" align="center">Show more</md-button>
+            </div>
+		</div>
+
+	</div>
+
+</DIV>
+</div>
+</DIV>
+
+
+ <div class="container-fluid">   
+   
+        <div class="row" style="background-color:#0c0e1b; ">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            	<div class="row social_foot">
+                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 certified_logo">Certified Logos</div>
+                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="text-align:right;" >
+                   <ul class="list-inline pull-right">
+            <li><a  class="social" href="https://www.facebook.com/outingday/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+            <li> <a  class="social"><i class="fa fa-pinterest-p"></i></a></li>
+            <li><a  class="social"><i class="fa fa-instagram"></i></a></li>
+            <li><a  class="social"><i class="fa fa-pinterest-p"></i></a></li>
+          </ul>                  </div>
+                </div>             
+             	<div class="row" style="padding:30px;">
+                	<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" align="center">
+                    	<img  src="../../assets/images/Logo_Footer.png" alt="" style="width:30%;"><br><br>
+							<span style="color:#fff;font-size:14px;">© 2016 Outingday Pvt. Ltd.</span> 
+							                     
+					</div>	
+                    
+                        <span class="fot-company">Powered by Castus</span> 
+                            
+							
+							<div class="col-lg-2 col-md-2 col-sm-3 col-xs-6" style="color:#fff;">
+                                <p class="h4"><a href="../../app/Resorts/outingday.html" style="color:white;font-size:14px;">Outing Day</a></p>
+                                <ul class="footerlist">
+                                    <li ><a href="../../app/Resorts/carrer.html" class="footerlinks" >Career</a></li>
+                                    <li><a href="../../app/Resorts/about.html" class="footerlinks" >About Us</a></li>
+                                    <li><a href="../../app/Resorts/cantact.html" class="footerlinks">Contact Us</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6" style="color:#fff;font-size:14px;">
+                                <p class="h4">Country</p>
+                                <ul class="footerlist">
+                                    <li ><a class="footerlinks">India</a></li>
+                                   
+								</ul>
+                            
+                        </div>
+                    </div>	
+         </div>
+        </div>
+       </div>
+</div>
+
+</body>
+
+</html>
+
+

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MyApp">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Outingday</title>
+
+    <link rel="shortcut icon" href="../../assets/images/favicon.png" />
+    <link href="../../assets/css/bootstrap.min.css?v=1" rel="stylesheet">
+    <link href="../../assets/css/ngProgress.css?v=1" rel="stylesheet">
+    <link href="../../assets/js/Angularjs/angular-material.min.css" rel="stylesheet">
+
+     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato" />
+    <link href="../../assets/css/modern-business.css?v=1" rel="stylesheet">
+    <link href="../../assets/css/styles.css?v=1" rel="stylesheet">
+	<link href="../../assets/css/detail.css?v=1" rel="stylesheet">
+	<link href="../../assets/css/packagecss.css?v=1" rel="stylesheet">
+    <link href="https://rawgit.com/indrimuska/angular-moment-picker/master/dist/angular-moment-picker.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+   
+    <link href="../../assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'/>
+<link href="../../assets/css/customstyles.css" rel="stylesheet" type="text/css" />
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <script src="../../assets/js/Angularjs/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-messages.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-material.min.js"></script>
+    <script src="../../assets/js/Angularjs/ngprogress.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-touch.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-modal-service.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-ellipsis.js"></script>
+    <script src="../../assets/js/Angularjs/angular-hmac-sha512.js"></script>
+    <script src="../../assets/js/Angularjs/angular-preload-image.min.js"></script>
+    <script src="../../assets/js/Angularjs/map.js"></script>
+    <script src="../../assets/js/Angularjs/moment.min.js"></script>
+    <script src="../../assets/js/Angularjs/locales.min.js"></script>
+    <script src="../../assets/js/Angularjs/humanize-duration.js"></script>
+    <script src="../../assets/js/Angularjs/angular-timer.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.6.4/angular-sanitize.js"></script>
+ <script src="//cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.6.4/angular-sanitize.min.js"></script>
+<script src="../../assets/js/Angularjs/readmore.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-route.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-ui-router.min.js"></script>
+    <script data-require="ui-bootstrap@*" data-semver="0.12.1" src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.1.min.js"></script>
+    <script src="../../assets/js/Angularjs/ngStorage.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-cookies.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment-with-locales.js"></script>
+    <script src="//rawgit.com/indrimuska/angular-moment-picker/master/dist/angular-moment-picker.js"></script>
+
+    <script src="../../assets/app.js?v=1"></script>
+    <script src="../../assets/js/Angularjs/common.js?v=1"></script>
+    <script src="../../app/Resorts/ResortCtr.js?v=1"></script>
+    <script src="../../app/Resorts/ResortService.js?v=1"></script>
+    <script src="../../app/Resorts/ResortdetailCtr.js?v=1"></script>
+    <script src="../../app/Resorts/ResortdetailService.js?v=1"></script>
+    <script src="../../app/Resorts/packageDetailsCtr.js?v=1"></script>
+    <script src="../../app/Resorts/confirmationDetailsCtr.js?v=1"></script>
+    <script src="../../app/Resorts/confirmationDetailsService.js?v=1"></script>
+    <script src="../../app/Resorts/paymentfailCtr.js?v=1"></script>
+    <script src="../../app/Resorts/paymentsuccessCtr.js?v=1"></script>
+    <script src="../../app/Resorts/paymentService.js?v=1s"></script>
+
+
+
+</head>
+<style>
+
+</style>
+
+<body style="background-color:#f3f3f3;" ng-controller="confirmationSuccessCtr" class="ng-cloak">
+
+   
+  
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    	<div class=" navbar-top">
+		<span style="padding-left:5%; line-height:3;">
+		<a href="../../index.html"><img src="../../assets/images/icon_home.png" class="img-rounded"></img></a>		</span>
+		<span style=" float:right;color:white;padding-right:5%; line-height:3;">
+		  
+		</span>		</div>
+        <div class="container" style="height:60px; ">
+           
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    
+                </button>
+                <a class="navbar-brand" href="../../index.html">Outing<span>Day</span></a>
+				
+			</div>
+            
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="border:none;">
+            	<div class="row" align="center" style=" margin-top:10px;background-color:#313496; ">
+                    <div class="col-lg-1 col-sm-hidden col-md-hidden col-xs-hidden" ></div>
+                    <div class="col-lg-7 col-sm-6 col-md-7 col-xs-12 " style="" align="center">
+                        <div class="input-group" align="center">
+                            <span class="input-group-btn" align="center">
+                               
+                            </span>
+                           
+                        </div>
+                    </div>
+                    <!-- <div class="col-lg-2  col-sm-2 col-md-2 col-xs-12" style="color:#fff;margin-top:8px; text-align:center;padding:0;font-size:10pt;">SignUp / SignIn</div> -->
+                </div>
+            </div>
+            
+        </div>
+        
+    </nav>
+
+    <header><div style="padding-top:5%;"></div></header>
+	<div class="container">
+        <div class="row">&nbsp;</div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <!-- <h1 class="result_title">Payment Details</h1> -->
+            </div>
+        </div>   
+        
+        <div class="row">
+            <div class="col-lg-9 col-sm-12 col-md-9 col-xs-12 whitebg_margin" style="background-color:white;margin-left:15%;margin-top:5%;border:1px solid #d5d5d5;"> 
+                <div class="row">&nbsp;</div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"  style="margin-top:5%;margin-bottom:5%;" >
+                    	<div class="row" >
+                           <div class="row" align="center" >
+                            <img src="../../assets/images/payment.jpg" alt="thumbnail" class="img-rounded"  align="center">
+                            	</div>
+								
+                            
+                        </div>
+                    
+                    	
+                        
+               	 </div>
+            	</div>
+                
+             </div>  
+           
+       </div>
+        
+       
+	</div>
+
+
+
+
+
+
+
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+
+    
+  
+    <script src="../../assets/js/jquery.js"></script>
+
+   
+    <script src="../../assets/js/bootstrap.min.js"></script>
+
+   
+    <script>
+    $('.carousel').carousel({
+        interval: 5000 
+    })
+    </script>
+
+</body>
+
+</html>
