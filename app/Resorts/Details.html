@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="google-signin-client_id" content="750253327708-hgc8c2di1age1nfhlukdab5tt2emjetf.apps.googleusercontent.com">
+
+    <title>Outingday</title>
+
+    <link rel="shortcut icon" href="../../assets/images/favicon.png" />
+    <link href="../../assets/css/bootstrap.min.css?v=1" rel="stylesheet">
+    <link href="../../assets/js/Angularjs/angular-material.min.css" rel="stylesheet">
+
+
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato" />
+    <link href="../../assets/css/modern-business.css?v=1" rel="stylesheet">
+    <link href="../../assets/css/styles.css?v=1" rel="stylesheet">
+    <link href="../../assets/css/detail.css?v=1" rel="stylesheet">
+    <link href="../../assets/css/detials.css?v=1" rel="stylesheet">
+    <link href="../../assets/css/detailslide.css?v=1" rel="stylesheet">
+    <link href="https://rawgit.com/indrimuska/angular-moment-picker/master/dist/angular-moment-picker.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    
+   
+    <link href="../../assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'/>
+    <link href="../../assets/css/customstyles.css" rel="stylesheet" type="text/css" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <script src="../../assets/js/Angularjs/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-messages.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-material.min.js"></script>
+    <script src="../../assets/js/Angularjs/ngprogress.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-preload-image.min.js"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyALFx098nMlc-gS5q00ebSGHhhklvxjhQs"></script>
+    <script src="../../assets/js/Angularjs/map.js?v=1"></script>
+    <script src="../../assets/js/Angularjs/moment.min.js"></script>
+    <script src="../../assets/js/Angularjs/locales.min.js"></script>
+    <script src="../../assets/js/Angularjs/humanize-duration.js"></script>
+    <script src="../../assets/js/Angularjs/angular-timer.min.js"></script>
+
+
+    <script src="../../assets/js/Angularjs/angular-touch.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-modal-service.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-ellipsis.js"></script>
+    <script src="../../assets/js/Angularjs/angular-hmac-sha512.js"></script>
+    <script src="//apis.google.com/js/platform.js" async defer></script>
+   <!-- <script src="../../assets/js/Angularjs/angular-sanitize.js"></script>-->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.6.4/angular-sanitize.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.6.4/angular-sanitize.min.js"></script>
+    <script src="../../assets/js/Angularjs/readmore.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-route.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-ui-router.min.js"></script>
+    <script data-require="ui-bootstrap@*" data-semver="0.12.1" src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.1.min.js"></script>
+    <script src="../../assets/js/Angularjs/ngStorage.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-cookies.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment-with-locales.js"></script>
+    <script src="//rawgit.com/indrimuska/angular-moment-picker/master/dist/angular-moment-picker.js"></script>
+
+    <script src="../../assets/app.js?v=1"></script>
+    <script src="../../assets/js/Angularjs/common.js?v=1"></script>
+    <script src="../../app/Resorts/modalCtr.js?v=1"></script>
+    <script src="../../app/Resorts/localAreaService.js?v=1"></script>
+    <script src="../../app/Resorts/viewCitiesService.js?v=1"></script>
+    <script src="../../app/Resorts/loginCtr.js?v=1"></script>
+    <script src="../../app/Resorts/loginService.js?v=1"></script>
+    <script src="../../app/Resorts/registerCtr.js?v=1"></script>
+    <script src="../../app/Resorts/registerService.js?v=1"></script>
+    <script src="../../app/Resorts/phonenumberCtr.js?v=1"></script>
+    <script src="../../app/Resorts/ResortCtr.js?v=1"></script>
+    <script src="../../app/Resorts/ResortService.js?v=1"></script>
+    <script src="../../app/Resorts/ResortdetailCtr.js?v=1"></script>
+    <script src="../../app/Resorts/ResortdetailService.js?v=1"></script>
+
+    <script src="../../assets/js/jquery.js"></script>
+   
+    <script src="../../assets/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+
+    <style>
+        .angular-google-map {
+            display: block;
+        }
+    </style>
+
+
+    <script>
+
+  $(document).ready(function(){
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+      // Store hash
+      var hash = this.hash;
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+});
+</script>
+
+    <style>
+	 
+.slide {
+    position: relative!important;
+    top: 0;
+    left: 0;
+    width: 100%!important;
+    height: 373px!important;
+}
+
+.navnew {
+    bottom: 19px !important;
+    display: block !important;
+    height: 48px !important;
+    left: 0;
+    margin: 0 auto;
+    padding: 1em 0 0.8em!important;
+    position: absolute!important;
+    right: 0;
+    text-align: center!important;
+    width: 100%!important;
+    z-index: 5!important;
+}
+.navnew li img {
+    width: 100% !important;
+    
+   
+    height: 50px !important;
+    border-radius: 50%!important;
+    border:	2px solid white !important;
+   
+}
+.navnew li.active {
+    border:transparent !important; 
+
+     border:  transparent !important; 
+    border-radius: 16px !important;
+    cursor: pointer !important;
+    display: inline-block !important;
+    height: 52px !important;
+    margin: 0 8px !important;
+    position: relative !important;
+    width: 50px !important;
+}
+.btn-scroll:hover, .btn-scroll:focus, .btn-scroll:active, .btn-scroll.active, .open>.dropdown-toggle.btn-scroll {
+       border-radius: 0!important;
+    background-color: white!important;
+   
+    color: black !important;
+    font-family: "Lato" !important;
+	border-bottom:3px solid #313496!important;
+
+	
+
+}
+md-card md-card-title md-card-title-media .md-media-lg {
+    height: 100%;
+   width: 152px; 
+}
+
+ </style>
+
+    <style type="text/css">
+
+         .drop {
+             position: relative;
+         }
+         .drop ul {
+             position: absolute;
+             left: 0;
+             top: 3em;
+             -webkit-transition: all 0.3s ease;
+             transition: all 0.3s ease;
+             -webkit-transform: scale(0);
+             transform: scale(0);
+             -webkit-transform-origin: 0 0;
+             transform-origin: 0 0;
+             box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 8px 0 rgba(0, 0, 0, 0.12);
+             background: #ebebeb;
+         }
+         .drop ul li {
+             display: block;
+             width: 100%;
+         }
+         .drop ul li a {
+             width: 100%;
+             padding: 1em 18px;
+             display: inline-block;
+             white-space: pre;
+             box-sizing: border-box;
+         }
+         .drop ul li a:hover {
+             background: #ebebeb;
+         }
+         .drop:hover ul {
+             -webkit-transform: scale(1);
+             transform: scale(1);
+         }
+
+        .nav>li>a {
+    position: relative;
+    display: block;
+    padding: 0px !important;
+	color:#fff !important;
+	font-size:13px !important;
+}
+        .navbar-inverse .navbar-nav>li>a
+        { color:#fff !important;}
+
+        .navbar-inverse .navbar-nav>li>a:hover
+        { color:#fff !important;}
+
+        .navbar-right .dropdown-menu {
+    right: auto;
+    left: auto;
+	border-radius:6px !important;
+}
+        .costbutton{
+background-color:#EDA72B !important;
+border:1px solid #EDA72B;
+color:black;
+border-radius:5px;
+text-transform:capitalize !important;
+}
+        .costbutton1{
+background-color:white !important;
+border:1px solid #d5d5d5;
+color:black;
+border-radius:5px;
+text-transform:capitalize !important;
+}
+        .btn-scroll:highlight, .btn-highlight:focus, .btn-highlight:active, .btn-highlight.active, .open>.dropdown-toggle.btn-highlight {
+      background-color:#EDA72B !important;
+border:1px solid #EDA72B;
+color:black;
+border-radius:5px;
+text-transform:capitalize !important;
+
+	
+
+}
+.btn-amt:highlight, .btn-amt:focus, .btn-amt:active, .btn-amt.active, .open>.dropdown-toggle.btn-amt {
+      background-color:transparent !important;
+border:1px solid transparent !important;
+color:white !important;
+}
+        .img-circle {
+    border-radius: 50%;
+	height:60px;
+	
+}
+ p{top:0 !important;}
+ a {
+color: #337ab7;
+text-decoration: none;
+cursor: pointer !important;
+}
+.image img {
+    -webkit-transition: all 1s ease; /* Safari and Chrome */
+  	-moz-transition: all 1s ease; /* Firefox */
+  	-o-transition: all 1s ease; /* IE 9 */
+  	-ms-transition: all 1s ease; /* Opera */
+  	transition: all 1s ease;
+}
+
+.image:hover img {
+    -webkit-transform:scale(1.25); /* Safari and Chrome */
+    -moz-transform:scale(1.25); /* Firefox */
+    -ms-transform:scale(1.25); /* IE 9 */
+    -o-transform:scale(1.25); /* Opera */
+     transform:scale(1.25);
+}
+
+ </style>
+
+    <script type='text/javascript'>
+        
+        $(document).ready(function() {
+        
+			$('.carousel[data-type="multi"] .item').each(function(){
+			var next = $(this).next();
+			
+			if (!next.length) {
+			next = $(this).siblings(':first');
+			}
+			next.children(':first-child').clone().appendTo($(this));
+			
+			for (var i=0;i<2;i++) {
+			next=next.next();
+			if (!next.length) {
+			next = $(this).siblings(':first');
+			}
+			
+			next.children(':first-child').clone().appendTo($(this));
+			}
+			});
+			
+			//for Drop Down Begins
+			$('ul.nav li.dropdown').hover(function() {
+			$(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
+			}, function() {
+			$(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
+			});
+        	//for Drop Down Ends
+        });
+        
+        </script>
+
+	 <!-- #region Jssor Slider Begin -->
+    <script src="../../assets/js/jssor.slider-23.1.5.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        jssor_1_slider_init = function() {
+
+            var jssor_1_options = {
+              $AutoPlay: 1,
+              $ArrowNavigatorOptions: {
+                $Class: $JssorArrowNavigator$
+              },
+              $ThumbnailNavigatorOptions: {
+                $Class: $JssorThumbnailNavigator$,
+                $Cols: 9,
+                $SpacingX: 3,
+                $SpacingY: 3,
+                $Align: 260
+              }
+            };
+
+            var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
+
+            /*responsive code begin*/
+            /*remove responsive code if you don't want the slider scales while window resizing*/
+            function ScaleSlider() {
+                var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
+                if (refSize) {
+                    refSize = Math.min(refSize, 600);
+                    jssor_1_slider.$ScaleWidth(refSize);
+                }
+                else {
+                    window.setTimeout(ScaleSlider, 30);
+                }
+            }
+            ScaleSlider();
+            $Jssor$.$AddEvent(window, "load", ScaleSlider);
+            $Jssor$.$AddEvent(window, "resize", ScaleSlider);
+            $Jssor$.$AddEvent(window, "orientationchange", ScaleSlider);
+            /*responsive code end*/
+        };
+
+
+$(document).ready(function() {
+	var showChar = 100;
+	var ellipsestext = "...";
+	var moretext = "more";
+	var lesstext = "less";
+	$('.more').each(function() {
+		var content = $(this).html();
+
+		if(content.length > showChar) {
+
+			var c = content.substr(0, showChar);
+			var h = content.substr(showChar-1, content.length - showChar);
+
+			var html = c + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink">' + moretext + '</a></span>';
+
+			$(this).html(html);
+		}
+
+	});
+
+	$(".morelink").click(function(){
+		if($(this).hasClass("less")) {
+			$(this).removeClass("less");
+			$(this).html(moretext);
+		} else {
+			$(this).addClass("less");
+			$(this).html(lesstext);
+		}
+		$(this).parent().prev().toggle();
+		$(this).prev().toggle();
+		return false;
+	});
+});
+
+    </script>
+    <script>
+$("input, textarea").focusout(function(){
+$('meta[name=viewport]').remove();
+$('head').append('<meta name="viewport" content="width=device-width, maximum-scale=1.0, user-scalable=0">');
+$('meta[name=viewport]').remove();
+$('head').append('<meta name="viewport" content="width=device-width, initial-scale=yes">'} );
+</script>
+
+</head>
+
+<!------------facebook login--------------->
+
+<script>
+    // This is called with the results from from FB.getLoginStatus().
+    function statusChangeCallback(response) {
+        console.log('statusChangeCallback');
+        console.log(response);
+        // The response object is returned with a status field that lets the
+        // app know the current login status of the person.
+        // Full docs on the response object can be found in the documentation
+        // for FB.getLoginStatus().
+        if (response.status === 'connected') {
+            // Logged into your app and Facebook.
+            testAPI();
+        } else {
+            // The person is not logged into your app or we are unable to tell.
+            document.getElementById('status').innerHTML = 'Please log ' +
+                    'into this app.';
+        }
+    }
+
+    // This function is called when someone finishes with the Login
+    // Button.  See the onlogin handler attached to it in the sample
+    // code below.
+    function checkLoginState() {
+        debugger;
+        FB.getLoginStatus(function(response) {
+            statusChangeCallback(response);
+        });
+    }
+
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '288940628246211',
+            cookie     : true,  // enable cookies to allow the server to access
+            // the session
+            xfbml      : true,  // parse social plugins on this page
+            version    : 'v2.9' // use graph api version 2.8
+        });
+
+        // Now that we've initialized the JavaScript SDK, we call
+        // FB.getLoginStatus().  This function gets the state of the
+        // person visiting this page and can return one of three states to
+        // the callback you provide.  They can be:
+        //
+        // 1. Logged into your app ('connected')
+        // 2. Logged into Facebook, but not your app ('not_authorized')
+        // 3. Not logged into Facebook and can't tell if they are logged into
+        //    your app or not.
+        //
+        // These three cases are handled in the callback function.
+
+        FB.getLoginStatus(function(response) {
+            statusChangeCallback(response);
+        });
+
+    };
+
+    function fblogin() {
+        FB.login(function(response) {
+            console.log(response);
+            if (response.status === 'connected') {
+                // Logged into your app and Facebook.
+
+                FB.api('/me', { locale: 'en_US', fields: 'name, email, first_name, last_name, picture' },
+                        function(response) {
+                            console.log(response.email);
+                            console.log(response.first_name);
+                            console.log(response.last_name);
+                            console.log(response.picture);
+                            console.log('Successful login for: ' + response.name);
+
+                            var FBUserDetails = response;
+                            angular.element(document.getElementById('divIDFB')).scope().FBParkUserCheckCall(FBUserDetails);
+
+                        });
+
+
+            } else {
+                // The person is not logged into this app or we are unable to tell.
+            }
+        });
+    }
+
+
+
+    function logout() {
+        FB.logout(function(response) {
+            console.log(response);
+        });
+    }
+    // Load the SDK asynchronously
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+    // Here we run a very simple test of the Graph API after login is
+    // successful.  See statusChangeCallback() for when this call is made.
+    function testAPI() {
+        console.log('Welcome!  Fetching your information.... ');
+        FB.api('/me', { locale: 'en_US', fields: 'name, email, first_name, last_name, picture' },
+                function(response) {
+                    console.log(response.email);
+                    console.log(response.first_name);
+                    console.log(response.last_name);
+                    console.log(response.picture);
+                    console.log('Successful login for: ' + response.name);
+                    document.getElementById('status').innerHTML = 'Thanks for logging in, ' + response.name + '!';
+
+                });
+    }
+</script>
+<!------------facebook login--------------->
+
+
+<!------------google login--------------->
+
+<script>
+    function onSignIn(googleUser) {
+        debugger;
+        var profile = googleUser.getBasicProfile();
+        console.log(profile);
+        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+        console.log('Name: ' + profile.getName());
+        console.log('Image URL: ' + profile.getImageUrl());
+        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+
+        var GoogleUserDetails = profile;
+        angular.element(document.getElementById('divID')).scope().GoogleParkUserCheckCall(GoogleUserDetails);
+
+    }
+
+</script>
+<script>
+    function signOut() {
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+            console.log('User signed out.');
+        });
+    }
+</script>
+<!------------google login--------------->
+
+
+
+<body ng-app="MyApp"  data-spy="scroll" data-offset="50" ng-controller="ResortDetailCtr as ctrl" ng-cloak>
+
+
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    	<div class="navbar-top">
+        	<div class="container" style="padding-top:6px; padding-bottom:6px;" >
+            	<div class="row ">
+                    <div class="col-lg-6 col-md-6 col-sm-4 col-xs-3">
+                        <span style="color:white;font-size:15px;"data-ng-bind="regionModel()" ng-click="loadEditForm()"></span>&nbsp;
+                        <span><i class="fa fa-map-marker" aria-hidden="true" style="color:#FEB824;font-size:15px;" ng-click="loadEditForm()" ></i></span>
+                    </div>
+                
+                    <div class="col-lg-6 col-md-6 col-sm-8 col-xs-9">
+                        <ul class="nav navbar-nav navbar-right" >
+                           <!-- <li><a href="#">Link</a></li>-->
+                            <li class="dropdown" style="padding-right:4px;" ng-if="showLoginBtn">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" ng-click="loginPage()" style="color:#fff;">Login </b></a>
+
+
+                                <!-- <ul class="dropdown-menu" style="width:180px;margin-top:10px;"> -->
+                                <!-- <div class="row" style="margin-top:-10%;"><a href="#"><span style="padding-left:50px;"><img  src="../../assets/images/top_arrow.png" alt="" height="14px" width="14px" ></span></a> -->
+
+
+
+
+                                <!-- </div> -->
+
+                                <!-- <li> -->
+
+                                <!-- <div style="width:100%;padding:5px;float:left;"> -->
+                                <!-- <div style="width:40%;float:left;"><img src="assets/images/Login_Icon.png"  class="img-responsive"></div> -->
+                                <!-- <div style="width:60%;float:left;"> -->
+                                <!-- <div class="row"><a href="#"><span class="glyphicon glyphicon-play" style="font-size:11px;padding-right:5px;"></span> My Booking</a></div> -->
+                                <!-- <div class="row"><a href="#"><span class="glyphicon glyphicon-play" style="font-size:11px;padding-right:5px;"></span> My Cash</a></div> -->
+                                <!-- <div class="row" ng-if="showLogOutBtn"><a href="#"><span class="glyphicon glyphicon-user" style="font-size:11px;padding-right:5px;color:#313496;" ></span><span data-ng-bind="firstName" style="color:#313496;"></span></span></a></div> -->
+                                <!-- <div class="row"  ng-if="showLogOutBtn" ><a href="#"><span class="glyphicon glyphicon-off" style="font-size:11px;padding-right:5px;color:#feb824;"></span><span ng-click="logOutCall()" style="color:#feb824;" >Logout</span></a></div> -->
+                                <!-- </div> -->
+                                <!-- </div> -->
+                                <!-- <div style="width:100%;padding:5px;float:left;" ng-if="showLoginBtn"> -->
+                                <!-- <div style="width:48%;float:left;" align="center"> -->
+                                <!-- <ul class="list-inline text-center od-signInSignUp"> -->
+                                <!-- <li><a href="#" ng-click="loginPage()" class="btn-md btn" style="text-transform:none !important;">Login</a></li> -->
+                                <!-- </ul> -->
+                                <!-- </div> -->
+                                <!-- <div style="width:2%;float:left;"></div> -->
+                                <!-- <div style="width:48%;float:left;" align="center"> -->
+                                <!-- <ul class="list-inline text-center od-signInSignUp"> -->
+                                <!-- <li><a href="#" ng-click="SignUpPage()" class="btn-md btn" style="text-transform:none !important;">Sign Up</a></li> -->
+                                <!-- </ul> -->
+                                <!-- </div> -->
+                                <!-- </div> -->
+                                <!-- </li> -->
+                                <!-- </ul> -->
+                            </li>
+                            <li class="dropdown" style="padding-right:4px;" ng-if="showLogOutBtn">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:#fff;">Hi {{firstName}} {{lastName}} <b class="caret"></b></a>
+                                <ul class="dropdown-menu" style="width:180px;margin-top:10px;">
+                                    <div class="row" style="margin-top:-10%;"><a href="#"><span style="padding-left:50px;"><img  src="../../assets/images/top_arrow.png" alt="" height="14px" width="14px" ></span></a>
+
+
+
+
+                                    </div>
+
+                                    <li>
+
+                                        <!-- <div style="width:100%;padding:5px;float:left;"> -->
+                                            <!-- <div style="width:40%;float:left;"><img src="{{DP}}"  class="img-responsive"></div> -->
+                                            <!-- <div style="width:60%;float:left;"> -->
+                                                <!-- <div class="row"><a href="#"><span class="glyphicon glyphicon-play" style="font-size:11px;padding-right:5px;"></span> My Booking</a></div> -->
+                                                <!-- <div class="row"><a href="#"><span class="glyphicon glyphicon-play" style="font-size:11px;padding-right:5px;"></span> My Cash</a></div> -->
+                                               
+												<!-- <div class="row"  ng-if="showLogOutBtn" ><a href="#"><span class="glyphicon glyphicon-off" style="font-size:11px;padding-right:5px;color:#feb824;"></span><span ng-click="logOutCall()" style="color:#feb824;" >Logout</span></a></div> -->
+                                            <!-- </div> -->
+                                        <!-- </div> -->
+										<div class="row" align="center" style="border-radius:50%;">
+									<img src="{{DP}}"  class="img-responsive img-circle">
+									</div>
+									
+									<div class="row" style="margin-top:5%;">
+									<div class="row" style="margin-left:11%;"><a href="#" style="color:#666666;"><span class="glyphicon glyphicon-play" style="font-size:11px;padding-right:5px;color:#666666;"></span> My Booking</a></div>
+									<div class="row" style="margin-left:11%;" ><a href="#" style="color:#666666;"><span class="glyphicon glyphicon-play" style="font-size:11px;padding-right:5px;"></span> My Cash</a></div>
+                                             
+									<div class="row" style="margin-left:11%;" ng-if="showLogOutBtn"><a href="#"><span class="glyphicon glyphicon-off" style="font-size:11px;padding-right:5px;color:#666666;"></span><span ng-click="logOutCall()" style="color:#666666;font-weight:bold;margin-left:2%;" >Logout</span></a></div>
+											
+									
+									</div>
+
+                                    </li>
+                                </ul>
+                            </li>
+                            
+                            <li class="dropdown" style="padding-right:4px;">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:#fff;"><span style="color:#feb824; padding:0 8px 0 0px;">|</span>Support <b class="caret"></b></a>
+                                <ul class="dropdown-menu" style="margin-top:10px;">
+								<div class="row" style="margin-top:-10%;"><a href="#"><span style="padding-left:50px;"><img  src="../../assets/images/top_arrow.png" alt="" height="14px" width="14px" ></span></a></div>
+                                 
+                                    <li><a href="#"><span class="glyphicon glyphicon-play" style="font-size:11px;padding-right:5px;"></span>Contact Us</a></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-play" style="font-size:11px;padding-right:5px;"></span>Complete Booking</a></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-play" style="font-size:11px;padding-right:5px;"></span>Make a Payment</a></li>
+                                    <!--
+                                    <li class="divider"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                    -->
+                                </ul>
+                            </li>
+                            
+                            <li class="dropdown" >
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:#fff;"><span style="color:#feb824; padding:0 8px 0 0px;">|</span>Corporate Deals <b class="caret"></b></a>
+                                <ul class="dropdown-menu" style="width:180px;left:30px;margin-top:10px;">
+                                   <div class="row" style="margin-top:-10%;"><a href="#"><span style="padding-left:50px;"><img  src="../../assets/images/top_arrow.png" alt="" height="14px" width="14px" ></span></a></div>
+                                  
+									
+									<li><a href="#"><span class="glyphicon glyphicon-play" style="font-size:11px;padding-right:5px;"></span>Action</a></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-play" style="font-size:11px;padding-right:5px;"></span>Another action</a></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-play" style="font-size:11px;padding-right:5px;"></span>Something else here</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-play" style="font-size:11px;padding-right:5px;"></span>Separated link</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+               	 	</div>
+            	</div>
+            </div>
+        </div>
+        
+        <div class="container" style="height:54px; ">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>                </button>
+                <a class="navbar-brand" href="../../index.html" style="font-size:24px;">Outing<span>Day</span></a>            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="border:none;">
+            	<div class="row head" align="center">
+                    
+                    <div class="col-lg-5 col-md-5 col-xs-12 " style="margin-left:15%;" align="">
+                        <div class="input-group" align="">
+                            <span class="input-group-btn" align="">
+                               
+                               <div class="dropdown">
+                                   <button class="dropbtn1">
+                                        <span>
+                                            <span style="text-align:left;"><i class="fa fa-th-large ic_home" aria-hidden="true"></i><span class="all_color">All</span></span>
+ <span style="">
+ <i class="fa fa-caret-down ic_color" aria-hidden="true" ></i>
+ </span></span>
+                                    </button>
+
+                                    <div class="dropdown-content">
+                                        <div class="D_dropdown">
+                                            <a href="#" class="drop_content"><div class="D_dropdown_span"><img src="../../assets/images/resorts.png" width="18px" height="18px"></div><div class="D_dropdown_span2">Resorts</div></a>
+                                        </div>
+                                        <div class="D_dropdown">
+                                            <a href="#" class="drop_content"><div class="D_dropdown_span"><img src="../../assets/images/hotel.png" width="18px" height="20px"></div><div class="D_dropdown_span2">Hotels</div></a>
+                                        </div>
+                                        <div class="D_dropdown">
+                                            <a href="#" class="drop_content"><div class="D_dropdown_span"><img src="../../assets/images/restaurants.png" width="17px" height="17px"></div><div class="D_dropdown_span2">Restaurants</div></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </span>
+
+
+                            <md-autocomplete  md-no-cache="ctrl.noCache" md-selected-item="ctrl.selectedItem"
+                                             md-search-text="ctrl.searchText" md-selected-item-change="MainSearch(ctrl)" md-items="item in ctrl.querySearch(ctrl.searchText)"
+                                             md-item-text="item.localArea"  placeholder="Search for Resorts" >
+                                <md-item-template >
+                                  <span class="item-title" >
+                                 <md-icon><i class="fa fa-map-marker" aria-hidden="true" style="color:#ffbb39;font-size:25px;"></i> </md-icon>
+                                 <span md-highlight-text="ctrl.searchText"> {{item.localArea}} </span>                                     </span>
+                               
+                                </md-item-template>
+                            </md-autocomplete>
+							
+							
+
+                        </div>
+                        
+					</div>
+					
+					<div class="col-lg-3 col-md-3 col-xs-12">
+					
+                    <!-- <ul class="list-inline text-center od-signInSignUp"> -->
+                        <!-- <li><a href="#" class="btn-md btn" ng-click="MainSearch(ctrl)" style="text-transform:none !important;">Sign up / Sign in</a></li> -->
+                     <!-- </ul> -->
+                    
+                    </div>
+                    
+                </div>
+            </div>
+           
+        </div>
+        
+    </nav>
+
+  <h3 style="display: none;"><timer/></h3>
+
+
+
+
+	 <div class="container" style="margin-top:60px;">
+	 
+	  
+
+	
+
+		
+
+	<h6 class="detailtext" ng-repeat="detail in resultParkDetail">Home > <span class="detailtext"style="padding-left:0% !important;">India > {{firstLineRegionModel}}</span></h6>
+	<!-- <spna>{{detail.name}}<span> -->
+	<div class="col-sm-8" >
+	<md-card>
+        <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                    <div class=" slider">
+                    	<img   ng-repeat="photo in photos" class="slide" ng-swipe-right="showPrev()" ng-swipe-left="showNext()" ng-show="isActive($index)" ng-src="http://outingadmin.littlepandits.com/images/ResortsImages/{{photo.src}}" onError="this.onerror=null;this.src='../../assets/images/default-thumb.gif';" />
+                    	<p class="arrow prev" href="#" ng-click="showPrev()"></p>
+                    	<p class="arrow next" href="#" ng-click="showNext()"></p>
+                    	<ul class="navnew">
+                            <li ng-repeat="photo in photos" ng-class="{'active':isActive($index)}">
+                                <img   class="img-responsive" ng-src="http://outingadmin.littlepandits.com/images/ResortsImages/{{photo.src}}"  onError="this.onerror=null;this.src='../../assets/images/default-thumb.gif';" ng-click="showPhoto($index);" />
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+			<div class="row detailtext" ng-repeat="detail in resultParkDetail" > 
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12" style="margin-top:25px;">
+                	<h5 class="detailtitle">{{detail.name}}</h5>
+                	
+			   </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" align="right" style="margin-top:30px;">
+                	<h6 class="result_title14" star-rating rating-value="detail.odRating" max="4.5"></h6><span style="margin-right:3.5%;"><button type="button" class="btn btn-success btn-xs">4.5</button></span>
+                </div>
+            </div>	
+      </md-card>
+        
+		
+		
+			<md-card>
+			<div class="row">
+            	<div class="col-lg-12"id="overview" >
+                    <div class="btn-group btn-group-justified" >
+                      <!-- <div class="btn-group"><button href="#overview" type="submit" class="btn btn-lg btn-scroll view_btn" style="padding:12%;"><a href="#overview" style="color:black !important;font-size:14px;">Overview</a></button></div> -->
+					 
+                      <!-- <div class="btn-group"><button type="button" class="btn btn-lg btn-scroll view_btn" style="padding:12%;"><a href="#roomtype" style="color:black !important;font-size:14px;">Room Type</a></button></div> -->
+					  <!-- <div class="btn-group"><button type="button" class="btn btn-lg btn-scroll view_btn" style="padding:12%;"><a href="#reviews" style="color:black !important;font-size:14px;">Reviews</a></button></div> -->
+					   <!-- <div class="btn-group"><button type="button" class="btn btn-lg btn-scroll view_btn" style="padding:12%;" ><a href="#location" style="color:black !important;font-size:14px;">Map</a></button></div> -->
+                    <a href="#overview" class="btn btn-lg btn-scroll view_btn btn-back" >Overview</a>
+					<a href="#packages" class="btn btn-lg btn-scroll view_btn btn-back">Packages</a>
+					
+					<a href="#roomtype" class="btn btn-lg btn-scroll view_btn btn-back" >Room Type</a>
+					<a href="#reviews" class="btn btn-lg btn-scroll view_btn btn-back" >Reviews</a>
+					<a href="#location" class="btn btn-lg btn-scroll view_btn btn-back">Map</a>
+					</div>
+                </div>
+			</div>
+        
+       
+      </md-card>
+		
+		
+		
+			<md-card>
+			
+    		 <section> 
+                <div class="card-block">
+                   
+					<h4 class="detailtitle" id="packages" >Overview</h4>
+                
+                    <div ng-repeat="detail in resultParkDetail" style="color:#191919;font-size:13px;"> 
+                         <p style="padding-left:1%;font-size:13px;"><hm-read-more
+		hm-text="{{ detail.overviewText }}" 
+		hm-limit="100" 
+		hm-more-text="read more" 
+		hm-less-text="read less"
+		hm-dots-class="dots"
+        hm-link-class="links"><b>About :</b>
+</hm-read-more></p>
+                     </div>
+					
+                
+                    <h4 class="detailtitle" id="roomtype">Amenities</h4>
+                    <div class="row" >
+                        <div class="col-xs-6 col-sm-4 col-1g-2 col-md-2" ng-repeat="amin in GetAminitiList">
+                            <div class="row" style="margin-bottom:10px;" align="left">
+                                <div class="col-xs-12 col-sm-12 col-1g-12 col-md-12" align="center"><img src="{{amin.AminitiLogo}}" height="25px" width="25px"></div>
+                                <div class="col-xs-12 col-sm-12 col-1g-12 col-md-12" align="center"><h6 class="detailtext5">{{amin.AminitiName}}</h6></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+       
+      </md-card>
+		
+		
+		<md-card>
+        <!-- <div class="col-lg-12" style="background-color:#f3f3f3;border-bottom:1px solid #cdcdcd;text-align:center;"> -->
+		 <!-- <button type="button" class="btn btn-lg btn-scroll view_btn btn-colp" data-toggle="collapse" ng-click="SkipRooms()" align="center">Skip Rooms</button> -->
+  
+       <!-- <button type="button" class="btn btn-lg btn-scroll view_btn btn-colp btn-active" data-toggle="collapse" href="#demo" align="center">Show Rooms</button> -->
+   <!-- <div class="padding2" style="background-color:#f3f3f3;border-top:0px solid #cdcdcd;">&nbsp;</div> -->
+		 <!-- </div> -->
+       
+      </md-card>
+		
+		
+		
+			
+   <h4 class="detailtitle">Packages</h4>
+    <md-card ng-repeat="park in ParkDetail" ng-show="park.facilityType == 'O'">
+        <div layout="row">
+            <div flex>
+                <md-card-title-media>
+                    <div style="margin:5%;" >
+                        <img ng-src="http://outingadmin.littlepandits.com/images/ResortsImages/{{park.facilityImage}}" ng-click="ShowImagesCall(park)" onError="this.onerror=null;this.src='../../assets/images/default-thumb.gif';"class="md-card-image">
+                        <p class="md-subhead" style="font-size:15px;margin:0px !important;">
+                        <h6 class="detailtext1"  style="margin-bottom:0%!important;padding-bottom:0%!important;">
+                            <hm-read-more
+                                    hm-text="{{ park.facilityInRoomFacilites }}"
+                                    hm-limit="100"
+                                    hm-more-text="Show more"
+                                    hm-less-text="Show less"
+                                    hm-dots-class="dots"
+                                    hm-link-class="links">
+                            </hm-read-more>
+
+
+                        </h6>
+                        </p>
+                    </div>
+                </md-card-title-media>
+            </div>
+            <div flex>
+                <md-card-title-text >
+                    <div style="margin:2%;" class="image">
+                        <span class="md-headline" style="font-size:16px;font-weight:700;text-align:left;" data-toggle="collapse" data-target="#demo">{{park.facilityTypeTitle}}</span>
+                        <h6 class="detailtext1"  style="margin-bottom:0%!important;padding-bottom:0%!important;">
+                            <hm-read-more
+                                    hm-text="{{ park.description }}"
+                                    hm-limit="100"
+                                    hm-more-text="Show more"
+                                    hm-less-text="Show less"
+                                    hm-dots-class="dots"
+                                    hm-link-class="links">
+                            </hm-read-more>
+                        </h6>
+
+                    </div>
+                </md-card-title-text>
+            </div>
+            <div flex>
+                <div>
+
+                    <h4 class="md-subhead" style="font-size:18px !important;text-align:center;color:#5F5993;font-weight:bold !important;">{{park.currentPrice | INR}}</h4>
+                    <h4 class="md-subhead" style="font-size:15px !important;text-align:center;"><button type="button" class="btn btn-amt btn-sm" style="background-color:#67A415;color:white;" ng-click="BookPkgCall(park)">Book</button></h4>
+                </div>
+            </div>
+        </div>
+
+
+    </md-card>
+		
+
+	  
+
+<h4 class="detailtitle">Rooms</h4>	  
+
+<md-card ng-repeat="park in ParkDetail" ng-show="park.facilityType == 'R'">
+		<div layout="row">
+  <div flex>
+
+   <md-card-title-media>
+            <div style="margin:5%;">
+			<img ng-src="http://outingadmin.littlepandits.com/images/ResortsImages/{{park.facilityImage}}" ng-click="ShowImagesCall(park,$index)" onError="this.onerror=null;this.src='../../assets/images/default-thumb.gif';"class="md-card-image">
+			<p class="md-subhead" style="font-size:15px;margin:0px !important;">
+			 <h6 class="detailtext1"  style="margin-bottom:0%!important;padding-bottom:0%!important;">
+               		<hm-read-more
+                            hm-text="{{ park.facilityInRoomFacilites }}"
+		                    hm-limit="100"
+		                    hm-more-text="Show more"
+		                    hm-less-text="Show less"
+		                    hm-dots-class="dots"
+                            hm-link-class="links">
+                    </hm-read-more>
+            </h6>
+			</p>
+			</div>
+   </md-card-title-media>
+
+  </div>
+  <div flex>
+   <md-card-title-text >
+           <div style="margin:2%;">
+            <span class="md-headline" style="font-size:16px;font-weight:700;text-align:left;" data-toggle="collapse" data-target="#demo">{{park.facilityTypeTitle}}</span>
+            <h6 class="detailtext1"  style="margin-bottom:0%!important;padding-bottom:0%!important;">
+            <hm-read-more hm-text="{{ park.description }}" hm-limit="100" hm-more-text="Show more" hm-less-text="Show less" hm-dots-class="dots" hm-link-class="links">
+            </hm-read-more>
+            </h6>
+			</div> 
+  </md-card-title-text>
+  </div>
+  <div flex>
+  <div>
+  
+  <h4 class="md-subhead" style="font-size:18px !important;text-align:center;color:#5F5993;font-weight:bold !important;">{{park.currentPrice | INR}}</h4>
+  <h4 class="md-subhead" style="font-size:15px !important;text-align:center;"><button type="button" class="btn btn-success btn-sm" style="background-color:#67A415;color:white;" ng-click="BookPkgCall(park)">Book</button></h4>
+  </div>
+  </div>
+ </div>
+
+    <div id="divId{{$index}}">
+        <div ng-bind-html="snippet"></div>
+        <!--<md-card>-->
+            <!--<div ng-cloak>-->
+                <!--<md-content>-->
+                    <!--<md-tabs md-dynamic-height md-border-bottom>-->
+                        <!--<md-tab label="Photos">-->
+                            <!--<md-content class="md-padding">-->
+                                <!--<div class="container">-->
+                                    <!--<div style="width: 680px;">-->
+                                        <!--<img   ng-repeat="facility in facilityPhotos" class="slide" ng-swipe-right="showPrev()" ng-swipe-left="showNext()" ng-show="isActive($index)" ng-src="http://admin.outingday.com/images/ResortsImages/{{facility.src}}" onError="this.onerror=null;this.src='../../assets/images/default-thumb.gif';" />-->
+                                        <!--<p class="arrow prev" href="#" ng-click="showPrev()"></p>-->
+                                        <!--<p class="arrow next" href="#" ng-click="showNext()"></p>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</md-content>-->
+                        <!--</md-tab>-->
+                        <!--<md-tab label="Info">-->
+                            <!--<md-content class="md-padding">-->
+                                <!--<h1 class="md-display-2">Info</h1>-->
+                                <!--<p data-ng-bind="facilitydescription"></p>-->
+                            <!--</md-content>-->
+                        <!--</md-tab>-->
+                    <!--</md-tabs>-->
+                <!--</md-content>-->
+            <!--</div>-->
+        <!--</md-card>-->
+
+    </div>
+
+</md-card>
+
+	 
+
+	  
+	  <md-card> 
+	  <section>
+           <div class="card-block" style="background-color:white;" >
+            	<h4 class="detailtitle">Write Your Story</h4>
+            	<div class="form-group" id="location">
+				  
+				  <textarea class="form-control" rows="5" id="comment" placeholder="Your Rating" style="width:98%;margin-left:1%;background-color:#f3f3f3;color:#424242;"></textarea>
+				</div>
+				<div class="row no-pad-mar" style="margin:0 6px 0 6px;line-height:20px;" ></div>
+            </div>
+        </section>
+	  </md-card>
+		
+		
+		
+		  <md-card>
+		  
+	    <section>
+            	 
+				<div  class="card-block" style="background-color:white;" >
+					<h4 class="detailtitle">Map</h4>
+                    <google-map
+                            center="centerProperty"
+                            zoom="zoomProperty"
+                            markers="markersProperty"
+                            latitude="clickedLatitudeProperty"
+                            longitude="clickedLongitudeProperty"
+
+                            draggable="true"
+                            style="height: 350px; width: 100%">
+                    </google-map>
+
+                </div>
+            </section>
+		  </md-card>
+		
+		
+		
+	</div>
+
+
+ <div class="col-sm-4 " ng-cloak>
+  <md-card>
+
+           <div class="left-panel"style="background-color:white;padding:0%!important;margin-bottom:0px !important;">
+             <h4 class="viewtitle" style="padding-left:4%!important;padding:0%;">Package Summary</h4>
+			  <h6 class="detailtext1"  style="padding-left:4%!important;padding:0%;">{{firstLineRegionModel}}</h6>
+                                                    
+								  
+								  <div>
+								  &nbsp;
+								  </div>
+			  
+                            <!-- <div class="row" style="margin:5px;margin-left:1px;"> -->
+							<!-- <div class="col-md-3 col-sm-12 "><img src="../../assets/images/icon_uptp3stars.png" align="center" class="det_img_pac" ></img><h6 class="detailtext1">Upto 3 Stars</h6></div> -->
+							<!-- <div class="col-md-3 col-sm-12"><img src="../../assets/images/icon_meals.png" align="center" style="margin-left:11% !important;"></img><h6 class="detailtext1"></h6>Meals</div> -->
+							<!-- <div class="col-md-3 col-sm-12"><img src="../../assets/images/icon_activities.png" align="center" class="det_img_pac"></img><h6 class="detailtext1">Activities</h6></div> -->
+							<!-- <div class="col-md-3 col-sm-12"><img src="../../assets/images/icon_transport.png" align="center" class="det_img_pac"></img><h6 class="detailtext1">Transport</h6></div> -->
+							
+                                <!-- </div> -->
+								   <div class="row" style="margin-bottom:10px;">
+            <div class="col-xs-6 col-sm-4 col-1g-3 col-md-3">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-1g-12 col-md-12" align="center">
+                        <img src="../../assets/images/icon_uptp3stars.png" style="height:32px; width:32px;">
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-1g-12 col-md-12" align="center" style="margin-top:10px;">
+                        Upto 3 Stars
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-1g-3 col-md-3" >
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-1g-12 col-md-12" align="center">
+                        <img src="../../assets/images/icon_meals.png" style="height:32px; width:32px;">
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-1g-12 col-md-12" align="center" style="margin-top:10px;">
+                       Meals
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-1g-3 col-md-3">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-1g-12 col-md-12" align="center">
+                        <img src="../../assets/images/icon_activities.png" style="height:32px; width:32px;">
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-1g-12 col-md-12" align="center" style="margin-top:10px;">
+                       Activities
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-1g-3 col-md-3" >
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-1g-12 col-md-12" align="center">
+                        <img src="../../assets/images/icon_transport.png" style="height:32px; width:32px;">
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-1g-12 col-md-12" align="center" style="margin-top:10px;">
+                        Transport
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+								  <div>
+								  &nbsp;
+								  </div>
+								   <div class="row" style="margin:5px;margin-left:1px;">
+							<div class="col-md-6 col-sm-12 ">
+							<h6 class="detailtext1"  style="padding-left:4%!important;padding:0%;font-size:14px !important;">Starting Price Per Person</h6>
+							 <h4 class="viewtitle" style="padding-left:4%!important;padding:0%;" data-ng-bind="minCost1 | INR"></h4>
+							</div>
+							<div class="col-md-6 col-sm-12">
+							<h4 class="detailtext1 package_info" >Best Price Guaranteed</h4>
+							<h6 class="detailtext1 package_info" >Verified Local Operator</h6>
+							<h6 class="detailtext1 package_info" >No Booking Fees</h6>
+							
+							</div>
+							
+							
+                                </div>
+								
+								 
+         
+		 
+		 
+		 </div>
+
+   </md-card>
+
+       
+
+
+		
+		
+	</div>
+	</div>
+	                           
+	 
+ <div class="container-fluid">   
+   
+        <div class="row" style="background-color:#0c0e1b; ">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            	<div class="row social_foot">
+                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 certified_logo">Certified Logos</div>
+                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="text-align:right;" >
+                   <ul class="list-inline pull-right">
+            <li><a  class="social" href="https://www.facebook.com/outingday/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+            <li> <a  class="social"><i class="fa fa-pinterest-p"></i></a></li>
+            <li><a  class="social"><i class="fa fa-instagram"></i></a></li>
+            <li><a  class="social"><i class="fa fa-pinterest-p"></i></a></li>
+          </ul>                  </div>
+                </div>             
+             	<div class="row" style="padding:30px;">
+                	<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" align="center">
+                    	<img  src="../../assets/images/Logo_Footer.png" alt="" style="width:30%;"><br><br>
+							<span style="color:#fff;font-size:14px;">© 2016 Outingday Pvt. Ltd.</span> 
+							                     
+					</div>	
+                    
+                        <span class="fot-company">Powered by Castus</span> 
+                            
+							
+							<div class="col-lg-2 col-md-2 col-sm-3 col-xs-6" style="color:#fff;">
+                                <p class="h4"><a href="../../app/Resorts/outingday.html" style="color:white;font-size:14px;">Outing Day</a></p>
+                                <ul class="footerlist">
+                                    <li ><a href="../../app/Resorts/carrer.html" class="footerlinks" >Career</a></li>
+                                    <li><a href="../../app/Resorts/about.html" class="footerlinks" >About Us</a></li>
+                                    <li><a href="../../app/Resorts/cantact.html" class="footerlinks">Contact Us</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6" style="color:#fff;font-size:14px;">
+                                <p class="h4">Country</p>
+                                <ul class="footerlist">
+                                    <li ><a class="footerlinks">India</a></li>
+                                   
+								</ul>
+                            
+                        </div>
+                    </div>	
+         </div>
+        </div>
+       </div>
+
+    
+	 <script type="text/ng-template" id="modal1.html">
+        <div class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" ng-click="close('Cancel')" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Yes or No?</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>It's your call...</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" ng-click="close('No')" class="btn btn-default" data-dismiss="modal">No</button>
+                        <button type="button" ng-click="close('Yes')" class="btn btn-primary" data-dismiss="modal">Yes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+
+  
+   
+
+   
+    <script>
+    $('.carousel').carousel({
+        interval: 5000 
+    })
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<html>
+<body>
+<head>
+    <style>
+        .datefield {
+            font-size: 15px;
+            font-family: arial;
+            width: 175px;
+            height: 32px;
+            padding-left: 2px;
+        }
+        .container-fluid {
+            
+            
+            margin-right: auto!important;
+            margin-left: auto!important;
+           
+           
+        }
+		.modal-content {
+    width: 330px !important;
+    position:relative!important;
+    margin-right: 1%;
+    background-color: transparent !important;
+}
+		.modal.in .modal-dialog {
+    -webkit-transform: translate(0,0);
+    -ms-transform: translate(0,0);
+    -o-transform: translate(0,0);
+    transform: translate(0,0);
+    top: 50%!important;
+   position:fixed;
+    right: 36%;
+}
+
+    </style>
+	
+</head>
+<div class="container-fluid" align="center" style="border-radius:5px;width:100%;background:white;" id="pop">
+    <div class="row" style="background-color:#0E1327;">
+        <div class="col-lg-12">
+            <h4 class="" style="color:white;padding-top:0%;text-align:left;">Confirmation<span style="float:right;padding-right:4%;"><i class="fa fa-times" aria-hidden="true" style="color:white;font-size:20px;" ng-click="cancel()"></i></span></h4>
+        </div>
+    </div>
+    <form class="form-horizontal" style="margin-top:4%;">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <img src="../../assets/images/tick_green.png" alt="thumbnail" class="img-rounded"  align="center" width="60" height="60">
+                <h5 class="detailtitle" style="text-align:center;color:#3D3D3D !important;">Successfull</h5>            	
+			
+			<button type="button" class="btn btn-primary" align="center" ng-click="cancel()" style="background-color:#0E1327;color:white;">Done</button>
+			
+			</div> 
+        </div>
+
+        
+
+        <div class="row">&nbsp;</div>
+    </form>
+
+
+
+
+
+
+
+
+
+
+</div>
+</body>
+</html>

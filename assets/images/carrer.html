@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MyApp">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Outingday</title>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato" />
+    <link rel="shortcut icon" href="../../assets/images/favicon.png" />
+    <link href="../../assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../assets/css/ngProgress.css" rel="stylesheet">
+    <link href="../../assets/js/Angularjs/angular-material.min.css" rel="stylesheet">
+
+    
+    <link href="../../assets/css/modern-business.css" rel="stylesheet">
+    <link href="../../assets/css/styles.css" rel="stylesheet">
+	<link href="../../assets/css/detail.css" rel="stylesheet">
+    <link href="https://rawgit.com/indrimuska/angular-moment-picker/master/dist/angular-moment-picker.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+   
+    <link href="../../assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'/>
+<link href="../../assets/css/customstyles.css" rel="stylesheet" type="text/css" />
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <script src="../../assets/js/Angularjs/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-messages.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-material.min.js"></script>
+
+    <script src="../../assets/js/Angularjs/ngprogress.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-touch.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-modal-service.min.js"></script>
+    <script src="../../assets/js/Angularjs/ng-text-truncate.js"></script>
+    <script src="../../assets/js/Angularjs/angular-hmac-sha512.js"></script>
+    <!--<script src="../../assets/js/Angularjs/angular-sanitize.js"></script>-->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.6.4/angular-sanitize.js"></script>
+
+    <script src="../../assets/js/Angularjs/angular-route.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-ui-router.min.js"></script>
+    <script data-require="ui-bootstrap@*" data-semver="0.12.1" src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.1.min.js"></script>
+    <script src="../../assets/js/Angularjs/ngStorage.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-cookies.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment-with-locales.js"></script>
+    <script src="//rawgit.com/indrimuska/angular-moment-picker/master/dist/angular-moment-picker.js"></script>
+
+    <script src="../../assets/app.js"></script>
+    <script src="../../assets/js/Angularjs/common.js"></script>
+    <script src="../../app/Resorts/modalCtr.js"></script>
+    <script src="../../app/Resorts/localAreaService.js"></script>
+    <script src="../../app/Resorts/ResortCtr.js"></script>
+    <script src="../../app/Resorts/ResortService.js"></script>
+
+
+
+</head>
+<style>
+.dropbtn2 {
+    background-color: #feb824;
+    color: #2c3091;
+    padding: 10px 0px 10px 8px;
+    /* padding: 9px 0px 3px 8px; */
+    font-size: 13px !important;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: none;
+    width: 100px!important;
+}
+.md-datepicker-input {
+    font-size: 14px;
+    box-sizing: border-box;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    background: transparent;
+    min-width: 120px;
+    max-width: 328px;
+    padding: 0 0 5px;
+    color: white !important;
+	border-bottom:1px solid white!important;
+}
+.btn-danger:hover, .btn-danger:focus, .btn-danger:active, .btn-danger.active, .open>.dropdown-toggle.btn-danger {
+    color: #fff!important;
+    background-color: #feb824!important;
+    border-color: #feb824!important; /*set the color you want here*/
+}
+</style>
+
+<body style="background-color:#f3f3f3;"   ng-controller="ResortCtr as ctrl" class="ng-cloak">
+
+   
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    	<div class=" navbar-top">
+		<span style="padding-left:5%; line-height:3.5;">
+		<a href="../../index.html"><i class="fa fa-home" aria-hidden="true" style="color:white;font-size:25px;"></i></a>		</span>
+		</div>
+        <div class="container" style="height:60px; margin-top:10px;">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>                </button>
+                <a class="navbar-brand" href="../../index.html">Outing<span>Day</span></a>            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+           
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    
+	  <header>
+      
+       <div style="padding-top:5%;">
+	   
+	   </div>
+
+      
+       
+    </header>
+	 <div class="row" style=" background-image:url(../../assets/images/career_banner.jpg); height:284px;">
+&nbsp;
+</div>
+
+	 <div class="row" style="background-color:white;">
+	  
+
+	
+
+ <div class="row"  >
+
+	
+    <div class="col-sm-8" align="center" > 
+<div class="container" align="center">
+<img src="../../assets/images/career_text_heading.jpg ;height:270px;" >
+       <!-- <h2 class="page-header" style="text-align:center;border:none;" align="center">Outing<span style="color:#FFBC3A;">Day</span> Carrer</h2> -->
+       <!-- <hr style="width: 19%; color: #C34F6B; height: 3px; background-color:#C34F6B;" / align="center"> -->
+        <!-- <h6 class="packagesubtext" style="font-size:16px !important;padding-left:4%;text-align:left;" > -->
+         <!-- <span style="color:#ffbb39;font-size:18px;">If </span> you are a person who likes working in a challenging start-up environment and having a quench to bring about results, <span style="color:#ffbb39;">outingday.com</span> is the right place for you. We are looking for individuals for Business Development and Graphic Designing. Interested candidates can send their resumes to <a>connect@outingday.com</a></h6> -->
+	   
+	   </div>
+ 
+	</div>
+
+ 
+</DIV>
+<div class="row" style=" background-image:url(../../assets/images/career_bottam.jpg); height:242px;">
+&nbsp;
+</div>
+</DIV>
+
+
+	<div class="container-fluid">   
+   
+        <div class="row" style="background-color:#0c0e1b; ">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            	<div class="row" style="background-color:#121528;padding:10px 30px 10px 30px;">
+                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"  style="color:#7d7f7a; padding-top:6px;">WE ARE SOCIAL</div>
+                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="text-align:right;" >
+                    <a href="https://www.facebook.com/outingday/" target="_blank" class="facebook"><img  src="../../assets/images/social_blank.png" alt="" ></a>
+                    <a class="twitter"><img  src="../../assets/images/social_blank.png" alt="" ></a>
+                    <a  class="instagram"><img  src="../../assets/images/social_blank.png" alt="" ></a>
+                    <a class="pinterest"><img  src="../../assets/images/social_blank.png" alt="" ></a>                   </div>
+                </div>             
+             	<div class="row" style="padding:30px;">
+                	<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" align="center">
+                    	<img  src="../../assets/images/Logo_Footer.png" alt=""><br>
+							<span style="color:#7d7f7a;">© 2016 Outingday Pvt. Ltd.</span> 
+							<span style="color:#7d7f7a;padding-left:3%;">Powered by Castus</span>                      
+					</div>	
+                    
+                        
+                            <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6" style="color:#fff;">
+                                <p class="h4"><a href="app/Resorts/outingday.html" style="color:white;">OUTING DAY</a></p>
+                                <ul class="footerlist">
+                                    <li ><a href="../../app/Resorts/carrer.html" class="footerlinks" style="color:#7d7f7a;font-size:12px;">CAREER</a></li>
+                                    <li><a href="../../app/Resorts/about.html" class="footerlinks" style="color:#7d7f7a;font-size:12px;">ABOUT US</a></li>
+                                    <li><a href="../../app/Resorts/cantact.html" class="footerlinks" style="color:#7d7f7a;font-size:12px;">CONTACT US</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6" style="color:#fff;">
+                                <p class="h4">COUNTRY</p>
+                                <ul class="footerlist">
+                                    <li ><a class="footerlinks" style="color:#7d7f7a;font-size:12px;">INDIA</a></li>
+                                    <!-- <li><a href="#" class="footerlinks">About Us</a></li> -->
+                                    <!-- <li><a href="#" class="footerlinks">Services</a></li> -->
+                                </ul>
+                            
+                        </div>
+                    </div>	
+                
+
+
+	 
+	 
+	 
+	 
+
+
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+
+    
+  
+    <script src="../../assets/js/jquery.js"></script>
+
+   
+    <script src="../../assets/js/bootstrap.min.js"></script>
+
+   
+    <script>
+    $('.carousel').carousel({
+        interval: 5000 
+    })
+    </script>
+
+</body>
+
+</html>

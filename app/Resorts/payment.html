@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html ng-app="MyApp">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Outingday</title>
+
+    <link rel="shortcut icon" href="../../assets/images/favicon.png" />
+    <link href="../../assets/css/bootstrap.min.css?v=1" rel="stylesheet">
+    <link href="../../assets/css/ngProgress.css?v=1" rel="stylesheet">
+    <link href="../../assets/js/Angularjs/angular-material.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato" />
+    <link href="../../assets/css/modern-business.css?v=1" rel="stylesheet">
+    <link href="../../assets/css/styles.css?v=1" rel="stylesheet">
+    <link href="../../assets/css/detail.css?v=1" rel="stylesheet">
+    <link href="../../assets/css/packagecss.css?v=1" rel="stylesheet">
+    <link href="https://rawgit.com/indrimuska/angular-moment-picker/master/dist/angular-moment-picker.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+    <link href="../../assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'/>
+    <link href="../../assets/css/customstyles.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <script src="../../assets/js/Angularjs/angular.min.js?v=1"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-messages.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-material.min.js"></script>
+    <script src="../../assets/js/Angularjs/ngprogress.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-touch.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-modal-service.min.js"></script>
+    <script src="../../assets/js/Angularjs/ng-text-truncate.js"></script>
+
+    <script src="../../assets/js/Angularjs/angular-route.min.js"></script>
+    <script src="../../assets/js/Angularjs/angular-ui-router.min.js"></script>
+    <script data-require="ui-bootstrap@*" data-semver="0.12.1" src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.1.min.js"></script>
+    <script src="../../assets/js/Angularjs/ngStorage.min.js?v=1"></script>
+    <script src="../../assets/js/Angularjs/angular-cookies.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment-with-locales.js"></script>
+    <script src="//rawgit.com/indrimuska/angular-moment-picker/master/dist/angular-moment-picker.js"></script>
+ <script src="//cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.6.4/angular-sanitize.min.js"></script>
+<script src="../../assets/js/Angularjs/readmore.min.js"></script>
+    <script src="../../assets/app.js?v=1"></script>
+    <script src="../../assets/js/Angularjs/common.js?v=1"></script>
+    <script src="../../app/Resorts/ResortCtr.js?v=1"></script>
+    <script src="../../app/Resorts/ResortService.js?v=1"></script>
+    <script src="../../app/Resorts/ResortdetailCtr.js?v=1"></script>
+    <script src="../../app/Resorts/ResortdetailService.js?v=1"></script>
+    <script src="../../app/Resorts/packageDetailsCtr.js?v=1"></script>
+    <script src="../../app/Resorts/confirmationDetailsCtr.js?v=1"></script>
+    <script src="../../app/Resorts/confirmationDetailsService.js?v=1"></script>
+    <script src="../../app/Resorts/paymentCtr.js?v=1"></script>
+
+
+
+
+</head>
+<body ng-controller="paymentCtr">
+
+<form>
+<div id="container">
+
+    <div id="login" >
+        <input type="text" size="40" ng-model="email" placeholder="Type your email"><br>
+        <input type="password" size="40" ng-model="password" placeholder="Type your password"><br>
+        <button ng-click="check_credentials()">Login</button><br>
+        <span id="message">{{message}}</span>
+    </div>
+</div>
+
+</form>
+
+</body>
+</html>

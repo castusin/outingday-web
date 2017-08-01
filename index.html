@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Outingday</title>
+
+    <link href="assets/css/index.css" rel="stylesheet"> 
+    <link href="assets/css/styles.css" rel="stylesheet">
+
+    <link href="assets/css/detail.css" rel="stylesheet">
+     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+	<script data-cfasync="false" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    
+     <script type='text/javascript'>
+        
+        $(document).ready(function() {
+        
+			$('.carousel[data-type="multi"] .item').each(function(){
+			var next = $(this).next();
+			
+			if (!next.length) {
+			next = $(this).siblings(':first');
+			}
+			next.children(':first-child').clone().appendTo($(this));
+			
+			for (var i=0;i<2;i++) {
+			next=next.next();
+			if (!next.length) {
+			next = $(this).siblings(':first');
+			}
+			
+			next.children(':first-child').clone().appendTo($(this));
+			}
+			});
+			
+			//for Drop Down Begins
+			$('ul.nav li.dropdown').hover(function() {
+			$(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
+			}, function() {
+			$(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
+			});
+        	//for Drop Down Ends
+        });
+        
+        </script>
+    <!-- jQuery -->
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato" />
+    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon" >
+
+    <link href="assets/css/ngProgress.css" rel="stylesheet">
+
+    <link href="assets/js/Angularjs/angular-material.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+
+    <link href="https://rawgit.com/indrimuska/angular-moment-picker/master/dist/angular-moment-picker.css" rel="stylesheet">
+    <link href="assets/css/modern-business.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Custom Fonts -->
+    <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+	<script src="assets/js/jquery.js"></script> 
+    
+
+    
+    <script src="assets/js/Angularjs/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+    <script src="assets/js/Angularjs/angular-messages.min.js"></script>
+    <script src="assets/js/Angularjs/angular-material.min.js"></script>
+    <script src="assets/js/Angularjs/ngprogress.min.js"></script>                   s
+    <script src="assets/js/Angularjs/angular-touch.min.js"></script>
+    <script src="assets/js/Angularjs/angular-preload-image.min.js"></script>
+    <script src="assets/js/Angularjs/map.js"></script>
+    <script src="assets/js/Angularjs/moment.min.js"></script>
+    <script src="assets/js/Angularjs/locales.min.js"></script>
+    <script src="assets/js/Angularjs/humanize-duration.js"></script>
+    <script src="assets/js/Angularjs/angular-timer.min.js"></script>
+
+    <script src="assets/js/Angularjs/angular-modal-service.min.js"></script>
+    <script src="assets/js/Angularjs/angular-ellipsis.js"></script>
+    <script src="assets/js/Angularjs/angular-hmac-sha512.js"></script>
+    
+    <script src="assets/js/jquery.carouFredSel-6.0.4-packed.js" type="text/javascript"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.6.4/angular-sanitize.js"></script>
+<script src="assets/js/Angularjs/readmore.min.js"></script>
+    <script src="assets/js/Angularjs/angular-route.min.js"></script>
+    <script src="assets/js/Angularjs/angular-ui-router.min.js"></script>
+    <script data-require="ui-bootstrap@*" data-semver="0.12.1" src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.1.min.js"></script>
+    <script src="assets/js/Angularjs/ngStorage.min.js"></script>
+    <script src="assets/js/Angularjs/angular-cookies.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment-with-locales.js"></script>
+    <script src="//rawgit.com/indrimuska/angular-moment-picker/master/dist/angular-moment-picker.js"></script>
+
+    <script src="assets/app.js?v=1"></script>
+
+    <script src="assets/js/Angularjs/common.js?v=1"></script>
+    <script src="app/Resorts/modalCtr.js?v=1"></script>
+    <script src="app/Resorts/localAreaService.js?v=1"></script>
+    <script src="app/Resorts/viewCitiesService.js?v=1"></script>
+    <script src="app/Resorts/loginCtr.js?v=1"></script>
+    <script src="app/Resorts/loginService.js?v=1"></script>
+    <script src="app/Resorts/registerCtr.js?v=1"></script>
+    <script src="app/Resorts/registerService.js?v=1"></script>
+    <script src="app/Resorts/phonenumberCtr.js?v=1"></script>
+
+
+
+    <script type="text/javascript">
+        $(function() {
+            $('#carousel').carouFredSel({
+                width: '100%',
+                items: {
+                    visible: 3,
+                    start: -1
+                },
+                scroll: {
+                    items: 1,
+                    duration: 1000,
+                    timeoutDuration: 3000
+                },
+                prev: '#prev',
+                next: '#next',
+                pagination: {
+                    container: '#pager',
+                    deviation: 1
+                }
+            });
+		});
+    </script>
+
+	<style type="text/css">
+@media screen and (min-device-width: 320px) and (max-device-width: 680px)
+{
+ #wrapper {
+           	height: auto !important;
+            margin-top: -225px !important;
+           	top: 254px !important;
+        }
+		
+.banner{width:350px!important; height:150px !important;}		
+}
+	 #wrapper {
+            background-color: #fff;
+            width: 100%;
+            height: 450px;
+            margin-top: -225px;
+            overflow: hidden;
+            position: relative;
+            top: 254px;
+            left: 0;
+        }
+        #carousel img {
+            display: block;
+            float: left;
+        }
+        #prev, #next {
+
+            display: block;
+            height: 450px;
+            width: 50%;
+            top: 0;
+            position: absolute;
+        }
+        #prev:hover, #next:hover {
+           /* background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.8);*/
+        }
+        #prev {
+            left: -495px;
+        }
+        #next {
+            right: -495px;
+        }
+        #pager {
+            position: absolute;
+            left: 50%;
+            bottom: 10px;
+        }
+        #pager a {
+            border: 2px solid #fff;
+            border-radius: 10px;
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            margin: 0 5px 0 0;
+        }
+        #pager a:hover {
+
+        }
+        #pager a span {
+            display: none;
+        }
+        #pager a.selected {
+            background-color: #fff;
+        }
+
+        #donate-spacer {
+            height: 250px;
+        }
+        #donate {
+            border-top: 1px solid #999;
+            width: 750px;
+            padding: 50px 75px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        #donate p, #donate form {
+            margin: 0;
+            float: left;
+        }
+        #donate p {
+            width: 650px;
+        }
+        #donate form {
+            width: 100px;
+        }
+	
+		
+		
+.slide{position:static; height:270px; overflow-y:hidden;}		
+.carousel-control 			 { width:  4%; }
+.carousel-control.left,.carousel-control.right {margin-left:15px;background-image:none;}
+@media (max-width: 767px) {
+	.carousel-inner .active.left { left: -100%; }
+	.carousel-inner .next        { left:  100%; }
+	.carousel-inner .prev		 { left: -100%; }
+	.active > div { display:none; }
+	.active > div:first-child { display:block; }
+
+}
+@media (min-width: 767px) and (max-width: 992px ) {
+	.carousel-inner .active.left { left: -50%; }
+	.carousel-inner .next        { left:  50%; }
+	.carousel-inner .prev		 { left: -50%; }
+	.active > div { display:none; }
+	.active > div:first-child { display:block; }
+	.active > div:first-child + div { display:block; }
+}
+@media (min-width: 992px ) {
+	.carousel-inner .active.left { left: -25%; }
+	.carousel-inner .next        { left:  25%; }
+	.carousel-inner .prev		 { left: -25%; }
+		
+}
+		
+
+
+
+         .drop {
+             position: relative;
+         }
+         .drop ul {
+             position: absolute;
+             left: 0;
+             top: 3em;
+             -webkit-transition: all 0.3s ease;
+             transition: all 0.3s ease;
+             -webkit-transform: scale(0);
+             transform: scale(0);
+             -webkit-transform-origin: 0 0;
+             transform-origin: 0 0;
+             box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 8px 0 rgba(0, 0, 0, 0.12);
+             background: #ebebeb;
+         }
+         .drop ul li {
+             display: block;
+             width: 100%;
+         }
+         .drop ul li a {
+             width: 100%;
+             padding: 1em 18px;
+             display: inline-block;
+             white-space: pre;
+             box-sizing: border-box;
+         }
+         .drop ul li a:hover {
+             background: #ebebeb;
+         }
+         .drop:hover ul {
+             -webkit-transform: scale(1);
+             transform: scale(1);
+         }
+
+
+
+
+.nav>li>a {
+    position: relative;
+    display: block;
+    padding: 0px !important;
+	color:#fff !important;
+	font-size:13px !important;
+}
+.navbar-inverse .navbar-nav>li>a
+{ color:#fff !important;}
+
+.navbar-inverse .navbar-nav>li>a:hover
+{ color:#fff !important;}
+
+.navbar-right .dropdown-menu {
+    right: auto;
+    left: auto;
+	border-radius:6px !important;
+}
+
+navbar-nav>li {
+    float: left !important;
+}
+.navbar-right {
+    float: right!important;
+    margin-right: 15px !important;
+}
+
+.container_img
+{
+    height:220px !important;
+    width:100% !important;
+    position:relative !important;
+}
+
+.od_image
+{    
+    left:0;
+    top:0;
+}
+
+.carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right, .carousel-control .icon-next, .carousel-control .icon-prev {
+width: 30px;
+height: 30px;
+margin-top: -156% !important ;
+font-size: 30px;
+}
+
+
+
+
+
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+.img-circle {
+    border-radius: 50%;
+	height:60px;
+	
+}
+     </style>
+
+
+
+</head>
+
+<body style="background-color:#f3f3f3;" ng-app="MyApp" ng-controller="MainCtr as ctrl" class="ng-cloak">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    	<div class="navbar-top">
+        	<div class="container" style="padding-top:6px; padding-bottom:6px;" >
+            	<div class="row ">
+                    <div class="col-lg-6 col-md-6 col-sm-4 col-xs-12">
+                        <span style="color:white;font-size:15px;outline:0 !important;"data-ng-bind="regionModel()" ng-click="loadEditForm()"></span>&nbsp;
+                        <span><i class="fa fa-map-marker" aria-hidden="true" style="color:#FEB824;font-size:15px;outline:0 !important;" ng-click="loadEditForm()" ></i></span>
+                    </div>
+                
+                    <div class="col-lg-6 col-md-6 col-sm-8 hidden-xs">
+                        <ul class="nav navbar-nav navbar-right" >
+                           <!-- <li><a href="#">Link</a></li>-->
+                            <li class="dropdown" style="padding-right:4px;" ng-if="showLoginBtn">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" ng-click="loginPage()" style="color:#fff;outline:0 !important;">Login </b></a>
+                            </li>
+                             <li class="dropdown" style="padding-right:4px;" ng-if="showLogOutBtn">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:#fff;">Hi {{firstName}} {{lastName}} <b class="caret"></b></a>
+                                <ul class="dropdown-menu" style="width:180px;margin-top:10px;">
+								   <div class="row" style="margin-top:-10%;"><a href="#"><span style="padding-left:50px;"><img  src="../../assets/images/top_arrow.png" alt="" height="14px" width="14px" ></span></a>
+
+                                   </div>
+                                 
+                                    <li>
+									<div class="row" align="center" style="border-radius:50%;">
+									<img src="{{DP}}"  class="img-responsive img-circle">
+									</div>
+									
+									<div class="row" style="margin-top:5%;">
+									<div class="row" style="margin-left:11%;"><a href="#" style="color:#666666;"><span class="glyphicon glyphicon-play" style="font-size:11px;padding-right:5px;color:#666666;"></span> My Booking</a></div>
+									<div class="row" style="margin-left:11%;" ><a href="#" style="color:#666666;"><span class="glyphicon glyphicon-play" style="font-size:11px;padding-right:5px;"></span> My Cash</a></div>
+                                             
+									<div class="row" style="margin-left:11%;" ng-if="showLogOutBtn"><a href="#"><span class="glyphicon glyphicon-off" style="font-size:11px;padding-right:5px;color:#666666;"></span><span ng-click="logOutCall()" style="color:#666666;font-weight:bold;margin-left:2%;" >Logout</span></a></div>
+											
+									
+									</div>
+									    
+                                        <!-- <div style="width:100%;padding:5px;float:left;"> -->
+                                            <!-- <div style="width:40%;float:left;"><img src="{{DP}}"  class="img-responsive"></div> -->
+                                            <!-- <div style="width:60%;float:left;"> -->
+                                                <!-- <div class="row" style="margin-left:5%;"><a href="#"><span class="glyphicon glyphicon-play" style="font-size:11px;padding-right:5px;"></span> My Booking</a></div> -->
+                                                <!-- <div class="row" style="margin-left:5%;" ><a href="#"><span class="glyphicon glyphicon-play" style="font-size:11px;padding-right:5px;"></span> My Cash</a></div> -->
+                                             
+											   <!-- <div class="row" style="margin-left:5%;" ng-if="showLogOutBtn" ><a href="#"><span class="glyphicon glyphicon-off" style="font-size:11px;padding-right:5px;color:#cc3333;font-weight:bold;"></span><span ng-click="logOutCall()" style="color:#cc3333;font-weight:bold;margin-left:2%;" >Logout</span></a></div> -->
+											
+											
+											<!-- </div> -->
+                                        <!-- </div> -->
+										
+                                        
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown" style="padding-right:4px;">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:#fff;"><span style="color:#feb824; padding:0 8px 0 0px;">|</span>Support <b class="caret"></b></a>
+                                <ul class="dropdown-menu" style="margin-top:10px;">
+								<div class="row" style="margin-top:-10%;"><a href="#"><span style="padding-left:50px;"><img  src="../../assets/images/top_arrow.png" alt="" height="14px" width="14px" ></span></a></div>
+                                 
+                                    <li><a href="#"><span class="glyphicon glyphicon-play" style="font-size:11px;padding-right:5px;"></span>Contact Us</a></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-play" style="font-size:11px;padding-right:5px;"></span>Complete Booking</a></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-play" style="font-size:11px;padding-right:5px;"></span>Make a Payment</a></li>
+                                    <!--
+                                    <li class="divider"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                    -->
+                                </ul>
+                            </li>
+                            
+                            <li class="dropdown" >
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:#fff;"><span style="color:#feb824; padding:0 8px 0 0px;">|</span>Corporate Deals <b class="caret"></b></a>
+                                <ul class="dropdown-menu" style="width:180px;left:30px;margin-top:10px;">
+                                   <div class="row" style="margin-top:-10%;"><a href="#"><span style="padding-left:50px;"><img  src="../../assets/images/top_arrow.png" alt="" height="14px" width="14px" ></span></a></div>
+                                  
+									
+									<li><a href="#"><span class="glyphicon glyphicon-play" style="font-size:11px;padding-right:5px;"></span>Action</a></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-play" style="font-size:11px;padding-right:5px;"></span>Another action</a></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-play" style="font-size:11px;padding-right:5px;"></span>Something else here</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-play" style="font-size:11px;padding-right:5px;"></span>Separated link</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+               	 	</div>
+            	</div>
+            </div>
+        </div>
+        
+        
+		
+        <div class="container" style="height:55px;">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>                
+                </button>
+                
+                <a class="navbar-brand" href="#" style="font-size:24px !important;">Outing<span>Day</span></a>   
+                
+                         
+           	</div>
+            
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="border:none;">
+            	<div class="row head" align="center">
+                    
+                   
+                    <div class="col-lg-5 col-md-5 col-sm-5 hidden-xs " style="margin-left:15%;" align="">
+                        <div class="input-group" align="">
+                            <span class="input-group-btn" align="">
+                               
+                               <div class="dropdown">
+                                   <button class="dropbtn1">
+                                        <span>
+                                            <span style="text-align:left;"><i class="fa fa-th-large ic_home" aria-hidden="true"></i><span class="all_color">All</span></span>
+ <span style="">
+ <i class="fa fa-caret-down ic_color" aria-hidden="true" ></i>
+ </span></span>
+                                    </button>
+
+                                    <div class="dropdown-content">
+                                        <div class="D_dropdown">
+                                            <a href="#" class="drop_content"><div class="D_dropdown_span"><img src="assets/images/resorts.png" width="18px" height="18px"></div><div class="D_dropdown_span2">Resorts</div></a>
+                                        </div>
+                                        <div class="D_dropdown">
+                                            <a href="#" class="drop_content"><div class="D_dropdown_span"><img src="assets/images/hotel.png" width="18px" height="20px"></div><div class="D_dropdown_span2">Hotels</div></a>
+                                        </div>
+                                        <div class="D_dropdown">
+                                            <a href="#" class="drop_content"><div class="D_dropdown_span"><img src="assets/images/restaurants.png" width="17px" height="17px"></div><div class="D_dropdown_span2">Restaurants</div></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </span>
+
+
+                            <md-autocomplete  md-no-cache="ctrl.noCache" md-selected-item="ctrl.selectedItem"
+                                             md-search-text="ctrl.searchText" md-selected-item-change="MainSearch(ctrl)" md-items="item in ctrl.querySearch(ctrl.searchText)"
+                                             md-item-text="item.localArea"  placeholder="Search for Resorts"  >
+                                <md-item-template >
+                                  <span class="item-title" >
+                                 <md-icon><i class="fa fa-map-marker" aria-hidden="true" style="color:#ffbb39;font-size:25px;"></i> </md-icon>
+                                 <span md-highlight-text="ctrl.searchText"> {{item.localArea}} </span>                                     </span>
+                               
+                                </md-item-template>
+                            </md-autocomplete>
+							
+							
+
+                        </div>
+                        
+					</div>
+					
+					
+                    
+                </div>
+            </div>
+           
+        </div>
+        
+    </nav>
+	
+	
+	
+	
+	
+	
+    <h3 style="display: none;"><timer/></h3>
+    
+		<div class="row">
+        	<div class="hidden-lg hidden-md hidden-sm col-xs-12">
+            	<div class="dropdown">
+                  <button class="dropbtn">Dropdown</button>
+                  <div class="dropdown-content">
+                    <div style="width:100%;padding:5px;float:left;">
+                        <div style="width:40%;float:left;"><img src="assets/images/Login_Icon.png"  class="img-responsive"></div>
+                        <div style="width:60%;float:left;">
+                            <div class="row"><a href="#"><span class="glyphicon glyphicon-play" style="font-size:11px;padding-right:5px;"></span> My Booking</a></div>
+                            <div class="row"><a href="#"><span class="glyphicon glyphicon-play" style="font-size:11px;padding-right:5px;"></span> My Cash</a></div>
+                            <div class="row" ng-if="showLogOutBtn"><a href="#"><span class="glyphicon glyphicon-user" style="font-size:11px;padding-right:5px;color:#313496;" ></span><span data-ng-bind="firstName" style="color:#313496;"></span></span></a></div>
+                            <div class="row"  ng-if="showLogOutBtn" ><a href="#"><span class="glyphicon glyphicon-off" style="font-size:11px;padding-right:5px;color:#feb824;"></span><span ng-click="logOutCall()" style="color:#feb824;" >Logout</span></a></div>
+                        </div>
+                    </div>
+                    <div style="width:100%;padding:5px;float:left;" ng-if="showLoginBtn">
+                        <div style="width:48%;float:left;" align="center">
+                            <ul class="list-inline text-center od-signInSignUp">
+                                <li><a href="#" ng-click="loginPage()" class="btn-md btn" style="text-transform:none !important;outline:0 !important;">Login</a></li>
+                             </ul>
+                        </div>
+                        <div style="width:2%;float:left;"></div>
+                        <div style="width:48%;float:left;" align="center">
+                            <ul class="list-inline text-center od-signInSignUp">
+                                <li><a href="#" ng-click="SignUpPage()" class="btn-md btn" style="text-transform:none !important;outline:0 !important;">Sign Up</a></li>
+                             </ul>
+                        </div>
+                       </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="wrapper">
+            <div id="carousel">
+                <img src="assets/images/Home1.jpg" alt="building1" width="1200" height="450" class="banner" />
+                <img src="assets/images/Home2.jpg" alt="building2" width="1200" height="450" class="banner"/>
+                <img src="assets/images/Home3.jpg" alt="building3" width="1200" height="450" class="banner"/>
+                <img src="assets/images/Home1.jpg" alt="building4" width="1200" height="450" class="banner"/>
+                <img src="assets/images/Home2.jpg" alt="building5" width="1200" height="450" class="banner"/>
+                <img src="assets/images/Home3.jpg" alt="building6" width="1200" height="450" class="banner"/>
+            </div>
+            <a href="#" id="prev" title="Show previous"> </a>
+            <a href="#" id="next" title="Show next"> </a>
+            <div id="pager" align="center"></div>
+        </div>
+        <div id="donate-spacer"></div>
+
+
+
+
+    <!-- Page Content -->
+    <div class="container">
+    
+    	 <div class="row" style="padding:40px 0 10px 0;">
+		<div class="col-lg-12" align="center" >
+			<h2 class="page-header" style="text-align:center;" >What are you looking for ?</h2>
+			<img src="assets/images/strip.jpg" alt="" />
+		</div>
+      
+	</div>
+        
+    <div class="row" >
+    	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" align="center" style="padding-top:10px;" >
+        	<div class="container_img" align="center">
+                <img class="od_image img-responsive " src="assets/images/Looking_Resorts.jpg"/>
+                <p class="od_text">Resorts</p>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" align="center" style="padding-top:10px;">
+        	<div class="container_img" align="center">
+                <img class="od_image img-responsive " src="assets/images/Looking_Amusementpark.jpg"/>
+                <p class="od_text">Amusement Parks</p>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" align="center" style="padding-top:10px;">
+        	<div class="container_img" align="center">
+                <img class="od_image img-responsive " src="assets/images/Looking_Farmouting.jpg"/>
+                <p class="od_text">Farm Outings</p>
+            </div>
+        </div>
+       <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" align="center" style="padding-top:10px;">
+        	<div class="container_img" align="center">
+                <img class="od_image img-responsive " src="assets/images/Looking_Combos.jpg"/>
+                <p class="od_text">Combos</p>
+            </div>
+        </div>
+    </div>   
+    
+    
+    
+		<!-- Portfolio Offers -->
+        <div class="row" style="padding:40px 0 10px 0;">
+            <div class="col-lg-12" align="center" >
+                <h2 class="page-header" style="text-align:center;" >Offers</h2>
+                <img src="assets/images/strip.jpg" alt="" />
+            </div>
+      </div>
+        
+       <div class="row" >
+			<div class="col-lg-12 col-md-12  col-sm-12 col-xs-12">
+				<div class="carousel " data-ride="carousel" data-type="multi" data-interval="3000" id="myCarousel">
+				<div class="carousel-inner " >
+					<div class="item active">
+						<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" >
+                        	 <div class="od-offerBox" style="background:#fff;">
+                                 <div class="od-offerImg" ng-click="offerCall(offer.offerparkId,offer)">
+                                    <img class="img-responsive img-portfolio" src="assets/images/offer_1.jpg" alt="" onError="this.onerror=null;this.src='assets/images/default-thumb.gif';" />
+                                    <a href="#" class="od-offerBookNow od-smooth">book now</a>
+                                </div>
+                            
+                        		 <div class="od-offerBook" style="background:#fff;">
+                                   <div class="row"><div class="col-lg-12 " align="center" style="font-size:17px; font-weight:bold;">Play Arena Combo Activity 1</div></div>
+                                    <div class="row"><div class="col-lg-12 " align="center" style="font-size:15px;">Chikmagalur</div></div>
+                                    <div class="row">&nbsp;</div>
+                                    <div class="row no-pad-mar h4" align="center" style="margin:0 6px 0 6px;color:#2c3091;" >
+                                      <strike style="color:#C34F6B;font-size:14px;"><i class="fa fa-inr" aria-hidden="true"></i>&nbsp;1500</strike> <span style="padding-left:4%;font-size:18px;"><i class="fa fa-inr" aria-hidden="true"></i>&nbsp;1300</span><span style="color:#009985;padding-left:10%;font-size:14px;">Save-30%</span>
+                                    </div>
+                                </div>
+                              </div>  
+                        </div>
+                    </div>
+                    
+					<div class="item">
+						<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" >
+                        	<div class="od-offerBox" style="background:#fff;">
+                                 <div class="od-offerImg" ng-click="offerCall(offer.offerparkId,offer)">
+                                    <img class="img-responsive img-portfolio" src="assets/images/offer_2.jpg" alt="" onError="this.onerror=null;this.src='assets/images/default-thumb.gif';" />
+                                    <a href="#" class="od-offerBookNow od-smooth">book now</a>
+                                </div>
+                            
+                        		 <div class="od-offerBook" style="background:#fff;">
+                                   <div class="row"><div class="col-lg-12 " align="center" style="font-size:17px; font-weight:bold;">Play Arena Combo Activity 2</div></div>
+                                    <div class="row"><div class="col-lg-12 " align="center" style="font-size:15px;">Chikmagalur</div></div>
+                                    <div class="row">&nbsp;</div>
+                                    <div class="row no-pad-mar h4" align="center" style="margin:0 6px 0 6px;color:#2c3091;" >
+                                      <strike style="color:#C34F6B;font-size:14px;"><i class="fa fa-inr" aria-hidden="true"></i>&nbsp;1500</strike> <span style="padding-left:4%;font-size:18px;"><i class="fa fa-inr" aria-hidden="true"></i>&nbsp;1300</span><span style="color:#009985;padding-left:10%;font-size:14px;">Save-30%</span>
+                                    </div>
+                                </div>
+                              </div>
+                        </div>
+					</div>
+                    
+					<div class="item">
+						<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" >
+                        	<div class="od-offerBox" style="background:#fff;">
+                                 <div class="od-offerImg" ng-click="offerCall(offer.offerparkId,offer)">
+                                    <img class="img-responsive img-portfolio" src="assets/images/offer_3.jpg" alt="" onError="this.onerror=null;this.src='assets/images/default-thumb.gif';" />
+                                    <a href="#" class="od-offerBookNow od-smooth">book now</a>
+                                </div>
+                            	<div class="od-offerBook" style="background:#fff;">
+                                   <div class="row"><div class="col-lg-12 " align="center" style="font-size:17px; font-weight:bold;">Play Arena Combo Activity 3</div></div>
+                                    <div class="row"><div class="col-lg-12 " align="center" style="font-size:15px;">Chikmagalur</div></div>
+                                    <div class="row">&nbsp;</div>
+                                    <div class="row no-pad-mar h4" align="center" style="margin:0 6px 0 6px;color:#2c3091;" >
+                                      <strike style="color:#C34F6B;font-size:14px;"><i class="fa fa-inr" aria-hidden="true"></i>&nbsp;1500</strike> <span style="padding-left:4%;font-size:18px;"><i class="fa fa-inr" aria-hidden="true"></i>&nbsp;1300</span><span style="color:#009985;padding-left:10%;font-size:14px;">Save-30%</span>
+                                    </div>
+                                </div>
+                              </div>
+                        </div>
+					</div>
+                    
+					<div class="item">
+						<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" >
+                        	
+                            <div class="od-offerBox" style="background:#fff;">
+                                
+                                <div class="od-offerImg" ng-click="offerCall(offer.offerparkId,offer)">
+                                    <img class="img-responsive img-portfolio" src="assets/images/offer_4.jpg" alt="" onError="this.onerror=null;this.src='assets/images/default-thumb.gif';" />
+                                    <a href="#" class="od-offerBookNow od-smooth">book now</a>
+                                </div>
+                                
+                            	<div class="od-offerBook" style="background:#fff;">
+                                   <div class="row"><div class="col-lg-12 " align="center" style="font-size:17px; font-weight:bold;">Play Arena Combo Activity 4</div></div>
+                                    <div class="row"><div class="col-lg-12 " align="center" style="font-size:15px;">Chikmagalur</div></div>
+                                    <div class="row">&nbsp;</div>
+                                    <div class="row no-pad-mar h4" align="center" style="margin:0 6px 0 6px;color:#2c3091;" >
+                                      <strike style="color:#C34F6B;font-size:14px;"><i class="fa fa-inr" aria-hidden="true"></i>&nbsp;1500</strike> <span style="padding-left:4%;font-size:18px;"><i class="fa fa-inr" aria-hidden="true"></i>&nbsp;1300</span><span style="color:#009985;padding-left:10%;font-size:14px;">Save-30%</span>
+                                    </div>
+                                </div>
+                                
+                              </div>
+                        </div>
+					</div>
+					
+                    <div class="item">
+						<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" >
+                        	<div class="od-offerBox" style="background:#fff;">
+                                 <div class="od-offerImg" ng-click="offerCall(offer.offerparkId,offer)">
+                                    <img class="img-responsive img-portfolio" src="assets/images/offer_1.jpg" alt="" onError="this.onerror=null;this.src='assets/images/default-thumb.gif';" />
+                                    <a href="#" class="od-offerBookNow od-smooth">book now</a>
+                                </div>
+                            	<div class="od-offerBook" style="background:#fff;">
+                                   <div class="row"><div class="col-lg-12 " align="center" style="font-size:17px; font-weight:bold;">Play Arena Combo Activity 5</div></div>
+                                    <div class="row"><div class="col-lg-12 " align="center" style="font-size:15px;">Chikmagalur</div></div>
+                                    <div class="row">&nbsp;</div>
+                                    <div class="row no-pad-mar h4" align="center" style="margin:0 6px 0 6px;color:#2c3091;" >
+                                      <strike style="color:#C34F6B;font-size:14px;"><i class="fa fa-inr" aria-hidden="true"></i>&nbsp;1500</strike> <span style="padding-left:4%;font-size:18px;"><i class="fa fa-inr" aria-hidden="true"></i>&nbsp;1300</span><span style="color:#009985;padding-left:10%;font-size:14px;">Save-30%</span>
+                                    </div>
+                                </div>
+                              </div>
+                        </div>
+					</div>
+                    
+                    
+                    <div class="item">
+						<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" >
+                        	<div class="od-offerBox"  style="background:#fff;">
+                                 <div class="od-offerImg" ng-click="offerCall(offer.offerparkId,offer)">
+                                    <img class="img-responsive img-portfolio" src="assets/images/offer_2.jpg" alt="" onError="this.onerror=null;this.src='assets/images/default-thumb.gif';" />
+                                    <a href="#" class="od-offerBookNow od-smooth">book now</a>
+                                </div>
+                            	<div class="od-offerBook" style="background:#fff;">
+                                   <div class="row"><div class="col-lg-12 " align="center" style="font-size:17px; font-weight:bold;">Play Arena Combo Activity 6</div></div>
+                                    <div class="row"><div class="col-lg-12 " align="center" style="font-size:15px;">Chikmagalur</div></div>
+                                    <div class="row">&nbsp;</div>
+                                    <div class="row no-pad-mar h4" align="center" style="margin:0 6px 0 6px;color:#2c3091;" >
+                                      <strike style="color:#C34F6B;font-size:14px;"><i class="fa fa-inr" aria-hidden="true"></i>&nbsp;1500</strike> <span style="padding-left:4%;font-size:18px;"><i class="fa fa-inr" aria-hidden="true"></i>&nbsp;1300</span><span style="color:#009985;padding-left:10%;font-size:14px;">Save-30%</span>
+                                    </div>
+                                </div>
+                              </div>
+                        </div>
+					</div>
+                    
+                    
+                    <div class="item">
+						<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        	<div class="od-offerBox" style="background:#fff;">
+                                 <div class="od-offerImg" ng-click="offerCall(offer.offerparkId,offer)">
+                                    <img class="img-responsive img-portfolio" src="assets/images/offer_3.jpg" alt="" onError="this.onerror=null;this.src='assets/images/default-thumb.gif';" />
+                                    <a href="#" class="od-offerBookNow od-smooth">book now</a>
+                                </div>
+                            	<div class="od-offerBook" style="background:#fff;">
+                                   <div class="row"><div class="col-lg-12 " align="center" style="font-size:17px; font-weight:bold;">Play Arena Combo Activity 7</div></div>
+                                    <div class="row"><div class="col-lg-12 " align="center" style="font-size:15px;">Chikmagalur</div></div>
+                                    <div class="row">&nbsp;</div>
+                                    <div class="row no-pad-mar h4" align="center" style="margin:0 6px 0 6px;color:#2c3091;" >
+                                      <strike style="color:#C34F6B;font-size:14px;"><i class="fa fa-inr" aria-hidden="true"></i>&nbsp;1500</strike> <span style="padding-left:4%;font-size:18px;"><i class="fa fa-inr" aria-hidden="true"></i>&nbsp;1300</span><span style="color:#009985;padding-left:10%;font-size:14px;">Save-30%</span>
+                                    </div>
+                                </div>
+                              </div>
+                        </div>
+					</div>
+                    
+                    
+                    <div class="item">
+						<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" >
+                        	<div class="od-offerBox" style="background:#fff;">
+                                 <div class="od-offerImg" ng-click="offerCall(offer.offerparkId,offer)">
+                                    <img class="img-responsive img-portfolio" src="assets/images/offer_4.jpg" alt="" onError="this.onerror=null;this.src='assets/images/default-thumb.gif';" />
+                                    <a href="#" class="od-offerBookNow od-smooth">book now</a>
+                                </div>
+                            	<div class="od-offerBook" style="background:#fff;">
+                                   <div class="row"><div class="col-lg-12 " align="center" style="font-size:17px; font-weight:bold;">Play Arena Combo Activity 8</div></div>
+                                    <div class="row"><div class="col-lg-12 " align="center" style="font-size:15px;">Chikmagalur</div></div>
+                                    <div class="row">&nbsp;</div>
+                                    <div class="row no-pad-mar h4" align="center" style="margin:0 6px 0 6px;color:#2c3091;" >
+                                      <strike style="color:#C34F6B;font-size:14px;"><i class="fa fa-inr" aria-hidden="true"></i>&nbsp;1500</strike> <span style="padding-left:4%;font-size:18px;"><i class="fa fa-inr" aria-hidden="true"></i>&nbsp;1300</span><span style="color:#009985;padding-left:10%;font-size:14px;">Save-30%</span>
+                                    </div>
+                                </div>
+                              </div>
+                        </div>
+					</div>
+                    
+                    
+                    
+                   
+					
+				</div>
+				<a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+				<a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+			</div>
+		</div>
+	</div>
+        
+     
+        
+		
+	<!-- Original Offers Commented
+    
+    <div class="row" style="padding:40px 0 20px 0;">
+		<div class="col-lg-12" align="center" >
+			<h2 class="page-header" style="text-align:center;" >Offers</h2>
+			<img src="assets/images/strip.jpg" alt="" />
+		</div>
+    </div>
+    
+        
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 offers-columns-padding " ng-repeat="offer in offersList" href="#"   style="padding-right:20px !important;">
+            <div class="od-offerBox" style="background:#fff;">
+                <div class="od-offerImg" ng-click="offerCall(offer.offerparkId,offer)">
+                	<img class="img-responsive img-portfolio" src="assets/images/offers/{{offer.offerimg}}" alt="" onError="this.onerror=null;this.src='assets/images/default-thumb.gif';" />
+                	<a href="#" class="od-offerBookNow od-smooth">book now</a>
+                </div>
+                <div class="od-offerBook">
+                    <div class="row"><div class="col-lg-12 " align="center" style="font-size:17px; font-weight:bold;">Play Arena Combo Activity</div></div>
+                    <div class="row"><div class="col-lg-12 " align="center" style="font-size:15px;">Chikmagalur</div></div>
+                    <div class="row">&nbsp;</div>
+                    <div class="row no-pad-mar h4" align="center" style="margin:0 6px 0 6px;color:#2c3091;" >
+                    <strike style="color:#C34F6B;font-size:14px;"><i class="fa fa-inr" aria-hidden="true"></i>&nbsp;{{offer.offerrating}}</strike> <span style="padding-left:4%;font-size:18px;"><i class="fa fa-inr" aria-hidden="true"></i>&nbsp;{{offer.offerprice}}</span><span style="color:#009985;padding-left:10%;font-size:14px;">{{offer.save}}</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    -->
+    
+    
+    
+        
+    
+    
+     <div class="row" style="padding:40px 0 10px 0;outline:0 !important;">
+		<div class="col-lg-12" align="center" >
+			<h2 class="page-header" style="text-align:center;outline:0 !important;" >Our Handpicked Outings</h2>
+			<img src="assets/images/strip.jpg" alt="" />
+		</div>
+    </div>
+    
+    <div class="row">
+    	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12"  ng-repeat="popularCategory in popularCategoryList" href="#" ng-click="popularCall(popularCategory.popularparkId,popularCategory)">
+        	<div style="width:100%;outline:0 !important;" align="center"><img class="img-hover  " src="assets/images/PopularCategory/{{popularCategory.popularimg}}" alt="" onError="this.onerror=null;this.src='assets/images/default-thumb.gif';" /></div>
+        	<div style="margin:0 13px 0 13px; background-color:#fff !important;outline:0 !important;">
+            	<div style="font-zize:14px;outline:0 !important;" align="center"><strong style="font-size:17px;color:#0d0e1c;outline:0 !important;"> {{popularCategory.popularname}}</strong></div>
+        		<div style=" font-size:14px;line-height:1.3;color:#64646; padding:5px 20px 5px 20px;outline:0 !important; "> {{popularCategory.populardes}}</div>
+                <div style="">
+                    <div class="od-reviewStars"  style="width:70%;float:left; padding-left:9%; background-color:#fff;outline:0 !important;">
+                       <ul class="list-inline" style="font-size:11px;">
+                         <li class="active"><i class="fa fa-star"></i></li>
+                         <li class="active"><i class="fa fa-star"></i></li>
+                         <li class="active"><i class="fa fa-star"></i></li>
+                         <li class="active"><i class="fa fa-star"></i></li>
+                         <li class="active"><i class="fa fa-star-half-o"></i></li>
+                       </ul>
+                    </div>
+                     <div style="width:30%;float:left;background-color:#fff; padding:0 5px 10px 0;outline:0 !important;" align="right"><button type="button" class="btn btn-success btn-xs">4.5</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+        
+        
+     <div class="row" style="padding:40px 0 10px 0;">
+		<div class="col-lg-12" align="center" >
+			<h2 class="page-header" style="text-align:center;" >How it works ?</h2>
+			<img src="assets/images/strip.jpg" alt="" />
+		</div>
+    </div> 
+    
+    <div class="row">
+    	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+        	<div class="row" align="center"><img class="img-responsive " src="assets/images/od_explore.jpg"/></div>
+            <div class="row" align="center">
+            	<p><strong>Explore</strong></p>
+            	<p>Amazing options at restaurants, spas, gyms, movies, hotels and more around you.</p>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+        	<div class="row" align="center"><img class="img-responsive " src="assets/images/od_enjoy.jpg"/></div>
+            <div class="row" align="center">
+            	<p><strong>Enjoy</strong></p>
+            	<p>The service by simply showing your voucher on the nearbuy app.</p>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+        	<div class="row" align="center"><img class="img-responsive " src="assets/images/od_buy.jpg"/></div>
+            <div class="row" align="center">
+            	<p><strong>Buy</strong></p>
+            	<p>Easily and securely, using credit/debit cards, net-banking or wallets.</p>
+            </div>
+        </div>
+    </div>  
+        
+        
+        
+        
+    <div class="row" style="padding:40px 0 10px 0;">
+		<div class="col-lg-12" align="center" >
+			<h2 class="page-header" style="text-align:center;" >Why book with Us ?</h2>
+			<img src="assets/images/strip.jpg" alt="" />
+		</div>
+    </div>
+        
+    <div class="row" style="padding:10px 0px 0px 0px; ">
+            
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 offers-columns-padding" style="padding:0.8%; " >
+                <div class="row no-pad-mar" align="center">
+                	<a href="#" class="cursor"><img class="img-responsive img-portfolio img-hover" src="assets/images/image_vta.png" alt="" style="height:75px;"></a>                </div>
+                <div class="row">&nbsp;</div>
+				 <div class="row">&nbsp;</div>
+				<div class="row no-pad-mar h4 why_book cursor" align="center" >Verified Travel Agents</div>
+                 <div class="row no-pad-mar h5 why_bookh5 cursor" align="center" >
+                	All our travel agents are vetted before onboarding as partners to outingday.com ensuring quality service delivery to our customers. To be the best in service is our core philosophy.    </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 offers-columns-padding" style="padding:0.8%; ">
+                <div class="row no-pad-mar" align="center">
+                	<a href="#" class="cursor"><img class="img-responsive img-portfolio img-hover" src="assets/images/image_cp.png" alt="" style="height:75px;"></a>                </div>
+                 <div class="row">&nbsp;</div>
+				  <div class="row">&nbsp;</div>
+				 <div class="row no-pad-mar h4 why_book cursor" align="center">Customer Packages</div>
+                 <div class="row no-pad-mar h5 why_bookh5 cursor" style="" align="center">
+               Our outing experts create amazing customer packages offering best of the deals. All packages and acttivities are curated to provide the best of experiences. Customized packages are also created for customers with unique requirements.          </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 offers-columns-padding" style="padding:0.8%; ">
+                <div class="row no-pad-mar" align="center">
+                	<a href="#" class="cursor"><img class="img-responsive img-portfolio img-hover" src="assets/images/image_cmq.png" alt="" style="height:75px;"></a>                </div>
+                 
+				 <div class="row">&nbsp;</div>
+				  <div class="row">&nbsp;</div>
+				 <div class="row no-pad-mar h4 why_book cursor" align="center">Compare Multiple Quotes</div>
+                <div class="row no-pad-mar h5 why_bookh5 cursor"  align="center"  >
+                	Do away with the hassle of comparing prices of various outing destinations of different travel agents with just one click on OutingDay. Compare option instantly helps customers to make an informed decision. If it is the best, it is on outingday.              </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 offers-columns-padding" style="padding:0.8%;" >
+                <div class="row no-pad-mar" align="center" >
+                	<a href="#"class="cursor" ><img class="img-responsive img-portfolio img-hover" src="assets/images/image_ms.png" alt="" style="height:75px;"></a>                
+				</div>
+                 <div class="row">&nbsp;</div>
+				  <div class="row">&nbsp;</div>
+				 <div class="row no-pad-mar h4 why_book cursor" align="center">100% Money Safe</div>
+               <div class="row no-pad-mar h5 why_bookh5 cursor"  align="center" >
+                	Our partnership with a secure payment gateway provider ensures that your money is 100% safe.              </div>
+            </div>
+        </div>
+        <!-- Why book with us ends-->
+    </div>
+    <!-- Containter Ends-->
+
+
+     <!-- Footer -->
+    
+   
+ <div class="container-fluid">   
+   
+        <div class="row" style="background-color:#0c0e1b; ">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            	<div class="row social_foot">
+                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 certified_logo">Certified Logos</div>
+                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="text-align:right;" >
+                   <ul class="list-inline pull-right">
+            <li><a  class="social" href="https://www.facebook.com/outingday/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+            <li> <a  class="social"><i class="fa fa-pinterest-p"></i></a></li>
+            <li><a  class="social"><i class="fa fa-instagram"></i></a></li>
+            <li><a  class="social"><i class="fa fa-pinterest-p"></i></a></li>
+          </ul>                  </div>
+                </div>  
+				
+             	<div class="row" style="padding:30px;">
+                	<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" align="center">
+                    	<img  src="../../assets/images/Logo_Footer.png" alt="" style="width:30%;"><br><br>
+							<span style="color:#fff;font-size:14px;">© 2016 Outingday Pvt. Ltd.</span> 
+						
+					</div>	
+                    
+                        <span class="fot-company">Powered by Castus</span> 
+                            
+
+							<div class="col-lg-2 col-md-2 col-sm-3 col-xs-6" style="color:#fff;">
+                                <p class="h4" style="color:white;font-size:14px;">Outing Day</p>
+                                <ul class="footerlist">
+                                    <li ><a href="../../app/Resorts/carrer.html" class="footerlinks" >Career</a></li>
+                                    <li><a href="../../app/Resorts/about.html" class="footerlinks" >About Us</a></li>
+                                    <li><a href="../../app/Resorts/cantact.html" class="footerlinks">Contact Us</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6" style="color:#fff;font-size:14px;">
+                                <p class="h4">Country</p>
+                                <ul class="footerlist">
+                                    <li ><a class="footerlinks">India</a></li>
+                                   
+								</ul>
+                            
+                        </div>
+                    </div>	
+         </div>
+        </div>
+       </div>
+
+    
+    
+    <!-- /.container -->
+
+    <script type="text/ng-template" id="modal1.html">
+        <div class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" ng-click="close('Cancel')" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Yes or No?</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>It's your call...</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" ng-click="close('No')" class="btn btn-default" data-dismiss="modal">No</button>
+                        <button type="button" ng-click="close('Yes')" class="btn btn-primary" data-dismiss="modal">Yes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+
+
+
+</body>
+
+
+
+                                <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+                                <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+                                <!--[if lt IE 9]>
+                                <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+
+
+
+</html>

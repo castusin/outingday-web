@@ -1,0 +1,106 @@
+<html>
+<body>
+<head>
+
+
+        <script src="../../assets/js/jquery.js"></script>
+
+
+<style type="text/css">
+@media screen and (min-device-width: 481px) and (max-device-width: 768px) {
+    .md-virtual-repeat-container.md-autocomplete-suggestions-container {
+        top: 84px !important;
+    }
+
+}
+
+@media screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    .md-virtual-repeat-container.md-autocomplete-suggestions-container {
+        top: 144px !important;
+    }
+}
+
+@media screen and (min-device-width: 1023px) and (max-device-width: 1400px) {
+    .md-virtual-repeat-container.md-autocomplete-suggestions-container {
+        top: 108px !important;
+		
+    }
+}
+
+md-autocomplete input:not(.md-input) {
+    font-size: 14px !important;
+    width: 100% !important;
+    padding: 0 15px !important;
+    line-height: 34px !important;
+    height: 34px !important;
+    border: 1px solid #d5d5d5;
+	box-shadow: 1px 1px 2px 1px #ccc;
+	border-radius:2px;
+}
+
+
+md-autocomplete .md-show-clear-button button md-icon {display:none !important;}
+md-autocomplete .md-show-clear-button button {display:none !important;}
+.modal-content {
+    width: 330px !important;
+    float: left;
+    margin-left: 2%;
+    
+	border-radius:10px !important;
+}
+.modal-body {
+    font-size: 12px !important;
+    width: 328px !important;
+    padding: 24px 15px !important;
+    line-height: 34px !important;
+    height: 80px !important;
+    background-color: #f3f3f3!important;
+	border-radius:10px !important;
+}
+
+.modal-footer {
+    padding: 14px;
+    text-align: left;
+    border-top: 1px solid #e5e5e5;
+    font-size: 16px;
+	background-color: white !important;
+}
+</style>
+</head>
+
+<div style="width:100%; color:#fff; height:0px;padding-right:80px;" align="center"><img  src="../../assets/images/top_arrow.png" alt="" height="14px" width="14px" ></div>
+
+<div style="width:100%;height:170px; background-color:white;border-radius:10px; top:0!important;" align="left">
+ <h3 style="display: none;"><timer/></h3>
+<div class="modal-body">
+    <md-autocomplete ng-disabled="ctrl.isDisabled" md-no-cache="ctrl.noCache" md-selected-item="ctrl.selectedItem" md-search-text-change="ctrl.searchTextChange(ctrl.searchText)"
+                     md-search-text="ctrl.searchText" md-selected-item-change="citySearchCall()" md-items="item in ctrl.querySearch(ctrl.searchText)"
+                     md-item-text="item.cityName" md-min-length="0" placeholder="ENTER YOUR CITY" md-menu-class="autocomplete-custom-template" ng-enter="citySearchCall()">
+        <md-item-template >
+                                  <span class="item-title" >
+                                 <md-icon><i class="fa fa-map-marker" aria-hidden="true" style="color:#ffbb39;font-size:25px;"></i> </md-icon>
+                                 <span> {{item.cityName}} </span>                                     </span>
+                                <!-- <span class="item-metadata">
+                                  <span>
+                              <strong>{{item.stateName}}</strong>                                 </span>
+                                 <span>
+                             <strong>{{item.forks}}</strong>
+                                 </span>
+                                 </span> -->
+        </md-item-template>
+    </md-autocomplete>
+	
+</div>
+<h4 style="padding:2%;">
+	TOP SEARCHED
+	</h4>
+	<h6 style="padding-left:2%;padding-right:2%;">
+	National Capital Region [NCR] Hyderabad , Chennai , Banglore , Calcutta
+	</h6>
+</div>
+<div class="modal-footer">
+
+    <a href="#" ng-click="showAdvanced($event)" style="color:#C34F5E;">   ALL CITIES    </a>
+</div>
+</body>
+</html>
