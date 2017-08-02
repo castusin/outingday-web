@@ -315,7 +315,7 @@ app.controller('ResortCtr',['$scope','$state','myMastersList','GetParksInfo','$r
         });
 */
         $scope.viewResortsCall=function(){
-
+debugger;
           /*  $scope.progressbar = ngProgressFactory.createInstance();
             $scope.progressbar.start();
             $scope.progressbar.setColor('#EC971F');

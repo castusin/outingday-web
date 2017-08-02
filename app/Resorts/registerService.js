@@ -8,9 +8,9 @@ app.factory('RequestOTPServiceInfo',function ($http) {
 
     return{
 
-        ParkUserCheck :  function(emailId){
+        ParkUserCheck :  function(emailId,socialId){
 
-            var promise = $http.get(webServiceUrl+'parkUserCheck?emailId='+emailId,config) .then(function(response) {
+            var promise = $http.get(webServiceUrl+'parkUserCheck?emailId='+emailId+'&socialId='+socialId,config) .then(function(response) {
 
                 console.log('Response -- '+response.data);
                 return response.data;

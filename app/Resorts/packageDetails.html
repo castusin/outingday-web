@@ -201,6 +201,11 @@ p{top:0 !important;}
 body{
    font-family:Lato !important;
 }
+
+.icon-success {
+    color:#ff7d7f !important;
+}
+
 </style>
 
 <!------------facebook login--------------->
@@ -324,21 +329,41 @@ body{
 
 <!------------google login--------------->
 
+<script src="//apis.google.com/js/api:client.js"></script>
 <script>
-    function onSignIn(googleUser) {
+    var googleUser = {};
+
+    function startApp() {
         debugger;
-        var profile = googleUser.getBasicProfile();
-        console.log(profile);
-        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-        console.log('Name: ' + profile.getName());
-        console.log('Image URL: ' + profile.getImageUrl());
-        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+        gapi.load('auth2', function(){
+            // Retrieve the singleton for the GoogleAuth library and set up the client.
+            auth2 = gapi.auth2.init({
+                client_id: '750253327708-hgc8c2di1age1nfhlukdab5tt2emjetf.apps.googleusercontent.com',
+                cookiepolicy: 'single_host_origin'
+                // Request scopes in addition to 'profile' and 'email'
+                //scope: 'additional_scope'
+            });
+            attachSignin(document.getElementById('customBtn'));
+        });
+    };
 
-        var GoogleUserDetails = profile;
-        angular.element(document.getElementById('divID')).scope().GoogleParkUserCheckCall(GoogleUserDetails);
+    function attachSignin(element) {
+        debugger;
+        console.log(element.id);
+        auth2.attachClickHandler(element, {},
+                function(googleUser) {
+                    debugger;
+                    var profile = googleUser.getBasicProfile();
 
+
+                    var GoogleUserDetails = profile;
+                    angular.element(document.getElementById('gSignInWrapper')).scope().GoogleParkUserCheckCall(GoogleUserDetails);
+
+
+                }, function(error) {
+
+                });
     }
-
 </script>
 <script>
     function signOut() {
@@ -366,7 +391,7 @@ body{
        <ul class="nav navbar-nav navbar-right" >
                            <!-- <li><a href="#">Link</a></li>-->
                             <li class="dropdown" style="padding-right:4px;" ng-if="showLoginBtn">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" ng-click="loginPage()" style="color:#fff;">Login </b></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" ng-click="loginPage()" style="color:#fff !important;">Login </b></a>
 
 
                                 <!-- <ul class="dropdown-menu" style="width:180px;margin-top:10px;"> -->
@@ -405,7 +430,7 @@ body{
                                 <!-- </ul> -->
                             </li>
                             <li class="dropdown" style="padding-right:4px;" ng-if="showLogOutBtn">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:#fff;">Hi {{FirstName}} {{LastName}} <b class="caret"></b></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:#fff;">Hi {{userfirstName}} {{userlastName}} <b class="caret"></b></a>
                                 <ul class="dropdown-menu" style="width:180px;margin-top:10px;">
                                     <div class="row" style="margin-top:-10%;"><a href="#"><span style="padding-left:50px;"><img  src="../../assets/images/top_arrow.png" alt="" height="14px" width="14px" ></span></a>
 
@@ -443,7 +468,7 @@ body{
                             </li>
                             
                             <li class="dropdown" style="padding-right:4px;">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:#fff;"><span style="color:#feb824; padding:0 8px 0 0px;">|</span>Support <b class="caret"></b></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:#fff !importat;"><span style="color:#feb824; padding:0 8px 0 0px;">|</span>Support <b class="caret"></b></a>
                                 <ul class="dropdown-menu" style="margin-top:10px;">
 								<div class="row" style="margin-top:-10%;"><a href="#"><span style="padding-left:50px;"><img  src="../../assets/images/top_arrow.png" alt="" height="14px" width="14px" ></span></a></div>
                                  
@@ -458,7 +483,7 @@ body{
                             </li>
                             
                             <li class="dropdown" >
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:#fff;"><span style="color:#feb824; padding:0 8px 0 0px;">|</span>Corporate Deals <b class="caret"></b></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:#fff !important;"><span style="color:#feb824; padding:0 8px 0 0px;">|</span>Corporate Deals <b class="caret"></b></a>
                                 <ul class="dropdown-menu" style="width:180px;left:30px;margin-top:10px;">
                                    <div class="row" style="margin-top:-10%;"><a href="#"><span style="padding-left:50px;"><img  src="../../assets/images/top_arrow.png" alt="" height="14px" width="14px" ></span></a></div>
                                   
@@ -527,65 +552,139 @@ body{
         	  <div class="row" style="background-color:white;padding:2%;border:1px solid #d5d5d5;">
             	<div class="col-xs-12 ">
                 <form name="registration_form" id="registration_form" ng-submit="submit()" class="form-horizontal">
-                <div class="form-group">
-                <div class="col-sm-4">
-                <label for="Title" class="package_form detailform" >Title </label>
-                <div class="input-group" style="width:100%;" >
-                                           <select name="State" id="State" ng-model="mrs" class="validate[required] form-control detailformtext">
-                                           <option value="">Mr</option>
-                                           <!-- <option value="MR">MR</option> -->
-                                           <option value="Mrs">Mrs</option>
-                                           <option value="Miss">Miss</option>
-                                           </select>                                                       
-                                       </div>
-                </div> 
-                <div class="col-sm-4">
-				<div class="required">
-                <label for="firstname" class="package_form detailform " >First Name</label>
-                <input id="firstname" class="form-control input-group-lg reg_name detailformtext"  type="text"  ng-model="FirstName" name="fName" maxlength="20" required placeholder="First name">
-                <span ng-show="!registration_form.fName.$pristine && registration_form.fName.$invalid">
-                                        <span ng-show="registration_form.fName.$error.required" class="text-danger">First name is required</span>
-                        </div>            </span>
-				</div>       
-                <div class="col-sm-4">
-                <label for="lastname" class="package_form detailform" >Last Name </label>
-                <input id="lastname" class="form-control input-group-lg reg_name detailformtext" type="text" ng-model="LastName" name="lName"   placeholder="Last name">
-			   </div>
-                </div><!--/form-group-->
+                <!-- <div class="form-group"> -->
+                <!-- <div class="col-sm-4"> -->
+                <!-- <label for="Title" class="package_form detailform" >Title </label> -->
+                <!-- <div class="input-group" style="width:100%;" > -->
+                                           <!-- <select name="State" id="State" ng-model="mrs" class="validate[required] form-control detailformtext"> -->
+                                           <!-- <option value="">Mr</option> -->
+                                           <!-- <!-- <option value="MR">MR</option> --> 
+                                           <!-- <option value="Mrs">Mrs</option> -->
+                                           <!-- <option value="Miss">Miss</option> -->
+                                           <!-- </select>                                                        -->
+                                       <!-- </div> -->
+                <!-- </div>  -->
+                <!-- <div class="col-sm-4"> -->
+				<!-- <div class="required"> -->
+                <!-- <label for="firstname" class="package_form detailform " >First Name</label> -->
+                <!-- <input id="firstname" class="form-control input-group-lg reg_name detailformtext"  type="text"  ng-model="FirstName" name="fName" maxlength="20" required placeholder="First name"> -->
+                <!-- <span ng-show="!registration_form.fName.$pristine && registration_form.fName.$invalid"> -->
+                                        <!-- <span ng-show="registration_form.fName.$error.required" class="text-danger">First name is required</span> -->
+                        
+						
+						<!-- </div>            </span> -->
+				<!-- </div>        -->
+                <!-- <div class="col-sm-4"> -->
+                <!-- <label for="lastname" class="package_form detailform" >Last Name </label> -->
+                <!-- <input id="lastname" class="form-control input-group-lg reg_name detailformtext" type="text" ng-model="LastName" name="lName"   placeholder="Last name"> -->
+			   <!-- </div> -->
+                <!-- </div><!--/form-group--> 
                 
-                <div class="form-group">
-                <div class="col-sm-4">
-				<div class="required">
-                <label for="Email" class="package_form detailform">Email </label>
-                <input id="firstname" class="form-control input-group-lg reg_name detailformtext" type="email" ng-model="Email" name="emailId"   required placeholder="Email" ng-readonly="disableEmail">
-                <span ng-show="registration_form.emailId.$dirty && registration_form.emailId.$invalid">
-                     <span ng-show="registration_form.emailId.$error.required" class="text-danger"class="text-danger">Email id is required</span>
-                       <span ng-show="registration_form.emailId.$error.email"class="text-danger">Email format is invalid</span>
-                   </span>
-                    </div>
-				</div> 
-                <div class="col-sm-4">
-				<div class="required">
-                <label for="inputphone" class="package_form detailform" >Phone Number </label>
-                <input type="tel" 
-                   class="form-control" 
-                   ng-minlength="10" 
-                   ng-maxlength="10"  
-                   id="inputPhone" 
-                   name="phone" 
-                   placeholder="Phone" 
-                   ng-model="PhoneNumber"
-                   ng-required="true" maxlength="10">
+                <!-- <div class="form-group"> -->
+                <!-- <div class="col-sm-4"> -->
+				<!-- <div class="required"> -->
+                <!-- <label for="Email" class="package_form detailform">Email </label> -->
+                <!-- <input id="firstname" class="form-control input-group-lg reg_name detailformtext" type="email" ng-model="Email" name="emailId"   required placeholder="Email" ng-readonly="disableEmail"> -->
+                <!-- <span ng-show="registration_form.emailId.$dirty && registration_form.emailId.$invalid"> -->
+                     <!-- <span ng-show="registration_form.emailId.$error.required" class="text-danger"class="text-danger">Email id is required</span> -->
+                       <!-- <span ng-show="registration_form.emailId.$error.email"class="text-danger">Email format is invalid</span> -->
+                   <!-- </span> -->
+                    <!-- </div> -->
+				<!-- </div>  -->
+                <!-- <div class="col-sm-4"> -->
+				<!-- <div class="required"> -->
+                <!-- <label for="inputphone" class="package_form detailform" >Phone Number </label> -->
+                <!-- <input type="tel"  -->
+                   <!-- class="form-control"  -->
+                   <!-- ng-minlength="10"  -->
+                   <!-- ng-maxlength="10"   -->
+                   <!-- id="inputPhone"  -->
+                   <!-- name="phone"  -->
+                   <!-- placeholder="Phone"  -->
+                   <!-- ng-model="PhoneNumber" -->
+                   <!-- ng-required="true" maxlength="10"> -->
            
-            <span 
-                  ng-show="((registration_form.phone.$error.minlength ||
-                           registration_form.phone.$error.maxlength) && 
-                           registration_form.phone.$dirty) " class="text-danger">
-                           phone number should be 10 digits
-            </span>
-				</div>  </div>     
+            <!-- <span  -->
+                  <!-- ng-show="((registration_form.phone.$error.minlength || -->
+                           <!-- registration_form.phone.$error.maxlength) &&  -->
+                           <!-- registration_form.phone.$dirty) " class="text-danger"> -->
+                           <!-- phone number should be 10 digits -->
+            <!-- </span> -->
+				<!-- </div>  </div>      -->
                 
-                </div>
+                <!-- </div> -->
+				<div layout="column" ng-cloak style="background-color:white !important;">
+
+  <md-content layout-padding style="background-color:white !important;">
+
+
+      <div layout="row">
+	   <md-input-container flex="50">
+          <label>Gender</label>
+          <md-select name="type"   ng-model="mrs" required>
+            <md-option value="Mr" ng-selected="true">Mr</md-option>
+            <md-option value="Mrs">Mrs</md-option>
+			<md-option value="Miss">Miss</md-option>
+          </md-select>
+        </md-input-container>
+        <md-input-container flex="50">
+          <label>First Name</label>
+          <input  type="text"  ng-model="FirstName" name="fName" required>
+            <span ng-show="!registration_form.fName.$pristine && registration_form.fName.$invalid">
+                <span class="glyphicon glyphicon-exclamation-sign icon-success"></span>
+               <span ng-show="registration_form.fName.$error.required" class="icon-success">Please enter a valid name</span>
+             </span>
+
+        </md-input-container>
+
+       
+      </div>
+
+      <div layout="row">
+        <md-input-container flex="50">
+          <label>Last Name</label>
+          <input   ng-model="LastName" name="lName" >
+
+        </md-input-container>
+
+        <md-input-container flex="50">
+          <label>Email</label>
+          <input type="email"  ng-model="Email" name="emailId" overwrite-email ng-readonly="disableEmail" required>
+             <span ng-show="registration_form.emailId.$dirty && registration_form.emailId.$invalid">
+                  <span class="glyphicon glyphicon-exclamation-sign icon-success"></span>
+                 <span ng-show="registration_form.emailId.$error.required" class="icon-success">Please enter a valid email-ID</span>
+                 <span ng-show="registration_form.emailId.$error.email"class="icon-success">Please enter a valid email-ID</span>
+              </span>
+
+        </md-input-container>
+      </div>
+
+      <md-input-container class="md-block">
+        <label>Phone Number</label>
+        <input  type="tel"  name="phone"  ng-model="PhoneNumber"  numbers-only ng-minlength="10" ng-maxlength="10"  maxlength="10" required>
+           <span ng-show="registration_form.phone.$dirty && registration_form.phone.$invalid">
+                <span class="glyphicon glyphicon-exclamation-sign icon-success"></span>
+         <span ng-show="registration_form.phone.$error.required" class="icon-success">Please enter a valid phone number</span>
+          <span
+                  ng-show="((registration_form.phone.$error.minlength ||
+                           registration_form.phone.$error.maxlength) &&
+                           registration_form.phone.$dirty) " class="icon-success">
+                          Please enter a valid phone number
+          </span>
+           </span>
+      </md-input-container>
+
+   
+
+     
+
+     
+     
+     
+  </md-content>
+
+</div>
+
                 
                 </form>
                 </div>

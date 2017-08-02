@@ -3,15 +3,11 @@ app.controller('ResortDetailCtr',['$scope','$compile','$sce','$element','$state'
                        function ($scope,$compile,$sce,$element,$state,GetParkDetailInfo,$rootScope,$localStorage,$window,$timeout,$q,$log,$modal,$mdDialog) {
                  debugger;
 
-                           if($localStorage.parkId == undefined){
-                               $window.location='../../index.html';
+                           if($localStorage.parkId == undefined) {
+                               $window.location = '../../index.html';
                            }
 
                          else{
-
-
-                               $scope.ShowPhotosInfo = false;
-
 
                                $rootScope.$on('profile-updated2', function(event, profileObj) {
                                    debugger;
@@ -24,10 +20,9 @@ app.controller('ResortDetailCtr',['$scope','$compile','$sce','$element','$state'
                                        $scope.DP = "../../assets/images/Login_Icon.png";
 
                                    }
-                                   else{
+                                   else {
                                        $scope.DP = $localStorage.DP;
                                    }
-
                                });
 
 
@@ -44,12 +39,10 @@ app.controller('ResortDetailCtr',['$scope','$compile','$sce','$element','$state'
                                    $scope.lastName = $localStorage.lastName;
                                    if($localStorage.DP == undefined){
                                        $scope.DP = "../../assets/images/Login_Icon.png";
-
                                    }
                                    else{
                                        $scope.DP = $localStorage.DP;
                                    }
-
                                }
 
                                $scope.logOutCall =function(){
@@ -265,6 +258,7 @@ app.controller('ResortDetailCtr',['$scope','$compile','$sce','$element','$state'
                            $scope.maxDate = $localStorage.checkOut;
                  debugger;
       $scope.startTimer();
+
     GetParkDetailInfo.GetParkDetail(parkId,$scope.myDate,$scope.maxDate).then(function(parkDetailRes){
                 debugger;
         $scope.stopTimer();
@@ -272,11 +266,28 @@ app.controller('ResortDetailCtr',['$scope','$compile','$sce','$element','$state'
 
 
             $scope.resultParkDetail = parkDetailRes.resultObject;
-            $scope.ParkDetail = parkDetailRes.parkDetails;
+            $scope.ParkDetail =  parkDetailRes.parkDetails;
+
+            $scope.PackageDetail= $.grep(parkDetailRes.parkDetails,function (pckg) {
+                return pckg.facilityType == 'O';
+            });
+
+            for(i=0;i<$scope.PackageDetail.length;i++) {
+                $scope.FIFO_PImage = $scope.PackageDetail[i].facilityImage.split(',');
+                $scope.PackageDetail[i].facilityImage = $scope.FIFO_PImage[0];
+            }
+
+            $scope.RoomDetail =  $.grep(parkDetailRes.parkDetails,function (rms) {
+                return rms.facilityType == 'R';
+            });
+            for(i=0;i<$scope.RoomDetail.length;i++) {
+                $scope.FIFO_RImage = $scope.RoomDetail[i].facilityImage.split(',');
+                $scope.RoomDetail[i].facilityImage = $scope.FIFO_RImage[0];
+            }
+
             $localStorage.latitude = parkDetailRes.resultObject[0].latitude;
             $localStorage.longitude = parkDetailRes.resultObject[0].longitude;
             $scope.parkName = parkDetailRes.resultObject[0].name;
-
 
 
             var  centerProperty= {
@@ -323,19 +334,14 @@ app.controller('ResortDetailCtr',['$scope','$compile','$sce','$element','$state'
                 $scope.photos.push({"src":$scope.arrString[i]});
             }
 
-
-
             $localStorage.parkDetails = parkDetailRes.parkDetails;
 
         }
 
-        else{
+        else {
 
 
         }
-
-
-
 
     });
 
@@ -357,7 +363,7 @@ app.controller('ResortDetailCtr',['$scope','$compile','$sce','$element','$state'
 
 
                       }
-                        else{
+                      else{
                           angular.extend($scope, {
                               centerProperty: {
                                   lat: $localStorage.latitude,
@@ -374,73 +380,75 @@ app.controller('ResortDetailCtr',['$scope','$compile','$sce','$element','$state'
                       }
 
 
-       $scope.ShowImagesCall = function (park,index) {
-           debugger;
-           $scope.divId=true;
-           var myEl = angular.element(document.querySelector('#divId' + index));
-           //myEl.append('<b>Bharath</b>\n<hr>');
-           $scope.snippet='<md-card><div ng-cloak><md-content><md-tabs md-dynamic-height md-border-bottom><md-tab label="Photos"><md-content class="md-padding"><div class="container"><div style="width: 680px;"><img   ng-repeat="facility in facilityPhotos" class="slide" ng-swipe-right="showPrev()" ng-swipe-left="showNext()" ng-show="isActive($index)" ng-src="http://admin.outingday.com/images/ResortsImages/{{facility.src}}" onError="this.onerror=null;this.src=\'../../assets/images/default-thumb.gif\';" /><p class="arrow prev" href="#" ng-click="showPrev()"></p><p class="arrow next" href="#" ng-click="showNext()"></p></div></div></md-content></md-tab><md-tab label="Info"><md-content class="md-padding"><h1 class="md-display-2">Info</h1><p data-ng-bind="facilitydescription"></p></md-content></md-tab></md-tabs></md-content></div></md-card>';
+                      $scope.PackageShowImagesCall = function (park,index) {
+                                   debugger;
 
-           $scope.deliberatelyTrustDangerousSnippet = function() {
-               return $sce.trustAsHtml($scope.snippet);
-           };
-           myEl.hide();
+                                   if (angular.element(document.getElementById('pcklistdiv'+ index))[0]==undefined) {
 
-           // myEl.append('<md-card>\n' +
-           //     '            <div ng-cloak>\n' +
-           //     '                <md-content>\n' +
-           //     '                    <md-tabs md-dynamic-height md-border-bottom>\n' +
-           //     '                        <md-tab label="Photos">\n' +
-           //     '                            <md-content class="md-padding">\n' +
-           //     '                                <div class="container">\n' +
-           //     '                                    <div style="width: 680px;">\n' +
-           //     '                                        <img   ng-repeat="facility in facilityPhotos" class="slide" ng-swipe-right="showPrev()" ng-swipe-left="showNext()" ng-show="isActive($index)" ng-src="http://admin.outingday.com/images/ResortsImages/{{facility.src}}" onError="this.onerror=null;this.src=\'../../assets/images/default-thumb.gif\';" />\n' +
-           //     '                                        <p class="arrow prev" href="#" ng-click="showPrev()"></p>\n' +
-           //     '                                        <p class="arrow next" href="#" ng-click="showNext()"></p>\n' +
-           //     '                                    </div>\n' +
-           //     '                                </div>\n' +
-           //     '                            </md-content>\n' +
-           //     '                        </md-tab>\n' +
-           //     '                        <md-tab label="Info">\n' +
-           //     '                            <md-content class="md-padding">\n' +
-           //     '                                <h1 class="md-display-2">Info</h1>\n' +
-           //     '                                <p data-ng-bind="facilitydescription"></p>\n' +
-           //     '                            </md-content>\n' +
-           //     '                        </md-tab>\n' +
-           //     '                    </md-tabs>\n' +
-           //     '                </md-content>\n' +
-           //     '            </div>\n' +
-           //     '        </md-card>');
+                                       $scope.BindData=$localStorage.parkDetails;
+                                       var html = '<div id="pcklistdiv'+index+'">' +
+                                           '<md-card><div ng-cloak>' +
+                                           '    <md-content><md-tabs md-dynamic-height md-border-bottom><md-tab label="Photos"><md-content class="md-padding"><div class="container"><div style="width: 680px;"><img   ng-repeat="facility in facilityPhotos" class="slide" ng-swipe-right="showPrev()" ng-swipe-left="showNext()" ng-show="isActive($index)" ng-src="http://admin.outingday.com/images/ResortsImages/{{facility.src}}" onError="this.onerror=null;this.src=\'../../assets/images/default-thumb.gif\';" /><p class="arrow prev" href="#" ng-click="showPrev()"></p><p class="arrow next" href="#" ng-click="showNext()"></p></div></div></md-content></md-tab><md-tab label="Info"><md-content class="md-padding"><h1 class="md-display-2">Info</h1><p data-ng-bind="facilitydescription"></p></md-content></md-tab></md-tabs></md-content></div></md-card></div>';
+                                       angular.element(document.getElementById('packageContent'+ index)).append($compile(html)($scope));
 
-            //angular.element(myEl).append($compile(html)($scope));
+                                       $scope.GettingRoomInfo=$.grep($localStorage.parkDetails,function (prkrm) {
+                                           return prkrm.facilityTypeCode==park.facilityTypeCode;
+                                       })[0]
 
 
-           var showHide = $scope.ShowPhotosInfo;
-           if (showHide == false) {
-               $scope.ShowPhotosInfo = true;
-               $scope.facilitydescription = park.description;
-               $scope.ParkDetailfacilityImage = park.facilityImage;
-               $scope.facilityarrString = new Array();
-               $scope.facilityarrString = $scope.ParkDetailfacilityImage.split(',');
+                                       $scope.facilitydescription = $scope.GettingRoomInfo.description;
+                                       $scope.ParkDetailfacilityImage = $scope.GettingRoomInfo.facilityImage;
+                                       $scope.facilityarrString = new Array();
+                                       $scope.facilityarrString = $scope.ParkDetailfacilityImage.split(',');
 
-               $scope.facilityPhotos = [];
-               for (var i = 0; i < $scope.facilityarrString.length; i++) {
-                   $scope.facilityPhotos.push({"src": $scope.facilityarrString[i]});
-               }
-           }
-           else {
-               $scope.ShowPhotosInfo = false;
-           }
+                                       $scope.facilityPhotos = [];
+                                       for (var i = 0; i < $scope.FIFO_RImage.length; i++) {
+                                           $scope.facilityPhotos.push({"src": $scope.FIFO_RImage[i]});
+                                       }
+                                   }
+                                   else {
 
+                                       angular.element(document.getElementById('pcklistdiv'+ index)).remove();
+                                   }
 
-
-       }
+                               }
 
 
+                      $scope.RoomShowImagesCall = function (park,index) {
+                                   debugger;
+
+                                   if (angular.element(document.getElementById('listdiv'+ index))[0]==undefined) {
+
+                                       $scope.BindData=$localStorage.parkDetails;
+                                       var html = '<div id="listdiv'+index+'">' +
+                                           '<md-card><div ng-cloak>' +
+                                           '    <md-content><md-tabs md-dynamic-height md-border-bottom><md-tab label="Photos"><md-content class="md-padding"><div class="container"><div style="width: 680px;"><img   ng-repeat="facility in facilityPhotos" class="slide" ng-swipe-right="showPrev()" ng-swipe-left="showNext()" ng-show="isActive($index)" ng-src="http://admin.outingday.com/images/ResortsImages/{{facility.src}}" onError="this.onerror=null;this.src=\'../../assets/images/default-thumb.gif\';" /><p class="arrow prev" href="#" ng-click="showPrev()"></p><p class="arrow next" href="#" ng-click="showNext()"></p></div></div></md-content></md-tab><md-tab label="Info"><md-content class="md-padding"><h1 class="md-display-2">Info</h1><p data-ng-bind="facilitydescription"></p></md-content></md-tab></md-tabs></md-content></div></md-card></div>';
+                                       angular.element(document.getElementById('roomsContent'+ index)).append($compile(html)($scope));
+
+                                       $scope.GettingRoomInfo=$.grep($localStorage.parkDetails,function (prkrm) {
+                                           return prkrm.facilityTypeCode==park.facilityTypeCode;
+                                       })[0]
 
 
+                                       $scope.facilitydescription = $scope.GettingRoomInfo.description;
+                                       $scope.ParkDetailfacilityImage = $scope.GettingRoomInfo.facilityImage;
+                                       $scope.facilityarrString = new Array();
+                                       $scope.facilityarrString = $scope.ParkDetailfacilityImage.split(',');
 
-                           $scope.loadEditForm = function () {
+                                       $scope.facilityPhotos = [];
+                                       for (var i = 0; i < $scope.FIFO_RImage.length; i++) {
+                                           $scope.facilityPhotos.push({"src": $scope.FIFO_RImage[i]});
+                                       }
+                                   }
+                                   else {
+
+                                       angular.element(document.getElementById('listdiv'+ index)).remove();
+                                   }
+
+                               }
+
+
+                      $scope.loadEditForm = function () {
                                $scope.checkItem = "yes";
                                $modal.open({
                                    templateUrl: '../../app/Resorts/modal.html',
@@ -456,33 +464,33 @@ app.controller('ResortDetailCtr',['$scope','$compile','$sce','$element','$state'
                                    });
                            };
 
-                           if( $localStorage.localAreas == undefined){
+                      if( $localStorage.localAreas == undefined){
 
                                $scope.loadEditForm();
                            }
-                           else{
+                      else{
 
                            }
 
-                           if( $localStorage.localAreas == undefined){
+                      if( $localStorage.localAreas == undefined){
 
                                $scope.regionModel = function(){ return  "SELECT A REGION"; }
                            }
-                           else{
+                      else{
 
                                $scope.regionModel = function(){ return  $localStorage.modelsearch.cityName; }
                            }
 
-                           $scope.firstLineRegionModel  =$localStorage.modelsearch.cityName;
-                           $scope.MainSearch=function(){
+                      $scope.firstLineRegionModel  =$localStorage.modelsearch.cityName;
+                      $scope.MainSearch=function(){
                                var searchArea =   $scope.ctrl.selectedItem;
                                $localStorage.searchInput =   searchArea;
                                $window.location='../../app/Resorts/Viewresorts.html';
                            }
 
 
-       /*-------------------  login signup calls --------------------*/
-       $scope.loginPage = function(ev) {
+                    /*-------------------  login signup calls --------------------*/
+                      $scope.loginPage = function(ev) {
            debugger;
 
            $mdDialog.show({
@@ -502,7 +510,7 @@ app.controller('ResortDetailCtr',['$scope','$compile','$sce','$element','$state'
                });
        };
 
-       $scope.SignUpPage = function(ev) {
+                     $scope.SignUpPage = function(ev) {
            debugger;
 
            $mdDialog.show({
@@ -521,11 +529,9 @@ app.controller('ResortDetailCtr',['$scope','$compile','$sce','$element','$state'
                    $scope.status = 'You cancelled the dialog.';
                });
        };
-       /*-------------------  login signup calls --------------------*/
+                   /*-------------------  login signup calls --------------------*/
 
-
-
-                           $scope.BookPkgCall= function(park){
+                     $scope.BookPkgCall= function(park){
                                $scope.facilityTypList=[];
                                debugger;
                                $localStorage.bookPark = park;
@@ -534,7 +540,7 @@ app.controller('ResortDetailCtr',['$scope','$compile','$sce','$element','$state'
                                $localStorage.facilityTypeTitle  = park.facilityTypeTitle;
                                $window.location='../Resorts/packageDetails.html';
                            }
-                           $scope.SkipRooms= function(){
+                     $scope.SkipRooms= function(){
                                     debugger;
 
                                $localStorage.bookPark = "";

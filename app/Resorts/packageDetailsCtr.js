@@ -18,7 +18,9 @@ app.controller('packageDetailCtr',['$scope','$state','GetParkDetailInfo','$rootS
                 $scope.showLoginBtn = false;
                 $scope.disableEmail =true;
                 $scope.FirstName = $localStorage.firstName;
+                $scope.userfirstName = $localStorage.firstName;
                 $scope.LastName = $localStorage.lastName;
+                $scope.userlastName = $localStorage.lastName;
                 $scope.Email = $localStorage.username;
                 $scope.PhoneNumber = $localStorage.phoneNumber;
 
@@ -45,7 +47,9 @@ app.controller('packageDetailCtr',['$scope','$state','GetParkDetailInfo','$rootS
                 $scope.showLoginBtn = false;
                 $scope.disableEmail =true;
                 $scope.FirstName = $localStorage.firstName;
+                $scope.userfirstName = $localStorage.firstName;
                 $scope.LastName = $localStorage.lastName;
+                $scope.userlastName = $localStorage.lastName;
                 $scope.Email = $localStorage.username;
                 $scope.PhoneNumber = $localStorage.phoneNumber;
                 if($localStorage.DP == undefined){

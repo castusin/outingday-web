@@ -48,7 +48,7 @@ app.controller('registerCtr', ['$scope','$state','$window','$rootScope','$localS
 
 
 
-                RequestOTPServiceInfo.ParkUserCheck($localStorage.Email).then(function(ParkUserCheckInfo){
+                RequestOTPServiceInfo.ParkUserCheck($localStorage.Email,$localStorage.Id).then(function(ParkUserCheckInfo){
                     debugger;
 
 
@@ -113,7 +113,7 @@ app.controller('registerCtr', ['$scope','$state','$window','$rootScope','$localS
             $localStorage.DP =  emailId.Paa;
 
 
-            RequestOTPServiceInfo.ParkUserCheck($localStorage.Email).then(function(ParkUserCheckInfo){
+            RequestOTPServiceInfo.ParkUserCheck($localStorage.Email,$localStorage.Id).then(function(ParkUserCheckInfo){
                 debugger;
 
 

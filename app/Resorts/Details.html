@@ -537,21 +537,41 @@ $('head').append('<meta name="viewport" content="width=device-width, initial-sca
 
 <!------------google login--------------->
 
+<script src="//apis.google.com/js/api:client.js"></script>
 <script>
-    function onSignIn(googleUser) {
+    var googleUser = {};
+
+    function startApp() {
         debugger;
-        var profile = googleUser.getBasicProfile();
-        console.log(profile);
-        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-        console.log('Name: ' + profile.getName());
-        console.log('Image URL: ' + profile.getImageUrl());
-        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+        gapi.load('auth2', function(){
+            // Retrieve the singleton for the GoogleAuth library and set up the client.
+            auth2 = gapi.auth2.init({
+                client_id: '750253327708-hgc8c2di1age1nfhlukdab5tt2emjetf.apps.googleusercontent.com',
+                cookiepolicy: 'single_host_origin'
+                // Request scopes in addition to 'profile' and 'email'
+                //scope: 'additional_scope'
+            });
+            attachSignin(document.getElementById('customBtn'));
+        });
+    };
 
-        var GoogleUserDetails = profile;
-        angular.element(document.getElementById('divID')).scope().GoogleParkUserCheckCall(GoogleUserDetails);
+    function attachSignin(element) {
+        debugger;
+        console.log(element.id);
+        auth2.attachClickHandler(element, {},
+                function(googleUser) {
+                    debugger;
+                    var profile = googleUser.getBasicProfile();
 
+
+                    var GoogleUserDetails = profile;
+                    angular.element(document.getElementById('gSignInWrapper')).scope().GoogleParkUserCheckCall(GoogleUserDetails);
+
+
+                }, function(error) {
+
+                });
     }
-
 </script>
 <script>
     function signOut() {
@@ -581,7 +601,7 @@ $('head').append('<meta name="viewport" content="width=device-width, initial-sca
                         <ul class="nav navbar-nav navbar-right" >
                            <!-- <li><a href="#">Link</a></li>-->
                             <li class="dropdown" style="padding-right:4px;" ng-if="showLoginBtn">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" ng-click="loginPage()" style="color:#fff;">Login </b></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" ng-click="loginPage()" style="color:#fff !important;">Login </b></a>
 
 
                                 <!-- <ul class="dropdown-menu" style="width:180px;margin-top:10px;"> -->
@@ -658,7 +678,7 @@ $('head').append('<meta name="viewport" content="width=device-width, initial-sca
                             </li>
                             
                             <li class="dropdown" style="padding-right:4px;">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:#fff;"><span style="color:#feb824; padding:0 8px 0 0px;">|</span>Support <b class="caret"></b></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:#fff !important;"><span style="color:#feb824; padding:0 8px 0 0px;">|</span>Support <b class="caret"></b></a>
                                 <ul class="dropdown-menu" style="margin-top:10px;">
 								<div class="row" style="margin-top:-10%;"><a href="#"><span style="padding-left:50px;"><img  src="../../assets/images/top_arrow.png" alt="" height="14px" width="14px" ></span></a></div>
                                  
@@ -673,7 +693,7 @@ $('head').append('<meta name="viewport" content="width=device-width, initial-sca
                             </li>
                             
                             <li class="dropdown" >
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:#fff;"><span style="color:#feb824; padding:0 8px 0 0px;">|</span>Corporate Deals <b class="caret"></b></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:#fff !important;"><span style="color:#feb824; padding:0 8px 0 0px;">|</span>Corporate Deals <b class="caret"></b></a>
                                 <ul class="dropdown-menu" style="width:180px;left:30px;margin-top:10px;">
                                    <div class="row" style="margin-top:-10%;"><a href="#"><span style="padding-left:50px;"><img  src="../../assets/images/top_arrow.png" alt="" height="14px" width="14px" ></span></a></div>
                                   
@@ -878,12 +898,12 @@ $('head').append('<meta name="viewport" content="width=device-width, initial-sca
 		
 			
    <h4 class="detailtitle">Packages</h4>
-    <md-card ng-repeat="park in ParkDetail" ng-show="park.facilityType == 'O'">
+    <md-card ng-repeat="park in PackageDetail">
         <div layout="row">
             <div flex>
                 <md-card-title-media>
                     <div style="margin:5%;" >
-                        <img ng-src="http://outingadmin.littlepandits.com/images/ResortsImages/{{park.facilityImage}}" ng-click="ShowImagesCall(park)" onError="this.onerror=null;this.src='../../assets/images/default-thumb.gif';"class="md-card-image">
+                        <img ng-src="http://outingadmin.littlepandits.com/images/ResortsImages/{{park.facilityImage}}" ng-click="PackageShowImagesCall(park,$index)" onError="this.onerror=null;this.src='../../assets/images/default-thumb.gif';"class="md-card-image">
                         <p class="md-subhead" style="font-size:15px;margin:0px !important;">
                         <h6 class="detailtext1"  style="margin-bottom:0%!important;padding-bottom:0%!important;">
                             <hm-read-more
@@ -927,7 +947,7 @@ $('head').append('<meta name="viewport" content="width=device-width, initial-sca
                 </div>
             </div>
         </div>
-
+        <div id="packageContent{{$index}}"></div>
 
     </md-card>
 		
@@ -936,13 +956,13 @@ $('head').append('<meta name="viewport" content="width=device-width, initial-sca
 
 <h4 class="detailtitle">Rooms</h4>	  
 
-<md-card ng-repeat="park in ParkDetail" ng-show="park.facilityType == 'R'">
+<md-card ng-repeat="park in RoomDetail">
 		<div layout="row">
   <div flex>
 
    <md-card-title-media>
             <div style="margin:5%;">
-			<img ng-src="http://outingadmin.littlepandits.com/images/ResortsImages/{{park.facilityImage}}" ng-click="ShowImagesCall(park,$index)" onError="this.onerror=null;this.src='../../assets/images/default-thumb.gif';"class="md-card-image">
+			<img ng-src="http://outingadmin.littlepandits.com/images/ResortsImages/{{park.facilityImage}}" ng-click="RoomShowImagesCall(park,$index)" onError="this.onerror=null;this.src='../../assets/images/default-thumb.gif';"class="md-card-image">
 			<p class="md-subhead" style="font-size:15px;margin:0px !important;">
 			 <h6 class="detailtext1"  style="margin-bottom:0%!important;padding-bottom:0%!important;">
                		<hm-read-more
@@ -979,35 +999,7 @@ $('head').append('<meta name="viewport" content="width=device-width, initial-sca
   </div>
  </div>
 
-    <div id="divId{{$index}}">
-        <div ng-bind-html="snippet"></div>
-        <!--<md-card>-->
-            <!--<div ng-cloak>-->
-                <!--<md-content>-->
-                    <!--<md-tabs md-dynamic-height md-border-bottom>-->
-                        <!--<md-tab label="Photos">-->
-                            <!--<md-content class="md-padding">-->
-                                <!--<div class="container">-->
-                                    <!--<div style="width: 680px;">-->
-                                        <!--<img   ng-repeat="facility in facilityPhotos" class="slide" ng-swipe-right="showPrev()" ng-swipe-left="showNext()" ng-show="isActive($index)" ng-src="http://admin.outingday.com/images/ResortsImages/{{facility.src}}" onError="this.onerror=null;this.src='../../assets/images/default-thumb.gif';" />-->
-                                        <!--<p class="arrow prev" href="#" ng-click="showPrev()"></p>-->
-                                        <!--<p class="arrow next" href="#" ng-click="showNext()"></p>-->
-                                    <!--</div>-->
-                                <!--</div>-->
-                            <!--</md-content>-->
-                        <!--</md-tab>-->
-                        <!--<md-tab label="Info">-->
-                            <!--<md-content class="md-padding">-->
-                                <!--<h1 class="md-display-2">Info</h1>-->
-                                <!--<p data-ng-bind="facilitydescription"></p>-->
-                            <!--</md-content>-->
-                        <!--</md-tab>-->
-                    <!--</md-tabs>-->
-                <!--</md-content>-->
-            <!--</div>-->
-        <!--</md-card>-->
-
-    </div>
+    <div id="roomsContent{{$index}}"></div>
 
 </md-card>
 

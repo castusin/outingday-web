@@ -1,6 +1,77 @@
 
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+<script src="//apis.google.com/js/api:client.js"></script>
+<script>
+    var googleUser = {};
+
+    function startApp() {
+        debugger;
+        gapi.load('auth2', function(){
+            // Retrieve the singleton for the GoogleAuth library and set up the client.
+            auth2 = gapi.auth2.init({
+                client_id: '750253327708-hgc8c2di1age1nfhlukdab5tt2emjetf.apps.googleusercontent.com',
+                cookiepolicy: 'single_host_origin'
+                // Request scopes in addition to 'profile' and 'email'
+                //scope: 'additional_scope'
+            });
+            attachSignin(document.getElementById('customBtn'));
+        });
+    };
+
+    function attachSignin(element) {
+        debugger;
+        console.log(element.id);
+        auth2.attachClickHandler(element, {},
+                function(googleUser) {
+                    debugger;
+                    var profile = googleUser.getBasicProfile();
 
 
+                    var GoogleUserDetails = profile;
+                    angular.element(document.getElementById('gSignInWrapper')).scope().GoogleParkUserCheckCall(GoogleUserDetails);
+
+
+                }, function(error) {
+
+                });
+    }
+</script>
+<style type="text/css">
+    #customBtn {
+      display: inline-block;
+      background: #ea482f;
+      color: #fff !important;
+      width: 170px;
+      
+      box-shadow: 1px 1px 1px grey;
+      white-space: nowrap;
+    }
+    #customBtn:hover {
+      cursor: pointer;
+    }
+    span.label {
+      font-family: serif;
+      font-weight: normal;
+    }
+    span.icon {
+      background: url('../../assets/images/icon_google.png') transparent 5px 50% no-repeat;
+      display: inline-block;
+      vertical-align: middle;
+      width: 40px;
+      height: 40px;
+    }
+    span.buttonText {
+      display: inline-block;
+      vertical-align: middle;
+      padding-left: 42px;
+      padding-right: 42px;
+      font-size: 14px;
+     
+      /* Use the Roboto font that is loaded in the <head> */
+      font-family: 'Roboto', sans-serif;
+	  padding-top:10px;
+    }
+</style>
 
 
 <md-dialog aria-label="Mango (Fruit)" style="border-radius:0px;">
@@ -25,7 +96,7 @@
       
         	
        
-        <md-dialog-content style="padding:2%;" >
+        <md-dialog-content  >
         <div class="md-dialog-content" style="padding:0px !important;background-color:#EEECEE;">
 
 <!-- <nav class="navbar navbar-inverse visible-xs"> -->
@@ -163,7 +234,17 @@
 
 
     <!-------- google button--------->
-    <button type="button" class="g-signin2" data-onsuccess="onSignIn" id="divID" style="width:150px;padding:0px;border:none;" >Google</button>
+    <div id="gSignInWrapper" onclick="startApp()">
+        <div id="customBtn" class="customGPlusSignIn">
+            <span class="icon"></span>
+            <span class="buttonText" >Google</span>
+        </div>
+    </div>
+    
+    
+
+
+
     <!-------- google button--------->
 
 <!-- <a class="btn btn-icon btn-twitter" href="#"><i class="fa fa-twitter"></i><span>Twitter</span></a> -->
@@ -191,41 +272,14 @@
 
 	
 </md-dialog>
-<head>
-    <meta name="google-signin-client_id" content="750253327708-hgc8c2di1age1nfhlukdab5tt2emjetf.apps.googleusercontent.com">
-</head>
 
-<script src="//apis.google.com/js/platform.js" async defer></script>
+
+
 
 
 <!------------google login--------------->
 
-<script>
 
-
-    function onSignIn(googleUser) {
-        debugger;
-        var profile = googleUser.getBasicProfile();
-        console.log(profile);
-        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-        console.log('Name: ' + profile.getName());
-        console.log('Image URL: ' + profile.getImageUrl());
-        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-
-        var GoogleUserDetails = profile;
-        angular.element(document.getElementById('divID')).scope().GoogleParkUserCheckCall(GoogleUserDetails);
-
-    }
-
-</script>
-<script>
-    function signOut() {
-        var auth2 = gapi.auth2.getAuthInstance();
-        auth2.signOut().then(function () {
-            console.log('User signed out.');
-        });
-    }
-</script>
 <!------------google login--------------->
 <!------------facebook login--------------->
 

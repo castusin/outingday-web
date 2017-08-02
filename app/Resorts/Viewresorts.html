@@ -157,11 +157,11 @@ $(document).ready(function() {
     -ms-user-select: none;
     user-select: none;
     background-image: none;
-	color:#AC6B75 !important;
-    border: 1px solid #AC6B75 !important;
+	color:#f06757 !important;
+    border: 1px solid #f06757 !important;
     /* border-radius: 4px; */
     background: transparent!important;
-    border-radius: 10px !important;
+    border-radius: 6px !important;
 	 -webkit-transition: box-shadow .4s cubic-bezier(.25,.8,.25,1),background-color .4s cubic-bezier(.25,.8,.25,1);
     transition: box-shadow .4s cubic-bezier(.25,.8,.25,1),background-color .4s cubic-bezier(.25,.8,.25,1);
 
@@ -184,11 +184,11 @@ $(document).ready(function() {
     -ms-user-select: none;
     user-select: none;
     background-image: none;
-	color:#AC6B75 !important;
-    border: 1px solid #AC6B75 !important;
+	color:#f06757 !important;
+    border: 1px solid #f06757 !important;
     /* border-radius: 4px; */
     background: transparent!important;
-    border-radius: 10px !important;
+    border-radius: 6px !important;
 	 -webkit-transition: box-shadow .4s cubic-bezier(.25,.8,.25,1),background-color .4s cubic-bezier(.25,.8,.25,1);
     transition: box-shadow .4s cubic-bezier(.25,.8,.25,1),background-color .4s cubic-bezier(.25,.8,.25,1);
 
@@ -313,7 +313,7 @@ navbar-nav>li {
 
 .container_img
 {
-    height:196px !important;
+    height:185px !important;
     width:100% !important;
     position:relative !important;
 }
@@ -532,10 +532,10 @@ md-slider.md-default-theme .md-thumb:after, md-slider .md-thumb:after {
     color:#fff !important;
     font-size:16px !important;
     font-weight:bold !important;
-	padding:0 10px 0 0;
+	padding:0 8px 0 0;
 	top:0px;
 	text-align:right;
-	line-height:200px;
+	line-height:180px;
 	width:100%;
  }
  
@@ -544,7 +544,7 @@ md-slider.md-default-theme .md-thumb:after, md-slider .md-thumb:after {
     position:absolute;  
  	width:100%;
 	text-align:right;
-	padding:10px 10px 0 0;
+	padding:8px 8px 0 0;
 	top:0;
  }
  
@@ -561,6 +561,42 @@ md-slider.md-default-theme .md-thumb:after, md-slider .md-thumb:after {
     padding-top: 14px;
 	padding-right:2px;
 }
+
+
+
+
+/* For Zoom in and Zoom Out Begins */
+
+.style_prevu_kit
+{
+    display:inline-block;
+    border:0;
+    
+    -webkit-transition: all 200ms ease-in;
+    -webkit-transform: scale(1); 
+    -ms-transition: all 200ms ease-in;
+    -ms-transform: scale(1); 
+    -moz-transition: all 200ms ease-in;
+    -moz-transform: scale(1);
+    transition: all 200ms ease-in;
+    transform: scale(1);   
+
+}
+.style_prevu_kit:hover
+{
+  	z-index: 2;
+    -webkit-transition: all 200ms ease-in;
+    -webkit-transform: scale(1.1);
+    -ms-transition: all 200ms ease-in;
+    -ms-transform: scale(1.1);   
+    -moz-transition: all 200ms ease-in;
+    -moz-transform: scale(1.1);
+    transition: all 200ms ease-in;
+    transform: scale(1.1);
+}
+
+/* For Zoom in and Zoom Out Ends */
+
      </style>
 
 
@@ -685,21 +721,41 @@ md-slider.md-default-theme .md-thumb:after, md-slider .md-thumb:after {
 
 <!------------google login--------------->
 
+<script src="//apis.google.com/js/api:client.js"></script>
 <script>
-    function onSignIn(googleUser) {
+    var googleUser = {};
+
+    function startApp() {
         debugger;
-        var profile = googleUser.getBasicProfile();
-        console.log(profile);
-        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-        console.log('Name: ' + profile.getName());
-        console.log('Image URL: ' + profile.getImageUrl());
-        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+        gapi.load('auth2', function(){
+            // Retrieve the singleton for the GoogleAuth library and set up the client.
+            auth2 = gapi.auth2.init({
+                client_id: '750253327708-hgc8c2di1age1nfhlukdab5tt2emjetf.apps.googleusercontent.com',
+                cookiepolicy: 'single_host_origin'
+                // Request scopes in addition to 'profile' and 'email'
+                //scope: 'additional_scope'
+            });
+            attachSignin(document.getElementById('customBtn'));
+        });
+    };
 
-        var GoogleUserDetails = profile;
-        angular.element(document.getElementById('divID')).scope().GoogleParkUserCheckCall(GoogleUserDetails);
+    function attachSignin(element) {
+        debugger;
+        console.log(element.id);
+        auth2.attachClickHandler(element, {},
+                function(googleUser) {
+                    debugger;
+                    var profile = googleUser.getBasicProfile();
 
+
+                    var GoogleUserDetails = profile;
+                    angular.element(document.getElementById('gSignInWrapper')).scope().GoogleParkUserCheckCall(GoogleUserDetails);
+
+
+                }, function(error) {
+
+                });
     }
-
 </script>
 <script>
     function signOut() {
@@ -728,7 +784,7 @@ md-slider.md-default-theme .md-thumb:after, md-slider .md-thumb:after {
                         <ul class="nav navbar-nav navbar-right" >
                            <!-- <li><a href="#">Link</a></li>-->
                             <li class="dropdown" style="padding-right:4px;" ng-if="showLoginBtn">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" ng-click="loginPage()" style="color:#fff;">Login </b></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" ng-click="loginPage()" style="color:#fff !important;">Login </b></a>
 
 
                                 <!-- <ul class="dropdown-menu" style="width:180px;margin-top:10px;"> -->
@@ -805,7 +861,7 @@ md-slider.md-default-theme .md-thumb:after, md-slider .md-thumb:after {
                             </li>
                             
                             <li class="dropdown" style="padding-right:4px;">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:#fff;"><span style="color:#feb824; padding:0 8px 0 0px;">|</span>Support <b class="caret"></b></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:#fff !important;"><span style="color:#feb824; padding:0 8px 0 0px;">|</span>Support <b class="caret"></b></a>
                                 <ul class="dropdown-menu" style="margin-top:10px;">
 								<div class="row" style="margin-top:-10%;"><a href="#"><span style="padding-left:50px;"><img  src="../../assets/images/top_arrow.png" alt="" height="14px" width="14px" ></span></a></div>
                                  
@@ -820,7 +876,7 @@ md-slider.md-default-theme .md-thumb:after, md-slider .md-thumb:after {
                             </li>
                             
                             <li class="dropdown" >
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:#fff;"><span style="color:#feb824; padding:0 8px 0 0px;">|</span>Corporate Deals <b class="caret"></b></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:#fff !important;"><span style="color:#feb824; padding:0 8px 0 0px;">|</span>Corporate Deals <b class="caret"></b></a>
                                 <ul class="dropdown-menu" style="width:180px;left:30px;margin-top:10px;">
                                    <div class="row" style="margin-top:-10%;"><a href="#"><span style="padding-left:50px;"><img  src="../../assets/images/top_arrow.png" alt="" height="14px" width="14px" ></span></a></div>
                                   
@@ -927,18 +983,14 @@ md-slider.md-default-theme .md-thumb:after, md-slider .md-thumb:after {
 	 <div class="container" style="width:100%;">
 
 
-	 <div class="row" style="padding:5px 5px ;">
-		<div class="col-lg-4 col-sm-12 col-md-4 col-xs-12" style="color:black;">
-
-		</div>
+	 <div class="row" style="padding:0 5px 20px 0;">
+		<div class="col-lg-4 col-sm-12 col-md-4 col-xs-12" style="color:black;"></div>
 		<div class="col-lg-8 col-sm-12 col-md-8 col-xs-12" align="right">
-
-            <button type="button" class="btn btn-default" ng-click="popHL()">Popular</button>
+			<button type="button" class="btn btn-default" ng-click="popHL()">Popular</button>
             <button type="button" class="btn btn-default" ng-click="ratingHL()">Rating (high to low)</button>
             <button type="button" class="btn btn-default" ng-click="minCostHL()">Cost (high to low)</button>
             <button type="button" class="btn btn-default" ng-click="minCostLH()">Cost (low to high)</button>
             <button type="button" class="btn btn-default" ng-click="viewResortsCall(ctrl)">Recent</button>
-
 		</div>
 	 </div>
 
@@ -1030,9 +1082,9 @@ md-slider.md-default-theme .md-thumb:after, md-slider .md-thumb:after {
            
         </div>
 
-		<div class="result_bg" style="background-color:transparent !impormd-slider.md-default-theme .md-sign, md-slider .md-signtant;">
+		<div class="result_bg " style="background-color:transparent !impormd-slider.md-default-theme .md-sign, md-slider .md-signtant;">
 			
-			<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" ng-repeat="res in DetailsListInfo | limitTo: paginationLimit()" href="#" ng-click="bookResort(res.parkId,res)" style="outline:0;height:380px !important; ">
+			<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 style_prevu_kit" ng-repeat="res in DetailsListInfo | limitTo: paginationLimit()" href="#" ng-click="bookResort(res.parkId,res)" style="outline:0;height:380px !important; ">
 
 			 <!-- <md-card> -->
         
@@ -1081,35 +1133,49 @@ md-slider.md-default-theme .md-thumb:after, md-slider .md-thumb:after {
 		
       <!-- </md-card> -->
 	 
-	  <div flex layout="column" style="    box-shadow: 0 1px 3px 0 rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 2px 1px -1px rgba(0,0,0,.12);">
+	  <div flex layout="column" style=" background-color:#fff;  border:solid 1px #e1e0e0;">
         <div flex="auto">
-            <div class="container_img" align="center">
+            <div class="container_img " align="center">
                 <img  preload-image ng-src="http://outingadmin.littlepandits.com/images/ResortsImages/{{res.photoUrl}}" default-image="../../assets/images/loadingimg2.gif" fallback-image="../../assets/images/default-thumb.gif" alt="" class="img-responsive img-portfolio" align="center"> 
-                <div class="sponsored" ng-show="res.sponsoredFlag == 'y'"><img src="../../assets/images/sponsored.png" alt="" height="61px" width="61px" ></div>
-                <div class="button_rating"><button type="button" class="btn btn-success btn-xs">{{res.odRating}}</button></div>
-                <div class="share_icon" ><i class="fa fa-share-alt-square" aria-hidden="true" style="color:#fff;font-size:25px;"></i></div>
+                <div class="sponsored" ng-show="res.sponsoredFlag == 'y'"><img src="../../assets/images/sponsored.png" alt="" height="90px" width="90px" ></div>
+                <div class="button_rating"><button type="button" class="btn btn-success btn-md" style="border-radius:0; padding: 4px 10px 4px 10px;">{{res.odRating}}</button></div>
+                <div class="share_icon" ><img  src="../../assets/images/icon_share.png" alt=""></div>
             </div>
         </div>
 
         <div flex="auto">
-        	<h4 style="font-size:15px !important;font-weight:bold !important;padding-left:2% !important;padding-right:2%!important;">{{res.name}} - <span style="color:#999999 !important; font-size:13px !important;">{{res.city}}</span></h4> 
+        	<h4 style="font-size:17px !important;color:#333333; padding-left:2% !important; padding-right:2%!important;">{{res.name}} - <span style="color:#999999 !important; font-size:13px !important;">{{res.city}}</span></h4> 
         </div>
 
         <div flex="auto">
-       		<h6 class="comment more" ng-bind-html="res.description | limitTo: 100" style=" font-size:13px !important;padding-left:2%;padding-right:2%;"> </h6>
+       		<h6 class="comment more" ng-bind-html="res.description | limitTo: 100" style=" font-size:13px !important;padding-left:2%;padding-right:2%; color:#666666 !important;"> </h6>
         </div>
           
         <div flex="auto" style="margin-bottom:10px;">
-            <div class="btn-justified" style="padding-left:2% !important;padding-right:2%!important;">
-                <button class="btn btn-cars">Offer</button>
-                <button class="btn btn-cars">50% Off</button>
-                <button class="btn btn-cars" style="border:none !important;color:#424242 !important;">Starting from</button>
+        	<div class="row" style="margin:0;">
+            	<div style="width:60%;float:left;">
+                	<div style="padding:2px;">
+                		<span style="padding:2px;"><button class="btn btn-cars">Offer</button></span>
+                    	<span style="padding:2px;"><button class="btn btn-cars">50% Off</button></span>
+					</div>
+                    <div style="padding:2px;">
+                   	 	<span style="padding:2px;margin-top:2px;"><button class="btn btn-cars">Sponsered</button></span>
+                    </div>
+                </div>
+                <div style="width:40%;float:left;" align="right">
+                	<button class="btn btn-cars" style="border:none !important;color:#999999 !important;">Starting from</button>
+                 	<button class="btn btn-cars" style="border:transparent !important;color:#4f4f4f !important;font-weight:bold !important;font-size:17px !important;">{{ res.minCost1 | INR }}</button>
+                </div>
             </div>
         
-            <div class="container btn-justified" style="margin-top:5px;padding-left:2% !important;padding-right:2%!important; ">
-                <button class="btn btn-cars">Sponsered</button>
-                <button class="btn btn-cars" style="border:none !important;color:transparent !important;">Info</button>
-                <button class="btn btn-cars" style="border:transparent !important;color:#424242 !important;font-weight:bold !important;font-size:17px !important;">{{ res.minCost1 | INR }}</button>
+            <div class="btn-justified" style="padding-left:2% !important;padding-right:2%!important; width:50%;">
+               
+            </div>
+        
+            <div class="container btn-justified" style="margin-top:5px;padding-left:2% !important;padding-right:2%!important; width:50%;">
+            	
+                <!--<button class="btn btn-cars" style="border:none !important;color:transparent !important;">Info</button>-->
+               
             </div>
         </div>
 </div>
