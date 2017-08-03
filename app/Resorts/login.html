@@ -72,7 +72,11 @@
 	  padding-top:10px;
     }
 </style>
-
+<style>
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+        display: none !important;
+    }
+</style>
 
 <md-dialog aria-label="Mango (Fruit)" style="border-radius:0px;">
 <!-- <div> -->
@@ -153,9 +157,9 @@
     <md-input-container class="md-icon-float md-block">
       <!-- Use floating label instead of placeholder -->
       <label >Enter Email / Mobile Number</label>
-	  <input type="text" name="emailphone" ng-model="username"   required >
+	  <input type="text" name="emailphone" ng-model="username"  ng-enter="LoginCall()" required >
 
-        <div  ng-show="submitted && userForm.emailphone.$error.required" style="color:#ff7d7f !important;" >
+        <div  ng-cloak ng-show="submitted && userForm.emailphone.$error.required" style="color:#ff7d7f !important;" >
 
                 Please enter email/mobilenumber.
 
@@ -167,9 +171,9 @@
     <md-input-container class="md-icon-float md-block">
       <!-- Use floating label instead of placeholder -->
       <label>Password</label>
-	  <input type="password"   name="password" ng-model="Password"  required>
+	  <input type="password"   name="password" ng-model="Password" ng-enter="LoginCall()" required>
 
-        <div  ng-show="submitted && userForm.password.$error.required" style="color:#ff7d7f !important;">
+        <div ng-cloak ng-show="submitted && userForm.password.$error.required" style="color:#ff7d7f !important;">
 
             Please enter a password.
 
@@ -178,8 +182,8 @@
     </md-input-container>
            </form>
 
-        <div style="color:#ff7d7f !important; " >
-            <h6 data-ng-bind="loginFail"></h6>
+        <div style="color:#ff7d7f !important; " align="center" >
+            <h6 data-ng-bind="loginFail" style="text-align:center;"></h6>
 
         </div>
 
@@ -189,7 +193,7 @@
     <div id="social-platforms" type="submit">
 
 <!-- <a class="btn btn-icon btn-facebook" href="#"><i class="fa fa-hand-o-right"></i><span>Login</span></a> -->
-<div class="facebook button"  ng-click="LoginCall()">
+<div class="facebook button"  ng-click="LoginCall()" >
     <i class="icon">
 <i class="fa fa-hand-o-right"></i>
       <i class="icon-facebook">

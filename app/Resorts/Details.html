@@ -604,40 +604,6 @@ $('head').append('<meta name="viewport" content="width=device-width, initial-sca
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" ng-click="loginPage()" style="color:#fff !important;">Login </b></a>
 
 
-                                <!-- <ul class="dropdown-menu" style="width:180px;margin-top:10px;"> -->
-                                <!-- <div class="row" style="margin-top:-10%;"><a href="#"><span style="padding-left:50px;"><img  src="../../assets/images/top_arrow.png" alt="" height="14px" width="14px" ></span></a> -->
-
-
-
-
-                                <!-- </div> -->
-
-                                <!-- <li> -->
-
-                                <!-- <div style="width:100%;padding:5px;float:left;"> -->
-                                <!-- <div style="width:40%;float:left;"><img src="assets/images/Login_Icon.png"  class="img-responsive"></div> -->
-                                <!-- <div style="width:60%;float:left;"> -->
-                                <!-- <div class="row"><a href="#"><span class="glyphicon glyphicon-play" style="font-size:11px;padding-right:5px;"></span> My Booking</a></div> -->
-                                <!-- <div class="row"><a href="#"><span class="glyphicon glyphicon-play" style="font-size:11px;padding-right:5px;"></span> My Cash</a></div> -->
-                                <!-- <div class="row" ng-if="showLogOutBtn"><a href="#"><span class="glyphicon glyphicon-user" style="font-size:11px;padding-right:5px;color:#313496;" ></span><span data-ng-bind="firstName" style="color:#313496;"></span></span></a></div> -->
-                                <!-- <div class="row"  ng-if="showLogOutBtn" ><a href="#"><span class="glyphicon glyphicon-off" style="font-size:11px;padding-right:5px;color:#feb824;"></span><span ng-click="logOutCall()" style="color:#feb824;" >Logout</span></a></div> -->
-                                <!-- </div> -->
-                                <!-- </div> -->
-                                <!-- <div style="width:100%;padding:5px;float:left;" ng-if="showLoginBtn"> -->
-                                <!-- <div style="width:48%;float:left;" align="center"> -->
-                                <!-- <ul class="list-inline text-center od-signInSignUp"> -->
-                                <!-- <li><a href="#" ng-click="loginPage()" class="btn-md btn" style="text-transform:none !important;">Login</a></li> -->
-                                <!-- </ul> -->
-                                <!-- </div> -->
-                                <!-- <div style="width:2%;float:left;"></div> -->
-                                <!-- <div style="width:48%;float:left;" align="center"> -->
-                                <!-- <ul class="list-inline text-center od-signInSignUp"> -->
-                                <!-- <li><a href="#" ng-click="SignUpPage()" class="btn-md btn" style="text-transform:none !important;">Sign Up</a></li> -->
-                                <!-- </ul> -->
-                                <!-- </div> -->
-                                <!-- </div> -->
-                                <!-- </li> -->
-                                <!-- </ul> -->
                             </li>
                             <li class="dropdown" style="padding-right:4px;" ng-if="showLogOutBtn">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:#fff;">Hi {{firstName}} {{lastName}} <b class="caret"></b></a>
@@ -943,8 +909,22 @@ $('head').append('<meta name="viewport" content="width=device-width, initial-sca
                 <div>
 
                     <h4 class="md-subhead" style="font-size:18px !important;text-align:center;color:#5F5993;font-weight:bold !important;">{{park.currentPrice | INR}}</h4>
-                    <h4 class="md-subhead" style="font-size:15px !important;text-align:center;"><button type="button" class="btn btn-amt btn-sm" style="background-color:#67A415;color:white;" ng-click="BookPkgCall(park)">Book</button></h4>
-                </div>
+                    
+					<h4 class="md-subhead" style="font-size:15px !important;text-align:center;"><button type="button" class="btn btn-amt btn-sm" style="background-color:#67A415;color:white;" ng-click="add=true;qty=qty+1;addBookCall(park)" ng-hide="qty!=0">Add</button></h4>
+                    
+					
+					<h4 class="md-subhead" style="font-size:15px !important;text-align:center;" ng-show="add" >
+					<form id='myform' ng-hide="qty==0">
+                           
+                            <button ng-click="qty=qty-1;subCall(park)" class='qtyminus pack_minus'  ng-disabled="qty<=0">-</button>
+                            <input  ng-model="qty" type='text' name='quantity' class='qty pack_text' readonly>
+                            <button ng-click="qty=qty+1;addCall(park)" class="pack_minus">+</button>
+                            
+                            </form>
+					</h4>
+                
+				
+				</div>
             </div>
         </div>
         <div id="packageContent{{$index}}"></div>

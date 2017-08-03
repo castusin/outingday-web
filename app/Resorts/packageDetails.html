@@ -712,58 +712,58 @@ body{
            
            
              
-             <div class="row"><h4 class="detailtitle">Packages</h4></div>
-        	<div class="row" style="background-color:white;border:1px solid #ccc;">
-            	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin:5px;">
-                	<div class="row">
-                        <div class="col-md-11 col-sm-11 offers-columns-padding" ng-repeat="bookpark in bookParkList" ng-show="bookpark.facilityType == 'O'">
-                        	<h5 class="detailtitle" style="text-transform:capitalize;">{{bookpark.facilityTypeTitle}}</h5>
-                        <div class="row">
-                        <div class="col-md-4 col-sm-4"  style="margin-right:2%;"><img class="img-responsive img-portfolio img-hover  no-pad-mar img-rounded" src="http://outingadmin.littlepandits.com/images/ResortsImages/{{bookpark.facilityImage}}" alt="" onError="this.onerror=null;this.src='../../assets/images/default-thumb.gif';"  style="height:150px;width:100%;">                            </div>
+             <!-- <div class="row"><h4 class="detailtitle">Packages</h4></div> -->
+        	<!-- <div class="row" style="background-color:white;border:1px solid #ccc;"> -->
+            	<!-- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin:5px;"> -->
+                	<!-- <div class="row"> -->
+                        <!-- <div class="col-md-11 col-sm-11 offers-columns-padding" ng-repeat="bookpark in bookParkList" ng-show="bookpark.facilityType == 'O'"> -->
+                        	<!-- <h5 class="detailtitle" style="text-transform:capitalize;">{{bookpark.facilityTypeTitle}}</h5> -->
+                        <!-- <div class="row"> -->
+                        <!-- <div class="col-md-4 col-sm-4"  style="margin-right:2%;"><img class="img-responsive img-portfolio img-hover  no-pad-mar img-rounded" src="http://outingadmin.littlepandits.com/images/ResortsImages/{{bookpark.facilityImage}}" alt="" onError="this.onerror=null;this.src='../../assets/images/default-thumb.gif';"  style="height:150px;width:100%;">                            </div> -->
                        
-						<div class="row">
+						<!-- <div class="row"> -->
 							
-                            <div class="col-md-5 col-sm-5" style="">
+                            <!-- <div class="col-md-5 col-sm-5" style=""> -->
                             	
-									<hm-read-more
-		hm-text="{{ bookpark.facilityInRoomFacilites }}" 
-		hm-limit="100" 
-		hm-more-text="Show more"
-		hm-less-text="Show less"
-		hm-dots-class="dots"
-        hm-link-class="links">
-</hm-read-more>
-                            </div>
-                            <div class="col-sm-2" >
+									<!-- <hm-read-more -->
+		<!-- hm-text="{{ bookpark.facilityInRoomFacilites }}"  -->
+		<!-- hm-limit="100"  -->
+		<!-- hm-more-text="Show more" -->
+		<!-- hm-less-text="Show less" -->
+		<!-- hm-dots-class="dots" -->
+        <!-- hm-link-class="links"> -->
+<!-- </hm-read-more> -->
+                            <!-- </div> -->
+                            <!-- <div class="col-sm-2" > -->
                             
-                           <div class="row">
-							<h5 class="subcost" style="padding-right:25%; font-weight:bold !important;">{{bookpark.currentPrice | INR}}</h5>
-                            <button type="button" class="btn btn-suc  btn-md pack_add "  ng-click="add=true;qty=qty+1;addBookCall(bookpark)" ng-hide="qty!=0" >Add</button>
-                            </div>
+                           <!-- <div class="row"> -->
+							<!-- <h5 class="subcost" style="padding-right:25%; font-weight:bold !important;">{{bookpark.currentPrice | INR}}</h5> -->
+                            <!-- <button type="button" class="btn btn-suc  btn-md pack_add "  ng-click="add=true;qty=qty+1;addBookCall(bookpark)" ng-hide="qty!=0" >Add</button> -->
+                            <!-- </div> -->
                             
-                            <div class="row" ng-show="add"   style="padding-top:1%;margin-left:25%;">
+                            <!-- <div class="row" ng-show="add"   style="padding-top:1%;margin-left:25%;"> -->
                             
-                            <form id='myform' ng-hide="qty==0">
+                            <!-- <form id='myform' ng-hide="qty==0"> -->
                            
-                            <button ng-click="qty=qty-1;subCall(bookpark)" class='qtyminus pack_minus'  ng-disabled="qty<=0">-</button>
-                            <input  ng-model="qty" type='text' name='quantity' class='qty pack_text' readonly>
-                            <button ng-click="qty=qty+1;addCall(bookpark)" class="pack_minus">+</button>
+                            <!-- <button ng-click="qty=qty-1;subCall(bookpark)" class='qtyminus pack_minus'  ng-disabled="qty<=0">-</button> -->
+                            <!-- <input  ng-model="qty" type='text' name='quantity' class='qty pack_text' readonly> -->
+                            <!-- <button ng-click="qty=qty+1;addCall(bookpark)" class="pack_minus">+</button> -->
                             
-                            </form>
+                            <!-- </form> -->
                             
-                            </div>
-                            </div>
-                        </div>
-                        </div>
+                            <!-- </div> -->
+                            <!-- </div> -->
+                        <!-- </div> -->
+                        <!-- </div> -->
                         
                         
                        
-						</div>
+						<!-- </div> -->
                        
                         
-                   </div>
-                </div>
-            </div>
+                   <!-- </div> -->
+                <!-- </div> -->
+            <!-- </div> -->
         	
            
           
@@ -885,7 +885,7 @@ body{
 								
 								</div>
 								<div class="col-sm-6">
-								<h6 class="subcost">150</h6>
+								<h6 class="subcost">1</h6>
 								</div>
 								</div>
 								

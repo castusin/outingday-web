@@ -53,7 +53,7 @@ app.controller('ResortDetailCtr',['$scope','$compile','$sce','$element','$state'
                                    $scope.showLogOutBtn =false;
                                }
 
-
+                               $scope.qty = 0;
                          /*  $scope.map = {
                                center: {
                                    latitude: 56.162939,
@@ -422,7 +422,15 @@ app.controller('ResortDetailCtr',['$scope','$compile','$sce','$element','$state'
                                        $scope.BindData=$localStorage.parkDetails;
                                        var html = '<div id="listdiv'+index+'">' +
                                            '<md-card><div ng-cloak>' +
-                                           '    <md-content><md-tabs md-dynamic-height md-border-bottom><md-tab label="Photos"><md-content class="md-padding"><div class="container"><div style="width: 680px;"><img   ng-repeat="facility in facilityPhotos" class="slide" ng-swipe-right="showPrev()" ng-swipe-left="showNext()" ng-show="isActive($index)" ng-src="http://admin.outingday.com/images/ResortsImages/{{facility.src}}" onError="this.onerror=null;this.src=\'../../assets/images/default-thumb.gif\';" /><p class="arrow prev" href="#" ng-click="showPrev()"></p><p class="arrow next" href="#" ng-click="showNext()"></p></div></div></md-content></md-tab><md-tab label="Info"><md-content class="md-padding"><h1 class="md-display-2">Info</h1><p data-ng-bind="facilitydescription"></p></md-content></md-tab></md-tabs></md-content></div></md-card></div>';
+                                           '    <md-content><md-tabs md-dynamic-height md-border-bottom>' +
+                                           '<md-tab label="Photos"><md-content class="md-padding"' +
+                                           '><div class="container"><div style="width: 680px;">' +
+                                           '<img   ng-repeat="facility in facilityPhotos" class="slide" ng-swipe-right="showPrev()" ng-swipe-left="showNext()" ng-show="isActive($index)" ng-src="http://admin.outingday.com/images/ResortsImages/{{facility.src}}" onError="this.onerror=null;this.src=\'../../assets/images/default-thumb.gif\';" />' +
+                                           '<p class="arrow prev" href="#" ng-click="showPrev()"></p><p class="arrow next" href="#" ng-click="showNext()"></p>' +
+                                           '</div></div></md-content></md-tab><md-tab label="Info">' +
+                                           '<md-content class="md-padding"><h1 class="md-display-2">Info</h1>' +
+                                           '<p data-ng-bind="facilitydescription"></p></md-content>' +
+                                           '</md-tab></md-tabs></md-content></div></md-card></div>';
                                        angular.element(document.getElementById('roomsContent'+ index)).append($compile(html)($scope));
 
                                        $scope.GettingRoomInfo=$.grep($localStorage.parkDetails,function (prkrm) {
@@ -531,21 +539,142 @@ app.controller('ResortDetailCtr',['$scope','$compile','$sce','$element','$state'
        };
                    /*-------------------  login signup calls --------------------*/
 
-                     $scope.BookPkgCall= function(park){
-                               $scope.facilityTypList=[];
-                               debugger;
-                               $localStorage.bookPark = park;
-                               $scope.facilityTypList.push($localStorage.bookPark);
-                               $localStorage.facilityTypList =  $scope.facilityTypList;
-                               $localStorage.facilityTypeTitle  = park.facilityTypeTitle;
-                               $window.location='../Resorts/packageDetails.html';
-                           }
-                     $scope.SkipRooms= function(){
-                                    debugger;
 
-                               $localStorage.bookPark = "";
-                               $localStorage.regularPrice  = 0;
-                               $window.location='../Resorts/packageDetails.html';
-                           }
+
+           $scope.facilityTypList=[];
+
+           $scope.BookPkgCall= function(park){
+
+               debugger;
+               $localStorage.bookPark = park;
+               $scope.facilityTypList.push($localStorage.bookPark);
+               $localStorage.facilityTypList =  $scope.facilityTypList;
+               $localStorage.facilityTypeTitle  = park.facilityTypeTitle;
+
+              if($scope.sum == undefined){
+                  $localStorage.sum = 0;
+              }
+               else{
+                  $localStorage.sum = $scope.sum;
+              }
+
+
+               $localStorage.FacilityNameList =  $scope.FacilityNameList;
+               $window.location='../Resorts/packageDetails.html';
+           };
+
+
+           //--------------------------Add Aditionals Start-----------------------//
+
+           $scope.FacilityItems={
+               itemName:'',
+               noOfItems:0,
+               orgPrice:'',
+               totalPrice:0
+           }
+           $scope.FacilityNameList=[];
+           $localStorage.FacilityNameList =  $scope.FacilityNameList;
+           /*  $scope.facilityTypList=[];*/
+           $scope.addBookCall= function(facilityName){
+
+               debugger;
+
+               $scope.facilityTypList.push(facilityName);
+               $localStorage.facilityTypList =  $scope.facilityTypList;
+               $localStorage.Facilitypackageobject =  facilityName;
+               $scope.facilityName = facilityName;
+
+
+               $scope.FacilityItems.itemName=facilityName.facilityTypeTitle;
+               $scope.FacilityItems.noOfItems=1;
+               $scope.FacilityItems.orgPrice=facilityName.currentPrice;
+               $scope.FacilityItems.totalPrice=1*facilityName.currentPrice;
+
+               $scope.FacilityNameList.push($scope.FacilityItems);
+               $localStorage.FacilityNameList =  $scope.FacilityNameList;
+               $scope.FacilityItems={};
+
+               if ($scope.sum == undefined){
+                   var a = Number($scope.bookParkcurrentPrice || 0);
+                   var b = Number($scope.facilityName.currentPrice || 0);
+                   $scope.sum = a+b;
+                   /*$scope.ServiceTax();*/
+                   /*$localStorage.TotalPrice = $scope.sum;*/
+               }
+               else{
+                   var a = Number($scope.sum || 0);
+                   var b = Number($scope.facilityName.currentPrice || 0);
+                   $scope.sum = a+b;
+                  /* $scope.ServiceTax();*/
+                   /*$localStorage.TotalPrice = $scope.sum;*/
+
+               }
+
+           } ;
+
+           $scope.addCall= function(facilityName){
+
+               debugger;
+               /*for(i=0;i<$scope.FacilityNameList.length;i++){*/
+               $scope.FindList = $.grep($scope.FacilityNameList,function (fl) {
+                   return fl.itemName==facilityName.facilityTypeTitle;
+               })[0];
+
+               var SelIndexOf=$scope.FacilityNameList.map(function(x){return x.itemName}).indexOf($scope.FindList.itemName);
+               $scope.FacilityNameList[SelIndexOf].noOfItems=$scope.FacilityNameList[SelIndexOf].noOfItems+1;
+               $scope.FacilityNameList[SelIndexOf].totalPrice=$scope.FacilityNameList[SelIndexOf].noOfItems*$scope.FacilityNameList[SelIndexOf].orgPrice;
+
+               $scope.facilityName = facilityName;
+
+               var a = Number($scope.sum || 0);
+               var b = Number($scope.facilityName.currentPrice || 0);
+               $scope.sum = a+b;
+              /* $scope.ServiceTax();*/
+               /*$localStorage.TotalPrice = $scope.sum;*/
+           } ;
+
+           $scope.subCall= function(facilityName,qty){
+
+                    debugger;
+
+               $scope.FindList = $.grep($scope.FacilityNameList,function (fl) {
+                   return fl.itemName==facilityName.facilityTypeTitle;
+               })[0];
+
+               var SelIndexOf=$scope.FacilityNameList.map(function(x){return x.itemName}).indexOf($scope.FindList.itemName);
+               $scope.FacilityNameList[SelIndexOf].noOfItems=$scope.FacilityNameList[SelIndexOf].noOfItems-1;
+               $scope.FacilityNameList[SelIndexOf].totalPrice=$scope.FacilityNameList[SelIndexOf].noOfItems*$scope.FacilityNameList[SelIndexOf].orgPrice;
+
+               if($scope.FacilityNameList[SelIndexOf].noOfItems==0)
+               {
+                   $scope.FacilityNameList.splice(SelIndexOf, 1);
+               }
+
+               $scope.facilityName = facilityName;
+
+               var a = Number($scope.sum || 0);
+               var b = Number($scope.facilityName.currentPrice || 0);
+               $scope.sum = a-b;
+              /* $scope.ServiceTax();*/
+               /*$localStorage.TotalPrice = $scope.sum;*/
+
+           } ;
+
+           //--------------------------Add Aditionals End------------------------//
+
+
+
+
+
+
+
+            $scope.SkipRooms= function(){
+                        debugger;
+
+                   $localStorage.bookPark = "";
+                   $localStorage.regularPrice  = 0;
+                   $window.location='../Resorts/packageDetails.html';
+               };
+
         }
 }]);

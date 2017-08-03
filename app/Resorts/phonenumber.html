@@ -1,6 +1,11 @@
 <head>
     <meta name="google-signin-client_id" content="750253327708-hgc8c2di1age1nfhlukdab5tt2emjetf.apps.googleusercontent.com">
 </head>
+<style>
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+        display: none !important;
+    }
+</style>
 <md-dialog aria-label="Mango (Fruit)" style="border-radius:0px;">
 
   <form  name="userForm" novalidate >
@@ -68,11 +73,11 @@
     <md-input-container class="md-icon-float md-block">
       <!-- Use floating label instead of placeholder -->
       <label >Enter Email Id</label>
-	  <input type="email" name="emailphone" ng-model="username"  overwrite-email required  />
-        <p  ng-show="submitted && userForm.emailphone.$error.required" style="color:#ff7d7f !important;" >
+	  <input type="email" name="emailphone" ng-model="username"  overwrite-email ng-enter="RegisterCall()" required  />
+        <p ng-cloak ng-show="submitted && userForm.emailphone.$error.required" style="color:#ff7d7f !important;" >
             Please enter an email address.
         </p>
-        <p  ng-show="submitted && userForm.emailphone.$error.email" style="color:#ff7d7f !important;" >
+        <p ng-cloak ng-show="submitted && userForm.emailphone.$error.email" style="color:#ff7d7f !important;" >
             Please enter a valid email address.
         </p>
 
@@ -82,12 +87,17 @@
        <md-input-container class="md-icon-float md-block">
            <!-- Use floating label instead of placeholder -->
            <label>Enter Mobile Number</label>
-           <input type="tel"name="phone" ng-model="PhoneNumber"  numbers-only maxlength="10" required>
-           <p  ng-show="submitted && userForm.phone.$error.required" style="color:#ff7d7f !important;font-size:11px !important;">
+           <input type="tel"name="phone" ng-model="PhoneNumber"  numbers-only maxlength="10" ng-enter="RegisterCall()" required>
+           <p ng-cloak ng-show="submitted && userForm.phone.$error.required" style="color:#ff7d7f !important;font-size:11px !important;">
                Please enter a mobilenumber.
            </p>
 
        </md-input-container>
+
+       <div style="color:#ff7d7f !important;text-align:center !important; " >
+           <h6 data-ng-bind="Phnuserexists" style="text-align:center !important;"></h6>
+
+       </div>
 
        <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
 
@@ -114,12 +124,17 @@
     <md-input-container class="md-icon-float md-block">
       <!-- Use floating label instead of placeholder -->
       <label>Enter Mobile Number</label>
-	   <input type="tel" name="phone" ng-model="PhoneNumber"  numbers-only maxlength="10" required>
+	   <input type="tel" name="phone" ng-model="PhoneNumber"  numbers-only maxlength="10" ng-enter="RegisterPhoneCall()" required>
         <p  ng-show="submitted && userForm.phone.$error.required" style="color:#ff7d7f !important;font-size:11px !important;">
             Please enter a mobilenumber.
         </p>
 
     </md-input-container>
+
+               <div style="color:#ff7d7f !important; " >
+                   <h6 data-ng-bind="Phnuserexists"></h6>
+
+               </div>
 
                <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
 

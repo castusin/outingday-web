@@ -133,5 +133,9 @@
  }
  .navbar-brand{float:right !important;}
  
- 
+ a {
+color: #337ab7;
+text-decoration: none;
+cursor: pointer !important;
+}
  /* for Mobile View  Ens*/

@@ -28,7 +28,7 @@ app.controller('phoneNumberCtr', ['$scope','$state','$window','$rootScope','$loc
 
             $scope.submitted = true;
                 debugger;
-
+            $scope.Phnuserexists="";
             if(($scope.PhoneNumber == undefined) || ($scope.username == undefined)){
 
 
@@ -96,6 +96,10 @@ app.controller('phoneNumberCtr', ['$scope','$state','$window','$rootScope','$loc
                         $rootScope.$emit('profile-updated3', {});
 
                     }
+                    else if((RegistrationInfo.responseCode == 1) && (RegistrationInfo.errorMessage == "user already exists, please login")){
+
+                        $scope.Phnuserexists = "user already exists, please login";
+                    }
 
                     else{
 
@@ -114,7 +118,7 @@ app.controller('phoneNumberCtr', ['$scope','$state','$window','$rootScope','$loc
 
             $scope.submitted = true;
             debugger;
-
+            $scope.Phnuserexists="";
 
            if(($localStorage.Email == undefined) || ($scope.PhoneNumber == undefined)){
 
@@ -181,6 +185,10 @@ app.controller('phoneNumberCtr', ['$scope','$state','$window','$rootScope','$loc
                         $rootScope.$emit('profile-updated2', {});
                         $rootScope.$emit('profile-updated3', {});
 
+                    }
+                    else if((RegistrationInfo.responseCode == 1) && (RegistrationInfo.errorMessage == "user already exists, please login")){
+
+                        $scope.Phnuserexists = "user already exists, please login";
                     }
 
                     else{

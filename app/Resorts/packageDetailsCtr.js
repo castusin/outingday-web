@@ -83,7 +83,7 @@ app.controller('packageDetailCtr',['$scope','$state','GetParkDetailInfo','$rootS
                     $localStorage.TotalPrice = $scope.sum;
                 }
                 else{
-                    $scope.tax = 150;
+                    $scope.tax = 1;
 
                    var a= $scope.tax;
                    var b= $scope.sum;
@@ -123,7 +123,7 @@ app.controller('packageDetailCtr',['$scope','$state','GetParkDetailInfo','$rootS
             $scope.ctrl.datepicker = $localStorage.bookPark.date;
             $scope.bookParkcurrentPrice = $localStorage.bookPark.currentPrice;
 
-            $scope.sum = $localStorage.bookPark.currentPrice;
+            $scope.sum = $localStorage.sum + $localStorage.bookPark.currentPrice;
             $scope.bookParkImg = $localStorage.bookPark.facilityImage;
             $scope.bookParkDes = $localStorage.bookPark.description;
         }
@@ -144,99 +144,7 @@ app.controller('packageDetailCtr',['$scope','$state','GetParkDetailInfo','$rootS
 
         //--------------------------Add Aditionals Start-----------------------//
 
-        $scope.FacilityItems={
-            itemName:'',
-            noOfItems:0,
-            orgPrice:'',
-            totalPrice:0
-        }
-        $scope.FacilityNameList=[];
-        $localStorage.FacilityNameList =  $scope.FacilityNameList;
-      /*  $scope.facilityTypList=[];*/
-        $scope.addBookCall= function(facilityName){
-
-debugger;
-
-          $scope.facilityTypList.push(facilityName);
-            $localStorage.facilityTypList =  $scope.facilityTypList;
-            $localStorage.Facilitypackageobject =  facilityName;
-            $scope.facilityName = facilityName;
-
-
-            $scope.FacilityItems.itemName=facilityName.facilityTypeTitle;
-            $scope.FacilityItems.noOfItems=1;
-            $scope.FacilityItems.orgPrice=facilityName.regularPrice;
-            $scope.FacilityItems.totalPrice=1*facilityName.regularPrice;
-
-            $scope.FacilityNameList.push($scope.FacilityItems);
-            $localStorage.FacilityNameList =  $scope.FacilityNameList;
-            $scope.FacilityItems={};
-
-            if ($scope.sum == undefined){
-                var a = Number($scope.bookParkcurrentPrice || 0);
-                var b = Number($scope.facilityName.regularPrice || 0);
-                $scope.sum = a+b;
-                $scope.ServiceTax();
-                /*$localStorage.TotalPrice = $scope.sum;*/
-            }
-            else{
-                var a = Number($scope.sum || 0);
-                var b = Number($scope.facilityName.regularPrice || 0);
-                $scope.sum = a+b;
-                $scope.ServiceTax();
-                /*$localStorage.TotalPrice = $scope.sum;*/
-
-            }
-
-        } ;
-
-        $scope.addCall= function(facilityName){
-
-debugger;
-            /*for(i=0;i<$scope.FacilityNameList.length;i++){*/
-                $scope.FindList = $.grep($scope.FacilityNameList,function (fl) {
-                    return fl.itemName==facilityName.facilityTypeTitle;
-                })[0];
-
-                var SelIndexOf=$scope.FacilityNameList.map(function(x){return x.itemName}).indexOf($scope.FindList.itemName);
-                $scope.FacilityNameList[SelIndexOf].noOfItems=$scope.FacilityNameList[SelIndexOf].noOfItems+1;
-                $scope.FacilityNameList[SelIndexOf].totalPrice=$scope.FacilityNameList[SelIndexOf].noOfItems*$scope.FacilityNameList[SelIndexOf].orgPrice;
-
-            $scope.facilityName = facilityName;
-
-            var a = Number($scope.sum || 0);
-            var b = Number($scope.facilityName.regularPrice || 0);
-            $scope.sum = a+b;
-            $scope.ServiceTax();
-            /*$localStorage.TotalPrice = $scope.sum;*/
-        } ;
-
-        $scope.subCall= function(facilityName,qty){
-
-
-
-            $scope.FindList = $.grep($scope.FacilityNameList,function (fl) {
-                return fl.itemName==facilityName.facilityTypeTitle;
-            })[0];
-
-            var SelIndexOf=$scope.FacilityNameList.map(function(x){return x.itemName}).indexOf($scope.FindList.itemName);
-            $scope.FacilityNameList[SelIndexOf].noOfItems=$scope.FacilityNameList[SelIndexOf].noOfItems-1;
-            $scope.FacilityNameList[SelIndexOf].totalPrice=$scope.FacilityNameList[SelIndexOf].noOfItems*$scope.FacilityNameList[SelIndexOf].orgPrice;
-
-            if($scope.FacilityNameList[SelIndexOf].noOfItems==0)
-            {
-                $scope.FacilityNameList.splice(SelIndexOf, 1);
-            }
-
-            $scope.facilityName = facilityName;
-
-            var a = Number($scope.sum || 0);
-            var b = Number($scope.facilityName.regularPrice || 0);
-            $scope.sum = a-b;
-            $scope.ServiceTax();
-            /*$localStorage.TotalPrice = $scope.sum;*/
-
-        } ;
+            $scope.FacilityNameList = $localStorage.FacilityNameList;
 
         //--------------------------Add Aditionals End------------------------//
 

@@ -378,6 +378,21 @@ navbar-nav>li {
  
  }
 
+.ratingred{
+
+    background-color: #ff0000;
+    border: 0;
+}
+   .ratingyellow{
+
+       background-color: #feb824;
+       border: 0;
+   }
+   .ratinggreen{
+
+       background-color: #348f33;
+       border: 0;
+   }
     
 </style>
 
@@ -1077,10 +1092,49 @@ md-slider.md-default-theme .md-thumb:after, md-slider .md-thumb:after {
 
     <div class="col-sm-9 text-left" ng-cloak >
 
-        <div id="img-load" align="center" >
+       <!-- <div id="img-load" align="center" >
             <img src="../../assets/images/loadingimg.gif"  class="gif_images">
            
+        </div>-->
+        <!------------------------------   img loaders      --------------------  -->
+        <div class="col-md-4 col-sm-4 col-xs-12 profile_details"  style="padding-left:2%;padding-right:2%;padding-top:2%;">
+            <div id="img-load"  >
+                <img src="../../assets/images/loadingimg.gif" style="height: 200px;width: 100%"/>
+
+            </div>
         </div>
+        <div class="col-md-4 col-sm-4 col-xs-12 profile_details"  style="padding-left:2%;padding-right:2%;padding-top:2%;">
+            <div id="img-load1"  >
+                <img src="../../assets/images/loadingimg.gif" style="height: 200px;width: 100%"/>
+
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-12 profile_details"  style="padding-left:2%;padding-right:2%;padding-top:2%;">
+            <div id="img-load2"  >
+
+                <img src="../../assets/images/loadingimg.gif" style="height: 200px;width: 100%"/>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-12 profile_details"  style="padding-left:2%;padding-right:2%;padding-top:2%;">
+            <div id="img-load3"  >
+
+                <img src="../../assets/images/loadingimg.gif" style="height: 200px;width: 100%"/>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-12 profile_details"  style="padding-left:2%;padding-right:2%;padding-top:2%;">
+            <div id="img-load4"  >
+
+                <img src="../../assets/images/loadingimg.gif" style="height: 200px;width: 100%"/>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-12 profile_details"  style="padding-left:2%;padding-right:2%;padding-top:2%;">
+            <div id="img-load5"  >
+
+                <img src="../../assets/images/loadingimg.gif" style="height: 200px;width: 100%"/>
+            </div>
+        </div>
+        <!------------------------------   img loaders      --------------------  -->
+
 
 		<div class="result_bg " style="background-color:transparent !impormd-slider.md-default-theme .md-sign, md-slider .md-signtant;">
 			
@@ -1138,7 +1192,7 @@ md-slider.md-default-theme .md-thumb:after, md-slider .md-thumb:after {
             <div class="container_img " align="center">
                 <img  preload-image ng-src="http://outingadmin.littlepandits.com/images/ResortsImages/{{res.photoUrl}}" default-image="../../assets/images/loadingimg2.gif" fallback-image="../../assets/images/default-thumb.gif" alt="" class="img-responsive img-portfolio" align="center"> 
                 <div class="sponsored" ng-show="res.sponsoredFlag == 'y'"><img src="../../assets/images/sponsored.png" alt="" height="90px" width="90px" ></div>
-                <div class="button_rating"><button type="button" class="btn btn-success btn-md" style="border-radius:0; padding: 4px 10px 4px 10px;">{{res.odRating}}</button></div>
+                <div class="button_rating"><button type="button" class="btn btn-success btn-md" ng-class="{ratingred: res.odRating < 3, ratingyellow: (res.odRating < 4)&&(res.odRating >= 3), ratinggreen: (res.odRating <= 5)&&(res.odRating >= 4)}" style="border-radius:0; padding: 4px 10px 4px 10px;">{{res.odRating}}</button></div>
                 <div class="share_icon" ><img  src="../../assets/images/icon_share.png" alt=""></div>
             </div>
         </div>

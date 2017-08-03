@@ -36,6 +36,11 @@
                 });
     }
 </script>
+<style>
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+        display: none !important;
+    }
+</style>
 <md-dialog aria-label="Mango (Fruit)" style="border-radius:0px;">
 
 
@@ -112,9 +117,9 @@
                    name="phone" 
                    ng-model="phoneNumber"
                    numbers-only
-                    maxlength="10" required>
+                    maxlength="10" ng-enter="RequestOtpCall()" required>
 
-               <div  style="color:#ff7d7f !important; " ng-show="submitted && userForm.phone.$error.required" >
+               <div  style="color:#ff7d7f !important; " ng-cloak ng-show="submitted && userForm.phone.$error.required" >
                    Please enter a mobilenumber.
                </div>
     </md-input-container>
@@ -133,16 +138,16 @@
                    <!-- Use floating label instead of placeholder -->
                    <label>Enter OTP</label>
                   
-                   <input type="tel" name="otp" ng-model="OTP" maxlength="5" required>
-                   <div  style="color:#ff7d7f !important; " ng-show="submitted && userForm.otp.$error.required" >
+                   <input type="tel" name="otp" ng-model="OTP" maxlength="5" ng-enter="ValidateOTPCall()" required>
+                   <div  style="color:#ff7d7f !important; " ng-cloak ng-show="submitted && userForm.otp.$error.required" >
                        Please enter valid OTP.
                    </div>
 
                </md-input-container>
 
-                <div>
-               <h6 style="color:#ff7d7f !important; " data-ng-bind="errorOTP"></h6>
-               <h6 style="color: #ff7d7f !important; " data-ng-bind="invalidOTP"></h6>
+                <div align="center">
+               <h6 style="color:#ff7d7f !important; text-align:center !important; " data-ng-bind="errorOTP"></h6>
+               <h6 style="color: #ff7d7f !important;text-align:center !important; " data-ng-bind="invalidOTP"></h6>
 
            </div>
 
@@ -151,7 +156,7 @@
                    <div id="social-platforms" >
 
                        <!-- <a class="btn btn-icon btn-facebook" href="#"><i class="fa fa-hand-o-right"></i><span>Login</span></a> -->
-                       <div class="facebook button" ng-click="ValidateOTPCall()">
+                       <div class="facebook button" ng-click="ValidateOTPCall()" >
                            <i class="icon">
                                <i class="fa fa-hand-o-right"></i>
                                <i class="icon-facebook">
@@ -176,7 +181,7 @@
     <div id="social-platforms">
 
 <!-- <a class="btn btn-icon btn-facebook" href="#"><i class="fa fa-hand-o-right"></i><span>Login</span></a> -->
-<div class="facebook button" ng-click="RequestOtpCall()">
+<div class="facebook button" ng-click="RequestOtpCall()" >
     <i class="icon">
 <i class="fa fa-hand-o-right"></i>
       <i class="icon-facebook">
@@ -203,8 +208,8 @@
                    <!-- Use floating label instead of placeholder -->
                    <label>Enter First name</label>
                    <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
-                   <input type="text" name="firstName" ng-model="Firstname" maxlength="20" required>
-                   <div  style="color:#ff7d7f !important; " ng-show="submitted && userForm.firstName.$error.required" >
+                   <input type="text" name="firstName" ng-model="Firstname" maxlength="20" ng-enter="RegisterCall()" required>
+                   <div  style="color:#ff7d7f !important; " ng-cloak ng-show="submitted && userForm.firstName.$error.required" >
                        Please enter firstname.
                    </div>
 
@@ -214,8 +219,8 @@
                    <!-- Use floating label instead of placeholder -->
                    <label>Enter Last name</label>
                    <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
-                   <input type="text" name="lastName" ng-model="Lastname" maxlength="20" required>
-                   <div  style="color:#ff7d7f !important; " ng-show="submitted && userForm.lastName.$error.required" >
+                   <input type="text" name="lastName" ng-model="Lastname" maxlength="20" ng-enter="RegisterCall()" required>
+                   <div  style="color:#ff7d7f !important; " ng-cloak ng-show="submitted && userForm.lastName.$error.required" >
                        Please enter lastname.
                    </div>
 
@@ -225,11 +230,11 @@
                    <!-- Use floating label instead of placeholder -->
                    <label>Enter Email</label>
                    <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
-                   <input type="email" name="email" ng-model="Email" overwrite-email maxlength="30" required>
-                   <div style="color:#ff7d7f !important; " ng-show="submitted && userForm.email.$error.required" >
+                   <input type="email" name="email" ng-model="Email" overwrite-email maxlength="30" ng-enter="RegisterCall()" required>
+                   <div style="color:#ff7d7f !important; " ng-cloak ng-show="submitted && userForm.email.$error.required" >
                        Please enter an email address.
                    </div>
-                   <div style="color:#ff7d7f !important; " ng-show="submitted && userForm.email.$error.email" >
+                   <div style="color:#ff7d7f !important; " ng-cloak ng-show="submitted && userForm.email.$error.email" >
                        Please enter a valid email address.
                    </div>
 
@@ -239,8 +244,8 @@
                    <!-- Use floating label instead of placeholder -->
                    <label>Enter Password</label>
                    <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
-                   <input type="password" name="password" ng-model="Password" maxlength="20" required>
-                   <div style="color:#ff7d7f !important; " ng-show="submitted && userForm.password.$error.required" >
+                   <input type="password" name="password" ng-model="Password" maxlength="20" ng-enter="RegisterCall()" required>
+                   <div style="color:#ff7d7f !important; " ng-cloak ng-show="submitted && userForm.password.$error.required" >
                        Please enter password.
                    </div>
 
@@ -253,7 +258,7 @@
                    <div id="social-platforms" >
 
                        <!-- <a class="btn btn-icon btn-facebook" href="#"><i class="fa fa-hand-o-right"></i><span>Login</span></a> -->
-                       <div class="facebook button" ng-click="RegisterCall()">
+                       <div class="facebook button" ng-click="RegisterCall()" >
                            <i class="icon">
                                <i class="fa fa-hand-o-right"></i>
                                <i class="icon-facebook">

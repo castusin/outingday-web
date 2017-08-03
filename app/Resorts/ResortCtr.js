@@ -241,6 +241,10 @@ app.controller('ResortCtr',['$scope','$state','myMastersList','GetParksInfo','$r
 
             $('#img-load').show();
             $('#img-load1').show();
+            $('#img-load2').show();
+            $('#img-load3').show();
+            $('#img-load4').show();
+            $('#img-load5').show();
 
             $scope.startTimer();
             GetParksInfo.GetParksService($scope.parks,$scope.myDate,$scope.maxDate).then(function(ParksInfo){
@@ -251,6 +255,10 @@ app.controller('ResortCtr',['$scope','$state','myMastersList','GetParksInfo','$r
                     $timeout($scope.progressbar.complete(), 1000);
                     $('#img-load').hide();
                     $('#img-load1').hide();
+                    $('#img-load2').hide();
+                    $('#img-load3').hide();
+                    $('#img-load4').hide();
+                    $('#img-load5').hide();
                     debugger;
                  $scope.DetailsListInfo=ParksInfo.resultObject;
                  $scope.GetFillAllSearchInfoList=ParksInfo.resultObject;
@@ -297,6 +305,11 @@ app.controller('ResortCtr',['$scope','$state','myMastersList','GetParksInfo','$r
                     $timeout($scope.progressbar.complete(), 1000);
                     $('#img-load').hide();
                     $('#img-load1').hide();
+                    $('#img-load2').hide();
+                    $('#img-load3').hide();
+                    $('#img-load4').hide();
+                    $('#img-load5').hide();
+
 
                 }
 
@@ -333,8 +346,16 @@ debugger;
 		
 	    $localStorage.checkIn =   $scope.ctrl.myDate;
         $localStorage.checkOut =   $scope.ctrl.maxDate;		
-			
-            $scope.parks =  $scope.ctrl.selectedItem;
+
+            if($scope.ctrl.selectedItem == null){
+
+                $scope.parks =  $localStorage.searchInput;
+            }
+            else{
+                $scope.parks =  $scope.ctrl.selectedItem;
+                $localStorage.searchInput = $scope.ctrl.selectedItem;
+            }
+
 			$scope.myDate = $localStorage.checkIn;
 			$scope.maxDate = $localStorage.checkOut;
             $scope.LoadFunction();

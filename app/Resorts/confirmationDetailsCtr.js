@@ -61,7 +61,7 @@ app.controller('confirmationDetailCtr',['$scope','$state','CreateUserServiceInfo
 
 
             $scope.packagesRoomList.typeCode = $scope.facilityTypList[i].facilityTypeCode;
-            $scope.packagesRoomList.price =  $scope.facilityTypList[i].regularPrice;
+            $scope.packagesRoomList.price =  $scope.facilityTypList[i].currentPrice;
             $scope.packagesRoomList.title = $scope.facilityTypList[i].facilityTypeTitle;
             $scope.packagesRoomList.quantity = 1;
             $scope.packagesRoomList.type = $scope.facilityTypList[i].facilityType;
