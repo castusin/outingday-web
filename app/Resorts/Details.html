@@ -606,7 +606,7 @@ $('head').append('<meta name="viewport" content="width=device-width, initial-sca
 
                             </li>
                             <li class="dropdown" style="padding-right:4px;" ng-if="showLogOutBtn">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:#fff;">Hi {{firstName}} {{lastName}} <b class="caret"></b></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:#fff !important;">Hi {{firstName}} {{lastName}} <b class="caret"></b></a>
                                 <ul class="dropdown-menu" style="width:180px;margin-top:10px;">
                                     <div class="row" style="margin-top:-10%;"><a href="#"><span style="padding-left:50px;"><img  src="../../assets/images/top_arrow.png" alt="" height="14px" width="14px" ></span></a>
 
@@ -821,7 +821,7 @@ $('head').append('<meta name="viewport" content="width=device-width, initial-sca
     		 <section> 
                 <div class="card-block">
                    
-					<h4 class="detailtitle" id="packages" >Overview</h4>
+					<h4 class="detailtitle"  >Overview</h4>
                 
                     <div ng-repeat="detail in resultParkDetail" style="color:#191919;font-size:13px;"> 
                          <p style="padding-left:1%;font-size:13px;"><hm-read-more
@@ -835,9 +835,9 @@ $('head').append('<meta name="viewport" content="width=device-width, initial-sca
                      </div>
 					
                 
-                    <h4 class="detailtitle" id="roomtype">Amenities</h4>
+                    <h4 class="detailtitle" >Amenities</h4>
                     <div class="row" >
-                        <div class="col-xs-6 col-sm-4 col-1g-2 col-md-2" ng-repeat="amin in GetAminitiList">
+                        <div class="col-xs-6 col-sm-4 col-1g-2 col-md-2" ng-repeat="amin in GetAminitiList" id="packages">
                             <div class="row" style="margin-bottom:10px;" align="left">
                                 <div class="col-xs-12 col-sm-12 col-1g-12 col-md-12" align="center"><img src="{{amin.AminitiLogo}}" height="25px" width="25px"></div>
                                 <div class="col-xs-12 col-sm-12 col-1g-12 col-md-12" align="center"><h6 class="detailtext5">{{amin.AminitiName}}</h6></div>
@@ -850,7 +850,7 @@ $('head').append('<meta name="viewport" content="width=device-width, initial-sca
       </md-card>
 		
 		
-		<md-card>
+		<md-card > 
         <!-- <div class="col-lg-12" style="background-color:#f3f3f3;border-bottom:1px solid #cdcdcd;text-align:center;"> -->
 		 <!-- <button type="button" class="btn btn-lg btn-scroll view_btn btn-colp" data-toggle="collapse" ng-click="SkipRooms()" align="center">Skip Rooms</button> -->
   
@@ -865,7 +865,7 @@ $('head').append('<meta name="viewport" content="width=device-width, initial-sca
 			
    <h4 class="detailtitle">Packages</h4>
     <md-card ng-repeat="park in PackageDetail">
-        <div layout="row">
+        <div layout="row" >
             <div flex>
                 <md-card-title-media>
                     <div style="margin:5%;" >
@@ -913,8 +913,8 @@ $('head').append('<meta name="viewport" content="width=device-width, initial-sca
 					<h4 class="md-subhead" style="font-size:15px !important;text-align:center;"><button type="button" class="btn btn-amt btn-sm" style="background-color:#67A415;color:white;" ng-click="add=true;qty=qty+1;addBookCall(park)" ng-hide="qty!=0">Add</button></h4>
                     
 					
-					<h4 class="md-subhead" style="font-size:15px !important;text-align:center;" ng-show="add" >
-					<form id='myform' ng-hide="qty==0">
+					<h4 class="md-subhead" style="font-size:15px !important;text-align:center;" ng-show="add"   >
+					<form id='myform' ng-hide="qty==0" >
                            
                             <button ng-click="qty=qty-1;subCall(park)" class='qtyminus pack_minus'  ng-disabled="qty<=0">-</button>
                             <input  ng-model="qty" type='text' name='quantity' class='qty pack_text' readonly>
@@ -924,9 +924,12 @@ $('head').append('<meta name="viewport" content="width=device-width, initial-sca
 					</h4>
                 
 				
-				</div>
+				</div >
+				<div id="roomtype">&nbsp;</div>
             </div>
+			
         </div>
+		
         <div id="packageContent{{$index}}"></div>
 
     </md-card>
@@ -934,7 +937,7 @@ $('head').append('<meta name="viewport" content="width=device-width, initial-sca
 
 	  
 
-<h4 class="detailtitle">Rooms</h4>	  
+<h4 class="detailtitle" >Rooms</h4>	  
 
 <md-card ng-repeat="park in RoomDetail">
 		<div layout="row">
@@ -971,22 +974,23 @@ $('head').append('<meta name="viewport" content="width=device-width, initial-sca
   </md-card-title-text>
   </div>
   <div flex>
-  <div>
+  <div >
   
   <h4 class="md-subhead" style="font-size:18px !important;text-align:center;color:#5F5993;font-weight:bold !important;">{{park.currentPrice | INR}}</h4>
   <h4 class="md-subhead" style="font-size:15px !important;text-align:center;"><button type="button" class="btn btn-success btn-sm" style="background-color:#67A415;color:white;" ng-click="BookPkgCall(park)">Book</button></h4>
   </div>
   </div>
+  
  </div>
 
     <div id="roomsContent{{$index}}"></div>
-
+<div id="reviews">&nbsp;</div>
 </md-card>
 
-	 
-
+	
 	  
 	  <md-card> 
+	  
 	  <section>
            <div class="card-block" style="background-color:white;" >
             	<h4 class="detailtitle">Write Your Story</h4>

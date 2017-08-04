@@ -221,4 +221,12 @@ app.controller('modalController', ['$scope','$state','$window','$rootScope','$lo
             $mdDialog.hide();
         };
 
+        $scope.cancel = function(){
+
+            $mdDialog.cancel();
+        }
+
+
+
+
     }]);

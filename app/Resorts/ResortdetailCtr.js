@@ -54,6 +54,48 @@ app.controller('ResortDetailCtr',['$scope','$compile','$sce','$element','$state'
                                }
 
                                $scope.qty = 0;
+
+
+                               /*--------------------img slider------------------------*/
+                               jssor_1_slider_init = function() {
+
+                                   var jssor_1_options = {
+                                       $AutoPlay: 1,
+                                       $ArrowNavigatorOptions: {
+                                           $Class: $JssorArrowNavigator$
+                                       },
+                                       $ThumbnailNavigatorOptions: {
+                                           $Class: $JssorThumbnailNavigator$,
+                                           $Cols: 9,
+                                           $SpacingX: 3,
+                                           $SpacingY: 3,
+                                           $Align: 260
+                                       }
+                                   };
+
+                                   var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
+
+                                   /*responsive code begin*/
+                                   /*remove responsive code if you don't want the slider scales while window resizing*/
+                                   function ScaleSlider() {
+                                       var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
+                                       if (refSize) {
+                                           refSize = Math.min(refSize, 600);
+                                           jssor_1_slider.$ScaleWidth(refSize);
+                                       }
+                                       else {
+                                           window.setTimeout(ScaleSlider, 30);
+                                       }
+                                   }
+                                   ScaleSlider();
+                                   $Jssor$.$AddEvent(window, "load", ScaleSlider);
+                                   $Jssor$.$AddEvent(window, "resize", ScaleSlider);
+                                   $Jssor$.$AddEvent(window, "orientationchange", ScaleSlider);
+                                   /*responsive code end*/
+                               };
+                               /*--------------------img slider------------------------*/
+
+
                          /*  $scope.map = {
                                center: {
                                    latitude: 56.162939,
@@ -388,7 +430,7 @@ app.controller('ResortDetailCtr',['$scope','$compile','$sce','$element','$state'
                                        $scope.BindData=$localStorage.parkDetails;
                                        var html = '<div id="pcklistdiv'+index+'">' +
                                            '<md-card><div ng-cloak>' +
-                                           '    <md-content><md-tabs md-dynamic-height md-border-bottom><md-tab label="Photos"><md-content class="md-padding"><div class="container"><div style="width: 680px;"><img   ng-repeat="facility in facilityPhotos" class="slide" ng-swipe-right="showPrev()" ng-swipe-left="showNext()" ng-show="isActive($index)" ng-src="http://admin.outingday.com/images/ResortsImages/{{facility.src}}" onError="this.onerror=null;this.src=\'../../assets/images/default-thumb.gif\';" /><p class="arrow prev" href="#" ng-click="showPrev()"></p><p class="arrow next" href="#" ng-click="showNext()"></p></div></div></md-content></md-tab><md-tab label="Info"><md-content class="md-padding"><h1 class="md-display-2">Info</h1><p data-ng-bind="facilitydescription"></p></md-content></md-tab></md-tabs></md-content></div></md-card></div>';
+                                           '    <md-content><md-tabs md-dynamic-height md-border-bottom><md-tab label="Photos"><md-content class="md-padding"><div class="container"><div style="width: 680px;"><img   ng-repeat="facility in facilityPhotos" class="slide" ng-swipe-right="showPrev()" ng-swipe-left="showNext()" ng-show="isActive($index)" ng-src="http://outingadmin.littlepandits.com/images/ResortsImages/{{facility.src}}" onError="this.onerror=null;this.src=\'../../assets/images/default-thumb.gif\';" /><p class="arrow prev" href="#" ng-click="showPrev()"></p><p class="arrow next" href="#" ng-click="showNext()"></p></div></div></md-content></md-tab><md-tab label="Info"><md-content class="md-padding"><h1 class="md-display-2">Info</h1><p data-ng-bind="facilitydescription"></p></md-content></md-tab></md-tabs></md-content></div></md-card></div>';
                                        angular.element(document.getElementById('packageContent'+ index)).append($compile(html)($scope));
 
                                        $scope.GettingRoomInfo=$.grep($localStorage.parkDetails,function (prkrm) {
@@ -419,20 +461,6 @@ app.controller('ResortDetailCtr',['$scope','$compile','$sce','$element','$state'
 
                                    if (angular.element(document.getElementById('listdiv'+ index))[0]==undefined) {
 
-                                       $scope.BindData=$localStorage.parkDetails;
-                                       var html = '<div id="listdiv'+index+'">' +
-                                           '<md-card><div ng-cloak>' +
-                                           '    <md-content><md-tabs md-dynamic-height md-border-bottom>' +
-                                           '<md-tab label="Photos"><md-content class="md-padding"' +
-                                           '><div class="container"><div style="width: 680px;">' +
-                                           '<img   ng-repeat="facility in facilityPhotos" class="slide" ng-swipe-right="showPrev()" ng-swipe-left="showNext()" ng-show="isActive($index)" ng-src="http://admin.outingday.com/images/ResortsImages/{{facility.src}}" onError="this.onerror=null;this.src=\'../../assets/images/default-thumb.gif\';" />' +
-                                           '<p class="arrow prev" href="#" ng-click="showPrev()"></p><p class="arrow next" href="#" ng-click="showNext()"></p>' +
-                                           '</div></div></md-content></md-tab><md-tab label="Info">' +
-                                           '<md-content class="md-padding"><h1 class="md-display-2">Info</h1>' +
-                                           '<p data-ng-bind="facilitydescription"></p></md-content>' +
-                                           '</md-tab></md-tabs></md-content></div></md-card></div>';
-                                       angular.element(document.getElementById('roomsContent'+ index)).append($compile(html)($scope));
-
                                        $scope.GettingRoomInfo=$.grep($localStorage.parkDetails,function (prkrm) {
                                            return prkrm.facilityTypeCode==park.facilityTypeCode;
                                        })[0]
@@ -447,6 +475,22 @@ app.controller('ResortDetailCtr',['$scope','$compile','$sce','$element','$state'
                                        for (var i = 0; i < $scope.FIFO_RImage.length; i++) {
                                            $scope.facilityPhotos.push({"src": $scope.FIFO_RImage[i]});
                                        }
+                                       $scope.BindData=$localStorage.parkDetails;
+                                       var html = '<style>.slide {position: relative!important;top: 0;left: 0;width: 100%!important;height: 373px!important;}</style>' +
+                                           '<div id="listdiv'+index+'">' +
+                                           '<md-card><div ng-cloak>' +
+                                           '    <md-content><md-tabs md-dynamic-height md-border-bottom>' +
+                                           '<md-tab label="Photos"><md-content class="md-padding"' +
+                                           '><div class="container"><div style="width: 680px;" class="slider">' +
+                                           '<img   ng-repeat="facility in facilityPhotos" class="slide" ng-swipe-right="showPrev()" ng-swipe-left="showNext()" ng-show="isActive($index)" ng-src="http://outingadmin.littlepandits.com/images/ResortsImages/{{facility.src}}" onError="this.onerror=null;this.src=\'../../assets/images/default-thumb.gif\';" />' +
+                                           '<p class="arrow prev" href="#" ng-click="showPrev()"></p><p class="arrow next" href="#" ng-click="showNext()"></p>' +
+                                           '</div></div></md-content></md-tab><md-tab label="Info">' +
+                                           '<md-content class="md-padding"><h1 class="md-display-2">Info</h1>' +
+                                           '<p data-ng-bind="facilitydescription"></p></md-content>' +
+                                           '</md-tab></md-tabs></md-content></div></md-card></div>';
+                                       angular.element(document.getElementById('roomsContent'+ index)).append($compile(html)($scope));
+
+
                                    }
                                    else {
 

@@ -264,6 +264,12 @@ app.controller('ResortCtr',['$scope','$state','myMastersList','GetParksInfo','$r
                  $scope.GetFillAllSearchInfoList=ParksInfo.resultObject;
                     $scope.GetOurSearchInfoList=ParksInfo.resultObject;
 
+
+                    $scope.CstMin= _.min($scope.GetFillAllSearchInfoList,function(item){return item.minCost1}).minCost1;
+                    $scope.CstMax= _.max($scope.GetFillAllSearchInfoList,function(item){return item.minCost1}).minCost1;
+
+
+
                     var pagesShown = 1;
                     var pageSize = 9;
 

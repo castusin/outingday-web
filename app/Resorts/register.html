@@ -119,7 +119,7 @@
                    numbers-only
                     maxlength="10" ng-enter="RequestOtpCall()" required>
 
-               <div  style="color:#ff7d7f !important; " ng-cloak ng-show="submitted && userForm.phone.$error.required" >
+               <div  ng-cloak style="color:#ff7d7f !important; "  ng-show="submitted && userForm.phone.$error.required" >
                    Please enter a mobilenumber.
                </div>
     </md-input-container>
@@ -139,7 +139,7 @@
                    <label>Enter OTP</label>
                   
                    <input type="tel" name="otp" ng-model="OTP" maxlength="5" ng-enter="ValidateOTPCall()" required>
-                   <div  style="color:#ff7d7f !important; " ng-cloak ng-show="submitted && userForm.otp.$error.required" >
+                   <div  ng-cloak style="color:#ff7d7f !important; "  ng-show="submitted && userForm.otp.$error.required" >
                        Please enter valid OTP.
                    </div>
 
@@ -209,7 +209,7 @@
                    <label>Enter First name</label>
                    <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
                    <input type="text" name="firstName" ng-model="Firstname" maxlength="20" ng-enter="RegisterCall()" required>
-                   <div  style="color:#ff7d7f !important; " ng-cloak ng-show="submitted && userForm.firstName.$error.required" >
+                   <div  ng-cloak style="color:#ff7d7f !important; "  ng-show="submitted && userForm.firstName.$error.required" >
                        Please enter firstname.
                    </div>
 
@@ -220,7 +220,7 @@
                    <label>Enter Last name</label>
                    <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
                    <input type="text" name="lastName" ng-model="Lastname" maxlength="20" ng-enter="RegisterCall()" required>
-                   <div  style="color:#ff7d7f !important; " ng-cloak ng-show="submitted && userForm.lastName.$error.required" >
+                   <div  ng-cloak style="color:#ff7d7f !important; "  ng-show="submitted && userForm.lastName.$error.required" >
                        Please enter lastname.
                    </div>
 
@@ -231,10 +231,10 @@
                    <label>Enter Email</label>
                    <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
                    <input type="email" name="email" ng-model="Email" overwrite-email maxlength="30" ng-enter="RegisterCall()" required>
-                   <div style="color:#ff7d7f !important; " ng-cloak ng-show="submitted && userForm.email.$error.required" >
+                   <div ng-cloak style="color:#ff7d7f !important; "  ng-show="submitted && userForm.email.$error.required" >
                        Please enter an email address.
                    </div>
-                   <div style="color:#ff7d7f !important; " ng-cloak ng-show="submitted && userForm.email.$error.email" >
+                   <div ng-cloak style="color:#ff7d7f !important; "  ng-show="submitted && userForm.email.$error.email" >
                        Please enter a valid email address.
                    </div>
 
@@ -245,7 +245,7 @@
                    <label>Enter Password</label>
                    <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
                    <input type="password" name="password" ng-model="Password" maxlength="20" ng-enter="RegisterCall()" required>
-                   <div style="color:#ff7d7f !important; " ng-cloak ng-show="submitted && userForm.password.$error.required" >
+                   <div ng-cloak style="color:#ff7d7f !important; "  ng-show="submitted && userForm.password.$error.required" >
                        Please enter password.
                    </div>
 
@@ -317,7 +317,7 @@
   </div>
 
       <!-------- google button--------->
-      <div id="gSignInWrapper" onclick="startApp()">
+      <div id="gSignInWrapper" onclick="startApp()" on-load-clicker>
 
           <div id="customBtn" class="customGPlusSignIn">
               <span class="icon"></span>

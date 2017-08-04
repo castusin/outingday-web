@@ -42,6 +42,7 @@
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
     <!-- Angular Material Library -->
     <script src="//ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+    <script src="../../assets/js/Angularjs/underscore.js"></script>
 
 
 
@@ -838,7 +839,7 @@ md-slider.md-default-theme .md-thumb:after, md-slider .md-thumb:after {
                                 <!-- </ul> -->
                             </li>
                             <li class="dropdown" style="padding-right:4px;" ng-if="showLogOutBtn">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:#fff;">Hi {{firstName}} {{lastName}} <b class="caret"></b></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:#fff!important;">Hi {{firstName}} {{lastName}} <b class="caret"></b></a>
                                 <ul class="dropdown-menu" style="width:180px;margin-top:10px;">
                                     <div class="row" style="margin-top:-10%;"><a href="#"><span style="padding-left:50px;"><img  src="../../assets/images/top_arrow.png" alt="" height="14px" width="14px" ></span></a>
 
@@ -1076,11 +1077,12 @@ md-slider.md-default-theme .md-thumb:after, md-slider .md-thumb:after {
                       <md-content style="margin: 16px; padding:16px;background-color:white;">
                           <div layout>
                               
-                                  <span class="md-body-1"><i class="fa fa-inr" aria-hidden="true"></i> <span ng-bind="rating1">0</span> </span>
-                             
-                              <md-slider flex md-discrete ng-model="rating1" step="1" min="1" max="5000" ng-change="GetPriceFilter(rating1)" aria-label="rating"></md-slider>
-                              
-                                  <span class="md-body-1"><i class="fa fa-inr" aria-hidden="true"></i> 5000</span>
+
+                              <span class="md-body-1"><i class="fa fa-inr" aria-hidden="true"></i> <span ng-bind="CstMin">0</span> </span>
+
+                              <md-slider flex md-discrete ng-model="rating1" step="1" min="{{CstMin}}" max="{{CstMax}}" ng-change="GetPriceFilter(rating1)" aria-label="rating"></md-slider>
+
+                              <span class="md-body-1"><i class="fa fa-inr" aria-hidden="true"></i><span ng-bind="CstMax"></span></span>
                              
                           </div>
                       </md-content>
@@ -1190,7 +1192,7 @@ md-slider.md-default-theme .md-thumb:after, md-slider .md-thumb:after {
 	  <div flex layout="column" style=" background-color:#fff;  border:solid 1px #e1e0e0;">
         <div flex="auto">
             <div class="container_img " align="center">
-                <img  preload-image ng-src="http://outingadmin.littlepandits.com/images/ResortsImages/{{res.photoUrl}}" default-image="../../assets/images/loadingimg2.gif" fallback-image="../../assets/images/default-thumb.gif" alt="" class="img-responsive img-portfolio" align="center"> 
+                <img  preload-image ng-src="http://outingadmin.littlepandits.com/images/ResortsImages/{{res.photoUrl}}" default-image="../../assets/images/loadingimg2.gif" fallback-image="../../assets/images/default-thumb.gif" alt="" class="img-responsive img-portfolio" align="center" style="height:182px;width:100%;"> 
                 <div class="sponsored" ng-show="res.sponsoredFlag == 'y'"><img src="../../assets/images/sponsored.png" alt="" height="90px" width="90px" ></div>
                 <div class="button_rating"><button type="button" class="btn btn-success btn-md" ng-class="{ratingred: res.odRating < 3, ratingyellow: (res.odRating < 4)&&(res.odRating >= 3), ratinggreen: (res.odRating <= 5)&&(res.odRating >= 4)}" style="border-radius:0; padding: 4px 10px 4px 10px;">{{res.odRating}}</button></div>
                 <div class="share_icon" ><img  src="../../assets/images/icon_share.png" alt=""></div>
