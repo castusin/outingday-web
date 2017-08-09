@@ -1,5 +1,5 @@
 
-var app = angular.module('MyApp', ['ngMaterial','ngRoute','hm.readmore','ui.router','ui.bootstrap','ngStorage','ngProgress','ngAnimate','ngTouch','angularModalService','dibari.angular-ellipsis','moment-picker','angular-hmac-sha512','ngSanitize','angular-preload-image','google-maps','timer','ngMessages','uiSlider']);
+var app = angular.module('MyApp', ['uiSlider','ngMaterial','ngRoute','hm.readmore','ui.router','ui.bootstrap','ngStorage','ngProgress','ngAnimate','ngTouch','angularModalService','dibari.angular-ellipsis','moment-picker','angular-hmac-sha512','ngSanitize','angular-preload-image','google-maps','timer','ngMessages']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
 

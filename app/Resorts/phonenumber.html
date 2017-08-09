@@ -87,9 +87,12 @@
        <md-input-container class="md-icon-float md-block">
            <!-- Use floating label instead of placeholder -->
            <label>Enter Mobile Number</label>
-           <input type="tel"name="phone" ng-model="PhoneNumber"  numbers-only maxlength="10" ng-enter="RegisterCall()" required>
+           <input type="tel"name="phone" ng-model="PhoneNumber"  numbers-only pattern="[789][0-9]{9}" maxlength="10" ng-enter="RegisterCall()" required>
            <p ng-cloak ng-show="submitted && userForm.phone.$error.required" style="color:#ff7d7f !important;font-size:11px !important;">
                Please enter a mobilenumber.
+           </p>
+           <p  ng-cloak style="color:#ff7d7f !important;font-size:11px !important; "  ng-show="submitted && userForm.phone.$error.pattern" >
+               Please enter a valid mobilenumber.
            </p>
 
        </md-input-container>
@@ -124,9 +127,12 @@
     <md-input-container class="md-icon-float md-block">
       <!-- Use floating label instead of placeholder -->
       <label>Enter Mobile Number</label>
-	   <input type="tel" name="phone" ng-model="PhoneNumber"  numbers-only maxlength="10" ng-enter="RegisterPhoneCall()" required>
+	   <input type="tel" name="phone" ng-model="PhoneNumber"  numbers-only pattern="[789][0-9]{9}" maxlength="10" ng-enter="RegisterPhoneCall()" required>
         <p  ng-show="submitted && userForm.phone.$error.required" style="color:#ff7d7f !important;font-size:11px !important;">
             Please enter a mobilenumber.
+        </p>
+        <p  ng-cloak style="color:#ff7d7f !important; "  ng-show="submitted && userForm.phone.$error.pattern" >
+            Please enter a valid mobilenumber.
         </p>
 
     </md-input-container>

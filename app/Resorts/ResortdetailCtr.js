@@ -428,17 +428,13 @@ app.controller('ResortDetailCtr',['$scope','$compile','$sce','$element','$state'
                                    if (angular.element(document.getElementById('pcklistdiv'+ index))[0]==undefined) {
 
                                        $scope.BindData=$localStorage.parkDetails;
-                                       var html = '<div id="pcklistdiv'+index+'">' +
-                                           '<md-card><div ng-cloak>' +
-                                           '    <md-content><md-tabs md-dynamic-height md-border-bottom><md-tab label="Photos"><md-content class="md-padding"><div class="container"><div style="width: 680px;"><img   ng-repeat="facility in facilityPhotos" class="slide" ng-swipe-right="showPrev()" ng-swipe-left="showNext()" ng-show="isActive($index)" ng-src="http://outingadmin.littlepandits.com/images/ResortsImages/{{facility.src}}" onError="this.onerror=null;this.src=\'../../assets/images/default-thumb.gif\';" /><p class="arrow prev" href="#" ng-click="showPrev()"></p><p class="arrow next" href="#" ng-click="showNext()"></p></div></div></md-content></md-tab><md-tab label="Info"><md-content class="md-padding"><h1 class="md-display-2">Info</h1><p data-ng-bind="facilitydescription"></p></md-content></md-tab></md-tabs></md-content></div></md-card></div>';
-                                       angular.element(document.getElementById('packageContent'+ index)).append($compile(html)($scope));
-
                                        $scope.GettingRoomInfo=$.grep($localStorage.parkDetails,function (prkrm) {
                                            return prkrm.facilityTypeCode==park.facilityTypeCode;
                                        })[0]
 
-
                                        $scope.facilitydescription = $scope.GettingRoomInfo.description;
+                                       var GetParkfacilitydescription = $scope.GettingRoomInfo.description;
+
                                        $scope.ParkDetailfacilityImage = $scope.GettingRoomInfo.facilityImage;
                                        $scope.facilityarrString = new Array();
                                        $scope.facilityarrString = $scope.ParkDetailfacilityImage.split(',');
@@ -447,6 +443,32 @@ app.controller('ResortDetailCtr',['$scope','$compile','$sce','$element','$state'
                                        for (var i = 0; i < $scope.FIFO_RImage.length; i++) {
                                            $scope.facilityPhotos.push({"src": $scope.FIFO_RImage[i]});
                                        }
+                                       var html = '<div id="pcklistdiv'+index+'">' +
+                                           '<md-card><div ng-cloak>' +
+                                           '<md-content>' +
+                                           '<md-tabs md-dynamic-height md-border-bottom>' +
+                                           '<md-tab label="Photos">' +
+                                           '<md-content class="md-padding">' +
+                                           '<div class="">' +
+                                           '<div style="width: 680px;">'+
+                                           '<img ng-repeat="facility in facilityPhotos" class="slide" ng-swipe-right="showPrev()" ng-swipe-left="showNext()" ng-show="isActive($index)" ng-src="http://outingadmin.littlepandits.com/images/ResortsImages/{{facility.src}}" onError="this.onerror=null;this.src=\'../../assets/images/default-thumb.gif\';" />' +
+                                           '<p class="arrow prev" href="#" ng-click="showPrev()"></p>' +
+                                           '<p class="arrow next" href="#" ng-click="showNext()"></p>' +
+                                           '</div></div>' +
+                                           '</md-content>' +
+                                           '</md-tab>' +
+                                           '<md-tab label="Info">' +
+                                           '<md-content class="md-padding">' +
+                                           '<h1 class="md-display-2">Info</h1>' +
+                                           // '<p data-ng-bind="facilitydescription"></p>' +
+                                           '<p>'+GetParkfacilitydescription+'</p>' +
+                                           '</md-content></md-tab>' +
+                                           '</md-tabs></md-content>' +
+                                           '</div></md-card>' +
+                                           '</div>';
+                                       angular.element(document.getElementById('packageContent'+ index)).append($compile(html)($scope));
+
+
                                    }
                                    else {
 
@@ -467,6 +489,7 @@ app.controller('ResortDetailCtr',['$scope','$compile','$sce','$element','$state'
 
 
                                        $scope.facilitydescription = $scope.GettingRoomInfo.description;
+                                       var GetRoomfacilitydescription = $scope.GettingRoomInfo.description;
                                        $scope.ParkDetailfacilityImage = $scope.GettingRoomInfo.facilityImage;
                                        $scope.facilityarrString = new Array();
                                        $scope.facilityarrString = $scope.ParkDetailfacilityImage.split(',');
@@ -479,15 +502,26 @@ app.controller('ResortDetailCtr',['$scope','$compile','$sce','$element','$state'
                                        var html = '<style>.slide {position: relative!important;top: 0;left: 0;width: 100%!important;height: 373px!important;}</style>' +
                                            '<div id="listdiv'+index+'">' +
                                            '<md-card><div ng-cloak>' +
-                                           '    <md-content><md-tabs md-dynamic-height md-border-bottom>' +
-                                           '<md-tab label="Photos"><md-content class="md-padding"' +
-                                           '><div class="container"><div style="width: 680px;" class="slider">' +
-                                           '<img   ng-repeat="facility in facilityPhotos" class="slide" ng-swipe-right="showPrev()" ng-swipe-left="showNext()" ng-show="isActive($index)" ng-src="http://outingadmin.littlepandits.com/images/ResortsImages/{{facility.src}}" onError="this.onerror=null;this.src=\'../../assets/images/default-thumb.gif\';" />' +
-                                           '<p class="arrow prev" href="#" ng-click="showPrev()"></p><p class="arrow next" href="#" ng-click="showNext()"></p>' +
-                                           '</div></div></md-content></md-tab><md-tab label="Info">' +
+                                           '<md-content>' +
+                                           '<md-tabs md-dynamic-height md-border-bottom>' +
+                                           '<md-tab label="Photos">' +
+                                           '<md-content class="md-padding"' +
+                                           '><div class="">' +
+                                           '<div style="width: 680px;" class="slider">' +
+                                           '<img ng-repeat="facility'+index+' in facilityPhotos" class="slide" ng-swipe-right="showPrev()" ng-swipe-left="showNext()" ng-show="isActive($index)" ng-src="http://outingadmin.littlepandits.com/images/ResortsImages/{{facility'+index+'.src}}" onError="this.onerror=null;this.src=\'../../assets/images/default-thumb.gif\';" />' +
+                                           '<p class="arrow prev" href="#" ng-click="showPrev()"></p>' +
+                                           '<p class="arrow next" href="#" ng-click="showNext()"></p>' +
+                                           '</div>' +
+                                           '</div>' +
+                                           '</md-content></md-tab><md-tab label="Info">' +
                                            '<md-content class="md-padding"><h1 class="md-display-2">Info</h1>' +
-                                           '<p data-ng-bind="facilitydescription"></p></md-content>' +
-                                           '</md-tab></md-tabs></md-content></div></md-card></div>';
+                                           // '<p data-ng-bind="facilitydescription"></p>' +
+                                           '<p>'+GetRoomfacilitydescription+'</p>' +
+                                           '</md-content>' +
+                                           '</md-tab>' +
+                                           '</md-tabs></md-content>' +
+                                           '</div>' +
+                                           '</md-card></div>';
                                        angular.element(document.getElementById('roomsContent'+ index)).append($compile(html)($scope));
 
 

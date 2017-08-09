@@ -1,6 +1,6 @@
 
-app.controller('packageDetailCtr',['$scope','$state','GetParkDetailInfo','$rootScope','$localStorage','$window','$location','$anchorScroll','getCouponcodeInfo','$modal','$mdDialog',
-    function ($scope,$state,GetParkDetailInfo,$rootScope,$localStorage,$window,$location,$anchorScroll,getCouponcodeInfo,$modal,$mdDialog) {
+app.controller('packageDetailCtr',['$scope','$state','GetParkDetailInfo','$rootScope','$localStorage','$window','$location','$anchorScroll','getCouponcodeInfo','$modal','$mdDialog','$route',
+    function ($scope,$state,GetParkDetailInfo,$rootScope,$localStorage,$window,$location,$anchorScroll,getCouponcodeInfo,$modal,$mdDialog,$route) {
 
            debugger;
 
@@ -31,7 +31,7 @@ app.controller('packageDetailCtr',['$scope','$state','GetParkDetailInfo','$rootS
                 else{
                     $scope.DP = $localStorage.DP;
                 }
-
+                $window.location.reload();
             });
 
             if($localStorage.username == undefined){

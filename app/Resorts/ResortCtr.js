@@ -156,6 +156,9 @@ app.controller('ResortCtr',['$scope','$state','myMastersList','GetParksInfo','$r
         $scope.GetDurationMasterList=myMastersList.GetDurationMaster();
         $scope.GetRattingMasterList=myMastersList.GetRattingMaster();
 
+            $scope.isUpDown='LOW';
+            $scope.RisUpDown='LOW';
+
         /*-------------------------------------*/
 
 
@@ -265,8 +268,12 @@ app.controller('ResortCtr',['$scope','$state','myMastersList','GetParksInfo','$r
                     $scope.GetOurSearchInfoList=ParksInfo.resultObject;
 
 
+
                     $scope.CstMin= _.min($scope.GetFillAllSearchInfoList,function(item){return item.minCost1}).minCost1;
                     $scope.CstMax= _.max($scope.GetFillAllSearchInfoList,function(item){return item.minCost1}).minCost1;
+                    $scope.CstMinVal= _.min($scope.GetFillAllSearchInfoList,function(item){return item.minCost1}).minCost1;
+                    $scope.CstMaxVal= _.max($scope.GetFillAllSearchInfoList,function(item){return item.minCost1}).minCost1;
+                    $scope.CstMaxValRaange=parseInt($scope.CstMaxVal)+1;
 
 
 
@@ -377,14 +384,49 @@ debugger;
         /*//-------------Popularity Filter End----------------//*/
 
         /*//-------------Ratting Filter Start----------------//*/
+
+        $scope.FindratingFiltr=function (rtVal) {
+
+            if(rtVal=='LOW'){
+                $scope.ratingHL();
+                $scope.RisUpDown = 'HIGH';
+            }
+            else {
+                $scope.ratingLH();
+                $scope.RisUpDown = 'LOW';
+            }
+        }
+
+
         $scope.ratingHL=function () {
 
             $scope.GoToDisplayData = $scope.GetOurSearchInfoList.sort(function(rtgObj1,rtgObj2){return rtgObj2.odRating-rtgObj1.odRating});
             GetOutPutDataInfo();
         }
+            $scope.ratingLH=function () {
+
+                $scope.GoToDisplayData = $scope.GetOurSearchInfoList.sort(function(rtgObj1,rtgObj2){return rtgObj1.odRating-rtgObj2.odRating});
+                GetOutPutDataInfo();
+            }
         /*//-------------Ratting Filter End----------------//*/
 
         /*//-------------Cost high to Low Start----------------//*/
+        
+        $scope.FindPriceFiltr=function (trgVal) {
+            debugger;
+            if (trgVal == 'LOW') {
+
+                $scope.minCostHL();
+                $scope.isUpDown = 'HIGH';
+            }
+            else {
+                $scope.minCostLH();
+                $scope.isUpDown = 'LOW';
+            }
+        }
+        
+        
+        
         $scope.minCostHL=function () {
 
             $scope.GoToDisplayData = $scope.GetOurSearchInfoList.sort(function(costHLObj1,costHLObj2){return costHLObj2.minCost1-costHLObj1.minCost1});
@@ -654,11 +696,45 @@ debugger;
 
             $scope.PricSelection=[];
             $scope.PriceTampData={};
-            $scope.GetPriceFilter=function (fltVal) {
+
+            // $scope.$watch("pridRangeModel", function(){
+            //     // do whatever you need with the just-changed $scope.value
+            //     alert('DOne');
+            // });
+
+            function ResortCtr() {
+                debugger;
+                var ctr = this;
+                ctr.lastSliderUpdated = '';
+
+                ctr.myEndListener = function (sliderId) {
+                    alert(ctr.slider.min);
+                    ctr.lastSliderUpdated = ctr.slider.min + ' - ' + ctr.slider.max;
+                };
+                ctr.slider = {
+                    min: 100,
+                    max: 400,
+                    options: {
+                        floor: 0,
+                        ceil: 500,
+                        id: 'sliderA',
+                        onEnd: ctr.myEndListener
+                    }
+                };
+            }
+
+
+
+            $scope.GetPriceFilter=function (min,max) {
                 debugger;
                 $scope.prcFiltter = [];
-                $scope.prcFiltter = $.grep($scope.GetFillAllSearchInfoList, function (GetfltVal) {
-                    return fltVal<=GetfltVal.minCost1;
+
+                $scope.prcFiltter=$.grep($scope.GetFillAllSearchInfoList, function (GetfltVal) {
+                    debugger;
+                    if((parseInt(min)<=GetfltVal.minCost1)&&(parseInt(max)>=GetfltVal.minCost1)) {
+                        debugger;
+                        return GetfltVal;
+                    }
                 });
                 $scope.GoToDisplayData=$scope.prcFiltter;
                 GetOutPutDataInfo();

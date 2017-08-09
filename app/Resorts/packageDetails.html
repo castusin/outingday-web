@@ -26,6 +26,7 @@
 	<link href="../../assets/css/packagecss.css?v=1" rel="stylesheet">
     <link href="https://rawgit.com/indrimuska/angular-moment-picker/master/dist/angular-moment-picker.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="../../assets/css/angular-slider.css">
 
    
     <link href="../../assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -64,6 +65,7 @@
     <script src="../../assets/js/Angularjs/angular-cookies.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment-with-locales.js"></script>
     <script src="//rawgit.com/indrimuska/angular-moment-picker/master/dist/angular-moment-picker.js"></script>
+    <script src="../../assets/js/Angularjs/angular-slider.js"></script>
 
     <script src="../../assets/app.js?v=1"></script>
     <script src="../../assets/js/Angularjs/common.js?v=1"></script>
@@ -205,7 +207,13 @@ body{
 .icon-success {
     color:#ff7d7f !important;
 }
-
+md-input-container {
+    display: inline-block;
+    position: relative;
+    padding: 2px;
+    margin: 4px 10px !important;
+    vertical-align: middle;
+}
 </style>
 
 <!------------facebook login--------------->
@@ -289,7 +297,7 @@ body{
             } else {
                 // The person is not logged into this app or we are unable to tell.
             }
-        });
+        },{scope: 'email'});
     }
 
 
@@ -390,66 +398,47 @@ body{
                     <div class="col-lg-6 col-md-6 col-sm-8 col-xs-9">
        <ul class="nav navbar-nav navbar-right" >
                            <!-- <li><a href="#">Link</a></li>-->
-                            <li class="dropdown" style="padding-right:4px;" ng-if="showLoginBtn">
+           <li class="dropdown" style="padding-right:4px;" ng-if="showLoginBtn">
+               <a href="#" class="dropdown-toggle" data-toggle="dropdown" ng-click="loginPage()" style="color:#fff !important; outline:0 !important;">Login </b></a>
+           </li>
+           <li class="dropdown" style="padding-right:4px;" ng-if="showLogOutBtn">
+               <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:#fff !important;">Hi {{userfirstName}} {{userlastName}} <b class="caret"></b></a>
+               <ul class="dropdown-menu" style="width:180px;margin-top:10px;">
+                   <div class="row" style="margin-top:-10%;"><a href="#"><span style="padding-left:50px;"><img  src="../../assets/images/top_arrow.png" alt="" height="14px" width="14px" ></span></a>
+
+                   </div>
+
+                   <li>
+                       <div class="row" align="center" style="border-radius:50%;">
+                           <img src="{{DP}}"  class="img-responsive img-circle">
+                       </div>
+
+                       <div class="row" style="margin-top:5%;">
+                           <div class="row" style="margin-left:11%;"><a href="#" style="color:#666666;"><span class="glyphicon glyphicon-play" style="font-size:11px;padding-right:5px;color:#666666;"></span> My Booking</a></div>
+                           <div class="row" style="margin-left:11%;" ><a href="#" style="color:#666666;"><span class="glyphicon glyphicon-play" style="font-size:11px;padding-right:5px;"></span> My Cash</a></div>
+
+                           <div class="row" style="margin-left:11%;" ng-if="showLogOutBtn"><a href="#"><span class="glyphicon glyphicon-off" style="font-size:11px;padding-right:5px;color:#666666;"></span><span ng-click="logOutCall()" style="color:#666666;font-weight:bold;margin-left:2%;" >Logout</span></a></div>
+
+
+                       </div>
+
+                   </li>
+               </ul>
+           </li>
+                           <!-- <li class="dropdown" style="padding-right:4px;" ng-if="showLoginBtn">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" ng-click="loginPage()" style="color:#fff !important;">Login </b></a>
 
-
-                                <!-- <ul class="dropdown-menu" style="width:180px;margin-top:10px;"> -->
-                                <!-- <div class="row" style="margin-top:-10%;"><a href="#"><span style="padding-left:50px;"><img  src="../../assets/images/top_arrow.png" alt="" height="14px" width="14px" ></span></a> -->
-
-
-
-
-                                <!-- </div> -->
-
-                                <!-- <li> -->
-
-                                <!-- <div style="width:100%;padding:5px;float:left;"> -->
-                                <!-- <div style="width:40%;float:left;"><img src="assets/images/Login_Icon.png"  class="img-responsive"></div> -->
-                                <!-- <div style="width:60%;float:left;"> -->
-                                <!-- <div class="row"><a href="#"><span class="glyphicon glyphicon-play" style="font-size:11px;padding-right:5px;"></span> My Booking</a></div> -->
-                                <!-- <div class="row"><a href="#"><span class="glyphicon glyphicon-play" style="font-size:11px;padding-right:5px;"></span> My Cash</a></div> -->
-                                <!-- <div class="row" ng-if="showLogOutBtn"><a href="#"><span class="glyphicon glyphicon-user" style="font-size:11px;padding-right:5px;color:#313496;" ></span><span data-ng-bind="firstName" style="color:#313496;"></span></span></a></div> -->
-                                <!-- <div class="row"  ng-if="showLogOutBtn" ><a href="#"><span class="glyphicon glyphicon-off" style="font-size:11px;padding-right:5px;color:#feb824;"></span><span ng-click="logOutCall()" style="color:#feb824;" >Logout</span></a></div> -->
-                                <!-- </div> -->
-                                <!-- </div> -->
-                                <!-- <div style="width:100%;padding:5px;float:left;" ng-if="showLoginBtn"> -->
-                                <!-- <div style="width:48%;float:left;" align="center"> -->
-                                <!-- <ul class="list-inline text-center od-signInSignUp"> -->
-                                <!-- <li><a href="#" ng-click="loginPage()" class="btn-md btn" style="text-transform:none !important;">Login</a></li> -->
-                                <!-- </ul> -->
-                                <!-- </div> -->
-                                <!-- <div style="width:2%;float:left;"></div> -->
-                                <!-- <div style="width:48%;float:left;" align="center"> -->
-                                <!-- <ul class="list-inline text-center od-signInSignUp"> -->
-                                <!-- <li><a href="#" ng-click="SignUpPage()" class="btn-md btn" style="text-transform:none !important;">Sign Up</a></li> -->
-                                <!-- </ul> -->
-                                <!-- </div> -->
-                                <!-- </div> -->
-                                <!-- </li> -->
-                                <!-- </ul> -->
-                            </li>
-                            <li class="dropdown" style="padding-right:4px;" ng-if="showLogOutBtn">
+                            </li>-->
+                           <!-- <li class="dropdown" style="padding-right:4px;" ng-if="showLogOutBtn">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:#fff !important;">Hi {{userfirstName}} {{userlastName}} <b class="caret"></b></a>
                                 <ul class="dropdown-menu" style="width:180px;margin-top:10px;">
                                     <div class="row" style="margin-top:-10%;"><a href="#"><span style="padding-left:50px;"><img  src="../../assets/images/top_arrow.png" alt="" height="14px" width="14px" ></span></a>
-
-
 
 
                                     </div>
 
                                     <li>
 
-                                        <!-- <div style="width:100%;padding:5px;float:left;"> -->
-                                            <!-- <div style="width:40%;float:left;"><img src="{{DP}}"  class="img-responsive"></div> -->
-                                            <!-- <div style="width:60%;float:left;"> -->
-                                                <!-- <div class="row"><a href="#"><span class="glyphicon glyphicon-play" style="font-size:11px;padding-right:5px;"></span> My Booking</a></div> -->
-                                                <!-- <div class="row"><a href="#"><span class="glyphicon glyphicon-play" style="font-size:11px;padding-right:5px;"></span> My Cash</a></div> -->
-                                               
-												<!-- <div class="row"  ng-if="showLogOutBtn" ><a href="#"><span class="glyphicon glyphicon-off" style="font-size:11px;padding-right:5px;color:#feb824;"></span><span ng-click="logOutCall()" style="color:#feb824;" >Logout</span></a></div> -->
-                                            <!-- </div> -->
-                                        <!-- </div> -->
 										<div class="row" align="center" style="border-radius:50%;">
 									<img src="{{DP}}"  class="img-responsive img-circle">
 									</div>
@@ -465,7 +454,7 @@ body{
 
                                     </li>
                                 </ul>
-                            </li>
+                            </li>-->
                             
                             <li class="dropdown" style="padding-right:4px;">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:#fff !importat;"><span style="color:#feb824; padding:0 8px 0 0px;">|</span>Support <b class="caret"></b></a>
@@ -511,10 +500,11 @@ body{
                     <span class="icon-bar"></span>
                     
                 </button>
-                <a class="navbar-brand" href="../../index.html">Outing<span>Day</span></a>
+               
 				<a class="navbar-brand" style="font-size:16px;">Package Details</a>
 				<a class="navbar-brand" ><i class="fa fa-caret-right" aria-hidden="true" style="font-size:26px;color:#979797;line-height:inherit;"></i></a>
 				<a class="navbar-brand" style="font-size:14px; color:#979797 !important;">Confirmation Details</a>
+				 <a class="navbar-brand" href="../../index.html">Outing<span>Day</span></a>
             </div>
             
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="border:none;">
@@ -540,16 +530,16 @@ body{
 	
 	<div class="row" style="margin-top:50px;">&nbsp;</div>
     <div class="row">
-	<h2 class="result_title">Booking Package Details</h2>
+	<h2 class="result_title">Customer Details</h2>
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             
         </div>
     </div>
     
     <div class="row">
-    	<div class="col-lg-7 col-sm-7 col-md-7 col-xs-12 whitebg_margin">
+    	<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12 whitebg_margin">
         
-        	  <div class="row" style="background-color:white;padding:2%;border:1px solid #d5d5d5;">
+        	  <div class="row" style="background-color:white;border:1px solid #d5d5d5;">
             	<div class="col-xs-12 ">
                 <form name="registration_form" id="registration_form" ng-submit="submit()" class="form-horizontal">
                 <!-- <div class="form-group"> -->
@@ -690,24 +680,24 @@ body{
                 </div>
             </div>
             
-            <div class="row">
-            	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                	<div class="row">
-                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                        	<h3 class="detailtext3">Check In Date: <strong>{{checkIn}}</strong></h3>
+            <!-- <div class="row"> -->
+            	<!-- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"> -->
+                	<!-- <div class="row"> -->
+                        <!-- <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12"> -->
+                        	<!-- <h3 class="detailtext3">Check In Date: <strong>{{checkIn}}</strong></h3> -->
                             
                            
-                        </div>
+                        <!-- </div> -->
                         
-                        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                        	<h3 class="detailtext3">Check Out Date: <strong>{{checkOut}}</strong></h3>
+                        <!-- <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12"> -->
+                        	<!-- <h3 class="detailtext3">Check Out Date: <strong>{{checkOut}}</strong></h3> -->
                            
-                        </div>
-                    </div>
+                        <!-- </div> -->
+                    <!-- </div> -->
                     
                     
-                </div>
-            </div>
+                <!-- </div> -->
+            <!-- </div> -->
         	
            
            
@@ -770,8 +760,9 @@ body{
             
             
         </div>
+		
         
-       	<div class="col-lg-4 col-sm-4 col-md-4 col-xs-12 whitebg">
+       	<div class="col-lg-5 col-sm-5 col-md-5 col-xs-12 whitebg">
         	<div class="row">
             	<div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
                 	<div class="row">
@@ -782,7 +773,7 @@ body{
                     <div class="row">
                         <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
                             <h3 class="detailtitle">{{resListName}}</h3>
-                            <h6>
+                            <h6 style="padding-left:1%;">
 <hm-read-more
 		hm-text="{{ resListDes }}" 
 		hm-limit="100" 
@@ -828,7 +819,23 @@ body{
                                  </div>
                              </div>
                             
-                           	
+                           	 <div class="card">
+                                <div class="card-block cardcss">
+                                	
+								 <div class="row">
+								<div class="col-sm-6">
+								<h6 class="packagetitletext">Check In Date</h6>
+								<h6 class="subcost" style="float:none !important;">{{checkIn}}</h6>
+								</div>
+								<div class="col-sm-6">
+								<h6 class="packagetitletext">Check Out Date</h6>
+								<h6 class="subcost" style="float:none !important;">{{checkOut}}</h6>
+								</div>
+								</div>
+								
+								
+								</div>
+                            </div>
                             <div class="card">
                                 <div class="card-block cardcss">
                                 	<h6 class="packagetitletext" >Room</h6>
@@ -954,6 +961,7 @@ body{
                     
                 </div>
             </div>
+			<div class="col-lg-2 col-sm-2 col-md-2 col-xs-12 whitebg"></div>
         </div>
         
         

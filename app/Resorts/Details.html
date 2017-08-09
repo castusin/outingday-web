@@ -32,6 +32,7 @@
     <link href="../../assets/css/customstyles.css" rel="stylesheet" type="text/css" />
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../assets/css/angular-slider.css">
 
 
     <script src="../../assets/js/Angularjs/angular.min.js"></script>
@@ -65,6 +66,8 @@
     <script src="../../assets/js/Angularjs/angular-cookies.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment-with-locales.js"></script>
     <script src="//rawgit.com/indrimuska/angular-moment-picker/master/dist/angular-moment-picker.js"></script>
+    <script src="../../assets/js/Angularjs/angular-slider.js"></script>
+
 
     <script src="../../assets/app.js?v=1"></script>
     <script src="../../assets/js/Angularjs/common.js?v=1"></script>
@@ -497,7 +500,7 @@ $('head').append('<meta name="viewport" content="width=device-width, initial-sca
             } else {
                 // The person is not logged into this app or we are unable to tell.
             }
-        });
+        },{scope: 'email'});
     }
 
 
@@ -761,7 +764,7 @@ $('head').append('<meta name="viewport" content="width=device-width, initial-sca
 
 		
 
-	<h6 class="detailtext" ng-repeat="detail in resultParkDetail">Home > <span class="detailtext"style="padding-left:0% !important;">India > {{firstLineRegionModel}}</span></h6>
+	<h6 class="detailtext" ng-repeat="detail in resultParkDetail" style="font-weight:bold !important;color:black !important;">Home > <span class="detailtext"style="padding-left:0% !important;font-weight:bold;color:black;">India > {{firstLineRegionModel}}</span></h6>
 	<!-- <spna>{{detail.name}}<span> -->
 	<div class="col-sm-8" >
 	<md-card>
@@ -785,7 +788,7 @@ $('head').append('<meta name="viewport" content="width=device-width, initial-sca
                 	
 			   </div>
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" align="right" style="margin-top:30px;">
-                	<h6 class="result_title14" star-rating rating-value="detail.odRating" max="4.5"></h6><span style="margin-right:3.5%;"><button type="button" class="btn btn-success btn-xs">4.5</button></span>
+                	<h6 class="result_title14" star-rating rating-value="detail.odRating" max="5"></h6><span style="margin-right:3.5%;"><button type="button" class="btn btn-success btn-xs">{{detail.odRating}}</button></span>
                 </div>
             </div>	
       </md-card>
@@ -827,8 +830,8 @@ $('head').append('<meta name="viewport" content="width=device-width, initial-sca
                          <p style="padding-left:1%;font-size:13px;"><hm-read-more
 		hm-text="{{ detail.overviewText }}" 
 		hm-limit="100" 
-		hm-more-text="read more" 
-		hm-less-text="read less"
+		hm-more-text="More"
+		hm-less-text="Less"
 		hm-dots-class="dots"
         hm-link-class="links"><b>About :</b>
 </hm-read-more></p>
@@ -859,12 +862,14 @@ $('head').append('<meta name="viewport" content="width=device-width, initial-sca
 		 <!-- </div> -->
        
       </md-card>
-		
-		
-		
-			
-   <h4 class="detailtitle">Packages</h4>
+
+    <h4 class="detailtitle">Packages</h4>
+    <md-card ng-if="PackageDetail.length == 0">
+        <h4 class="detailtitle">No Packages</h4>
+    </md-card>
+  
     <md-card ng-repeat="park in PackageDetail">
+
         <div layout="row" >
             <div flex>
                 <md-card-title-media>
@@ -875,8 +880,8 @@ $('head').append('<meta name="viewport" content="width=device-width, initial-sca
                             <hm-read-more
                                     hm-text="{{ park.facilityInRoomFacilites }}"
                                     hm-limit="100"
-                                    hm-more-text="Show more"
-                                    hm-less-text="Show less"
+                                    hm-more-text="More"
+                                    hm-less-text="Less"
                                     hm-dots-class="dots"
                                     hm-link-class="links">
                             </hm-read-more>
@@ -895,8 +900,8 @@ $('head').append('<meta name="viewport" content="width=device-width, initial-sca
                             <hm-read-more
                                     hm-text="{{ park.description }}"
                                     hm-limit="100"
-                                    hm-more-text="Show more"
-                                    hm-less-text="Show less"
+                                    hm-more-text="More"
+                                    hm-less-text="Less"
                                     hm-dots-class="dots"
                                     hm-link-class="links">
                             </hm-read-more>
@@ -933,11 +938,15 @@ $('head').append('<meta name="viewport" content="width=device-width, initial-sca
         <div id="packageContent{{$index}}"></div>
 
     </md-card>
-		
 
-	  
 
-<h4 class="detailtitle" >Rooms</h4>	  
+
+
+<h4 class="detailtitle" >Rooms</h4>
+
+    <md-card ng-if="RoomDetail.length == 0">
+        <h4 class="detailtitle">No Rooms</h4>
+    </md-card>
 
 <md-card ng-repeat="park in RoomDetail">
 		<div layout="row">
@@ -951,8 +960,8 @@ $('head').append('<meta name="viewport" content="width=device-width, initial-sca
                		<hm-read-more
                             hm-text="{{ park.facilityInRoomFacilites }}"
 		                    hm-limit="100"
-		                    hm-more-text="Show more"
-		                    hm-less-text="Show less"
+		                    hm-more-text="More"
+		                    hm-less-text="Less"
 		                    hm-dots-class="dots"
                             hm-link-class="links">
                     </hm-read-more>
@@ -967,7 +976,7 @@ $('head').append('<meta name="viewport" content="width=device-width, initial-sca
            <div style="margin:2%;">
             <span class="md-headline" style="font-size:16px;font-weight:700;text-align:left;" data-toggle="collapse" data-target="#demo">{{park.facilityTypeTitle}}</span>
             <h6 class="detailtext1"  style="margin-bottom:0%!important;padding-bottom:0%!important;">
-            <hm-read-more hm-text="{{ park.description }}" hm-limit="100" hm-more-text="Show more" hm-less-text="Show less" hm-dots-class="dots" hm-link-class="links">
+            <hm-read-more hm-text="{{ park.description }}" hm-limit="100" hm-more-text="More" hm-less-text="Less" hm-dots-class="dots" hm-link-class="links">
             </hm-read-more>
             </h6>
 			</div> 

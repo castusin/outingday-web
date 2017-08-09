@@ -157,12 +157,13 @@
     <md-input-container class="md-icon-float md-block">
       <!-- Use floating label instead of placeholder -->
       <label >Enter Email / Mobile Number</label>
-	  <input type="text" name="emailphone" ng-model="username"  ng-enter="LoginCall()" required >
+	  <input type="text" name="emailphone" ng-model="username" ng-pattern="/^(?:\d{10}|\w+@\w+\.\w{2,3})$/" ng-enter="LoginCall()" required >
 
         <div  ng-cloak ng-show="submitted && userForm.emailphone.$error.required" style="color:#ff7d7f !important;" >
-
                 Please enter email/mobilenumber.
-
+        </div>
+        <div  ng-cloak ng-show="submitted && userForm.emailphone.$error.pattern" style="color:#ff7d7f !important;" >
+            Please enter valid email/mobilenumber.
         </div>
 
 
@@ -369,7 +370,7 @@
             } else {
                 // The person is not logged into this app or we are unable to tell.
             }
-        });
+        },{scope: 'email'});
     }
 
 
